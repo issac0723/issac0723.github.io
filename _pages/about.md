@@ -26,4 +26,4 @@ I am a first-year M.S. student in the [Informatics Department](https://www.infor
 I am interested in health informatics and human-computer interaction. More specifically, I am interested in designing and developing innovative technologies to support people with all aspects of their holistic well-being through positive behavior change. My ultimate aim in life is to utilize technology to make the world a better place for everyone.
 
 I am a night owl.Outside of the work, you'll find me:  
-Snowboarding. Playing computer games(League of Legends).Obsessing with the Lego world.Spending time with my cat, Kitson.
+Snowboarding. Playing computer games(League of Legends). Obsessing with the Lego world. Spending time with my cat, Kitson.
