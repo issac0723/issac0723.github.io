@@ -1,5 +1,8 @@
             {%- if site.email -%}
-            <a href="mailto:{{ site.email | encode_email }}" title="email"><i class="fas fa-envelope"></i></a>
+            <a href ="mailto:junz22@uci.edu"target="_blank" title="email"><i class="fas fa-envelope"></i></a>
+            {% endif %}
+            {%- if site.github_username -%}
+            <a href="https://github.com/{{ site.github_username }}" title="GitHub"><i class="fab fa-github"></i></a>
             {% endif %}
             {%- if site.telegram_username -%}
             <a href="https://telegram.me/{{ site.telegram_username }}" title="telegram"><i class="fab fa-telegram"></i></a>
@@ -20,13 +23,10 @@
             <a href="https://publons.com/a/{{ site.publons_id }}/" title="Publons"><i class="ai ai-publons"></i></a>
             {% endif %}
             {%- if site.osf_id -%}
-            <a href="https://osf.io/{{ site.osf_id }}/" title="Open Science Framework"><i class="ai ai-osf"></i></a>
+            <a href="https://osf.io/{{ site.osf_id }}/" title="Open Science FrameCourse Project"><i class="ai ai-osf"></i></a>
             {% endif %}
-            {%- if site.research_gate_profile -%}
-            <a href="https://www.researchgate.net/profile/{{site.research_gate_profile}}/" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
-            {% endif %}
-            {%- if site.github_username -%}
-            <a href="https://github.com/{{ site.github_username }}" title="GitHub"><i class="fab fa-github"></i></a>
+            {%- if site.fun_gate_profile -%}
+            <a href="https://www.fungate.net/profile/{{site.fun_gate_profile}}/" title="funGate"><i class="ai ai-fungate"></i></a>
             {% endif %}
             {%- if site.linkedin_username -%}
             <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -46,8 +46,8 @@
             {%- if site.blogger_url -%}
             <a href="{{ site.blogger_url }}" title="Blogger"><i class="fab fa-blogger-b"></i></a>
             {% endif %}
-            {%- if site.work_url -%}
-            <a href="{{ site.work_url }}" title="Work"><i class="fas fa-briefcase"></i></a>
+            {%- if site.Course Project_url -%}
+            <a href="{{ site.Course Project_url }}" title="Course Project"><i class="fas fa-briefcase"></i></a>
             {% endif %}
             {%- if site.wikidata_id -%}
             <a href="https://www.wikidata.org/wiki/{{ site.wikidata_id }}" title="Wikidata"><i class="fas fa-barcode"></i></a>
@@ -96,7 +96,4 @@
             {% endif %}
             {%- if site.discord_id -%}
             <a href="https://discord.com/users/{{ site.discord_id }}" title="Discord"><i class="fab fa-discord"></i></a>
-            {% endif %}
-            {%- if site.rss_icon -%}
-            <a href="{{ site.baseurl }}/feed.xml" title="RSS Feed"><i class="fas fa-rss-square"></i></a>
             {% endif %}

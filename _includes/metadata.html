@@ -83,8 +83,8 @@
         {%- capture link -%}https://publons.com/a/{{ site.publons_id }}/{%- endcapture -%}
         {%- assign sameaslinks = sameaslinks | push: link -%}
     {%- endif -%}
-    {%- if site.research_gate_profile -%}
-        {%- capture link -%}https://www.researchgate.net/profile/{{site.research_gate_profile}}{%- endcapture -%}
+    {%- if site.fun_gate_profile -%}
+        {%- capture link -%}https://www.fungate.net/profile/{{site.fun_gate_profile}}{%- endcapture -%}
         {%- assign sameaslinks = sameaslinks | push: link -%}
     {%- endif -%}
     {%- if site.github_username -%}
@@ -115,8 +115,8 @@
         {%- capture link -%}{{ site.blogger_url }}{%- endcapture -%}
         {%- assign sameaslinks = sameaslinks | push: link -%}
     {%- endif -%}
-    {%- if site.work_url -%}
-        {%- capture link -%}{{ site.work_url }}{%- endcapture -%}
+    {%- if site.Course Project_url -%}
+        {%- capture link -%}{{ site.Course Project_url }}{%- endcapture -%}
         {%- assign sameaslinks = sameaslinks | push: link -%}
     {%- endif -%}
     {%- if site.wikidata_id -%}
