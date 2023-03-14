@@ -1,7 +1,7 @@
-(function (factory) {
-  typeof define === 'function' && define.amd ? define(factory) :
+(Researchction (factory) {
+  typeof define === 'Researchction' && define.amd ? define(factory) :
   factory();
-}((function () { 'use strict';
+}((Researchction () { 'use strict';
 
   // Copyright 2018 The Distill Template Authors
   //
@@ -21,7 +21,7 @@
   const months = ['Jan.', 'Feb.', 'March', 'April', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
   const zeroPad = n => n < 10 ? '0' + n : n;
 
-  const RFC = function(date) {
+  const RFC = Researchction(date) {
     const day = days[date.getDay()].substring(0, 3);
     const paddedDate = zeroPad(date.getDate());
     const month = months[date.getMonth()].substring(0,3);
@@ -32,14 +32,14 @@
     return `${day}, ${paddedDate} ${month} ${year} ${hours}:${minutes}:${seconds} Z`;
   };
 
-  const objectFromMap = function(map) {
+  const objectFromMap = Researchction(map) {
     const object = Array.from(map).reduce((object, [key, value]) => (
       Object.assign(object, { [key]: value }) // Be careful! Maps can have non-String keys; object literals can't.
     ), {});
     return object;
   };
 
-  const mapFromObject = function(object) {
+  const mapFromObject = Researchction(object) {
     const map = new Map();
     for (var property in object) {
       if (object.hasOwnProperty(property)) {
@@ -79,7 +79,7 @@
     }
   }
 
-  function mergeFromYMLFrontmatter(target, source) {
+  Researchction mergeFromYMLFrontmatter(target, source) {
     target.title = source.title;
     if (source.published) {
       if (source.published instanceof Date) {
@@ -108,7 +108,7 @@
 
   class FrontMatter {
     constructor() {
-      this.title = 'unnamed article'; // 'Attention and Augmented Recurrent Neural Networks'
+      this.title = 'unnamed article'; // 'Attention and Augmented Recurrent Neural NetCourse Projects'
       this.description = ''; // 'A visual overview of neural attention...'
       this.authors = []; // Array of Author(s)
 
@@ -116,7 +116,7 @@
       this.bibliographyParsed = false;
       //  {
       //    'gregor2015draw': {
-      //      'title': 'DRAW: A recurrent neural network for image generation',
+      //      'title': 'DRAW: A recurrent neural netCourse Project for image generation',
       //      'author': 'Gregor, Karol and Danihelka, Ivo and Graves, Alex and Rezende, Danilo Jimenez and Wierstra, Daan',
       //      'journal': 'arXiv preprint arXiv:1502.04623',
       //      'year': '2015',
@@ -150,7 +150,7 @@
       //    'abbrev_title': 'Distill',
       //    'url': 'http://distill.pub',
       //    'doi': '10.23915/distill',
-      //    'publisherName': 'Distill Working Group',
+      //    'publisherName': 'Distill Course Projecting Group',
       //    'publisherEmail': 'admin@distill.pub',
       //    'issn': '2476-0757',
       //    'editors': [...],
@@ -173,7 +173,7 @@
     }
 
     // Example:
-    // title: Demo Title Attention and Augmented Recurrent Neural Networks
+    // title: Demo Title Attention and Augmented Recurrent Neural NetCourse Projects
     // published: Jan 10, 2017
     // authors:
     // - Chris Olah:
@@ -389,7 +389,7 @@
       }
 
       // potential TODO: check if this is enough for all our usecases
-      // maybe provide a custom function to tell if we have enough information to render
+      // maybe provide a custom Researchction to tell if we have enough information to render
       renderIfPossible() {
         if (this.textContent && this.root) {
           this.renderContent();
@@ -401,7 +401,7 @@
       }
 
     }; // end class
-  }; // end mixin function
+  }; // end mixin Researchction
 
   // Copyright 2018 The Distill Template Authors
   //
@@ -494,11 +494,11 @@
   // limitations under the License.
 
   // This is a straight concatenation of code from KaTeX's contrib folder,
-  // but we aren't using some of their helpers that don't work well outside a browser environment.
+  // but we aren't using some of their helpers that don't Course Project well outside a browser environment.
 
   /*global katex */
 
-  const findEndOfMath = function(delimiter, text, startIndex) {
+  const findEndOfMath = Researchction(delimiter, text, startIndex) {
     // Adapted from
     // https://github.com/Khan/perseus/blob/master/src/perseus-markdown.jsx
     let index = startIndex;
@@ -528,7 +528,7 @@
     return -1;
   };
 
-  const splitAtDelimiters = function(startData, leftDelim, rightDelim, display) {
+  const splitAtDelimiters = Researchction(startData, leftDelim, rightDelim, display) {
     const finalData = [];
 
     for (let i = 0; i < startData.length; i++) {
@@ -598,7 +598,7 @@
     return finalData;
   };
 
-  const splitWithDelimiters = function(text, delimiters) {
+  const splitWithDelimiters = Researchction(text, delimiters) {
     let data = [{ type: "text", data: text }];
     for (let i = 0; i < delimiters.length; i++) {
       const delimiter = delimiters[i];
@@ -615,7 +615,7 @@
   /* Note: optionsCopy is mutated by this method. If it is ever exposed in the
    * API, we should copy it before mutating.
    */
-  const renderMathInText = function(text, optionsCopy) {
+  const renderMathInText = Researchction(text, optionsCopy) {
     const data = splitWithDelimiters(text, optionsCopy.delimiters);
     const fragment = document.createDocumentFragment();
 
@@ -651,7 +651,7 @@
     return fragment;
   };
 
-  const renderElem = function(elem, optionsCopy) {
+  const renderElem = Researchction(elem, optionsCopy) {
     for (let i = 0; i < elem.childNodes.length; i++) {
       const childNode = elem.childNodes[i];
       if (childNode.nodeType === 3) {
@@ -695,12 +695,12 @@
       "svg"
     ],
 
-    errorCallback: function(msg, err) {
+    errorCallback: Researchction(msg, err) {
       console.error(msg, err);
     }
   };
 
-  const renderMathInElement = function(elem, options) {
+  const renderMathInElement = Researchction(elem, options) {
     if (!elem) {
       throw new Error("No element provided to render");
     }
@@ -775,9 +775,9 @@ ${math}
     }
 
     static addKatex() {
-      // css tag can use this convenience function
+      // css tag can use this convenience Researchction
       document.head.insertAdjacentHTML('beforeend', katexCSSTag);
-      // script tag has to be created to work properly
+      // script tag has to be created to Course Project properly
       const scriptTag = document.createElement('script');
       scriptTag.src = katexJSURL;
       scriptTag.async = true;
@@ -827,7 +827,7 @@ ${math}
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-  function collect_citations(dom = document) {
+  Researchction collect_citations(dom = document) {
     const citations = new Set();
     const citeTags = dom.querySelectorAll("d-cite");
     for (const tag of citeTags) {
@@ -840,7 +840,7 @@ ${math}
     return [...citations];
   }
 
-  function author_string(ent, template, sep, finalSep) {
+  Researchction author_string(ent, template, sep, finalSep) {
     if (ent.author == null) {
       return "";
     }
@@ -885,7 +885,7 @@ ${math}
     }
   }
 
-  function venue_string(ent) {
+  Researchction venue_string(ent) {
     var cite = ent.journal || ent.booktitle || "";
     if ("volume" in ent) {
       var issue = ent.issue || ent.number;
@@ -903,7 +903,7 @@ ${math}
     return cite;
   }
 
-  function link_string(ent) {
+  Researchction link_string(ent) {
     if ("url" in ent) {
       var url = ent.url;
       var arxiv_match = /arxiv\.org\/abs\/([0-9\.]*)/.exec(url);
@@ -923,7 +923,7 @@ ${math}
       return "";
     }
   }
-  function doi_string(ent, new_line) {
+  Researchction doi_string(ent, new_line) {
     if ("doi" in ent) {
       return `${new_line ? "<br>" : ""} <a href="https://doi.org/${
       ent.doi
@@ -933,11 +933,11 @@ ${math}
     }
   }
 
-  function title_string(ent) {
+  Researchction title_string(ent) {
     return '<span class="title">' + ent.title + "</span> ";
   }
 
-  function bibliography_cite(ent, fancy) {
+  Researchction bibliography_cite(ent, fancy) {
     if (ent) {
       var cite = title_string(ent);
       cite += link_string(ent) + "<br>";
@@ -971,7 +971,7 @@ ${math}
     }
   }
 
-  function hover_cite(ent) {
+  Researchction hover_cite(ent) {
     if (ent) {
       var cite = "";
       cite += "<strong>" + ent.title + "</strong>";
@@ -993,7 +993,7 @@ ${math}
     }
   }
 
-  function domContentLoaded() {
+  Researchction domContentLoaded() {
     return ['interactive', 'complete'].indexOf(document.readyState) !== -1;
   }
 
@@ -1011,7 +1011,7 @@ ${math}
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-  function _moveLegacyAffiliationFormatIntoArray(frontMatter) {
+  Researchction _moveLegacyAffiliationFormatIntoArray(frontMatter) {
     // authors used to have propoerties "affiliation" and "affiliationURL".
     // We now encourage using an array for affiliations containing objects with
     // properties "name" and "url".
@@ -1032,7 +1032,7 @@ ${math}
     return frontMatter
   }
 
-  function parseFrontmatter(element) {
+  Researchction parseFrontmatter(element) {
     const scriptTag = element.firstElementChild;
     if (scriptTag) {
       const type = scriptTag.getAttribute('type');
@@ -1099,7 +1099,7 @@ ${math}
 
   // if authors, no byline -> add byline
 
-  function optionalComponents(dom, data) {
+  Researchction optionalComponents(dom, data) {
     const body = dom.body;
     const article = body.querySelector('d-article');
 
@@ -1251,7 +1251,7 @@ ${math}
 
         // ensure we have citations
         if (!frontMatter.citationsCollected) {
-          Controller.waitingOn.citations.push(function() {
+          Controller.waitingOn.citations.push(Researchction() {
             Controller.listeners.onBibliographyChanged({
               target: event.target,
               detail: event.detail
@@ -1377,7 +1377,7 @@ ${math}
 
   const styles = base + layout + title + byline + article + math + print;
 
-  function makeStyleTag(dom) {
+  Researchction makeStyleTag(dom) {
 
     const styleTagId = 'distill-prerendered-styles';
     const prerenderedTag = dom.getElementById(styleTagId);
@@ -1407,15 +1407,15 @@ ${math}
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-  function addPolyfill(polyfill, polyfillLoadedCallback) {
+  Researchction addPolyfill(polyfill, polyfillLoadedCallback) {
     console.debug('Runlevel 0: Polyfill required: ' + polyfill.name);
     const script = document.createElement('script');
     script.src = polyfill.url;
     script.async = false;
     if (polyfillLoadedCallback) {
-      script.onload = function() { polyfillLoadedCallback(polyfill); };
+      script.onload = Researchction() { polyfillLoadedCallback(polyfill); };
     }
-    script.onerror = function() {
+    script.onerror = Researchction() {
       new Error('Runlevel 0: Polyfills failed to load script ' + polyfill.name);
     };
     document.head.appendChild(script);
@@ -1424,7 +1424,7 @@ ${math}
   const polyfills = [
     {
       name: 'WebComponents',
-      support: function() {
+      support: Researchction() {
         return 'customElements' in window &&
                'attachShadow' in Element.prototype &&
                'getRootNode' in Element.prototype &&
@@ -1435,7 +1435,7 @@ ${math}
       url: 'https://distill.pub/third-party/polyfills/webcomponents-lite.js'
     }, {
       name: 'IntersectionObserver',
-      support: function() {
+      support: Researchction() {
         return 'IntersectionObserver' in window &&
                'IntersectionObserverEntry' in window;
       },
@@ -1451,7 +1451,7 @@ ${math}
 
     static load(callback) {
       // Define an intermediate callback that checks if all is loaded.
-      const polyfillLoaded = function(polyfill) {
+      const polyfillLoaded = Researchction(polyfill) {
         polyfill.loaded = true;
         console.debug('Runlevel 0: Polyfill has finished loading: ' + polyfill.name);
         // console.debug(window[polyfill.name]);
@@ -1503,7 +1503,7 @@ ${math}
   // const pageWidth = screenwidth - 2 * marginLarge;
   // const bodyWidth = pageWidth - columnWidth - gutter;
 
-  function body(selector) {
+  Researchction body(selector) {
     return `${selector} {
       grid-column: left / text;
     }
@@ -1652,14 +1652,14 @@ d-appendix > distill-appendix {
 
   var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-  function createCommonjsModule(fn, module) {
+  Researchction createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
 
-  var bibtexParse = createCommonjsModule(function (module, exports) {
+  var bibtexParse = createCommonjsModule(Researchction (module, exports) {
   /* start bibtexParse 0.0.22 */
 
-  //Original work by Henrik Muehe (c) 2010
+  //Original Course Project by Henrik Muehe (c) 2010
   //
   //CommonJS port by Mikola Lysenko 2013
   //
@@ -1680,9 +1680,9 @@ d-appendix > distill-appendix {
   //value -> value_quotes | value_braces | key;
   //value_quotes -> '"' .*? '"'; // not quite
   //value_braces -> '{' .*? '"'; // not quite
-  (function(exports) {
+  (Researchction(exports) {
 
-      function BibtexParser() {
+      Researchction BibtexParser() {
           
           this.months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
           this.notKey = [',','{','}',' ','='];
@@ -1692,19 +1692,19 @@ d-appendix > distill-appendix {
 
           this.currentEntry = "";
 
-          this.setInput = function(t) {
+          this.setInput = Researchction(t) {
               this.input = t;
           };
 
-          this.getEntries = function() {
+          this.getEntries = Researchction() {
               return this.entries;
           };
 
-          this.isWhitespace = function(s) {
+          this.isWhitespace = Researchction(s) {
               return (s == ' ' || s == '\r' || s == '\t' || s == '\n');
           };
 
-          this.match = function(s, canCommentOut) {
+          this.match = Researchction(s, canCommentOut) {
               if (canCommentOut == undefined || canCommentOut == null)
                   canCommentOut = true;
               this.skipWhitespace(canCommentOut);
@@ -1716,7 +1716,7 @@ d-appendix > distill-appendix {
               }            this.skipWhitespace(canCommentOut);
           };
 
-          this.tryMatch = function(s, canCommentOut) {
+          this.tryMatch = Researchction(s, canCommentOut) {
               if (canCommentOut == undefined || canCommentOut == null)
                   canCommentOut = true;
               this.skipWhitespace(canCommentOut);
@@ -1727,7 +1727,7 @@ d-appendix > distill-appendix {
               }        };
 
           /* when search for a match all text can be ignored, not just white space */
-          this.matchAt = function() {
+          this.matchAt = Researchction() {
               while (this.input.length > this.pos && this.input[this.pos] != '@') {
                   this.pos++;
               }
@@ -1736,7 +1736,7 @@ d-appendix > distill-appendix {
               }            return false;
           };
 
-          this.skipWhitespace = function(canCommentOut) {
+          this.skipWhitespace = Researchction(canCommentOut) {
               while (this.isWhitespace(this.input[this.pos])) {
                   this.pos++;
               }            if (this.input[this.pos] == "%" && canCommentOut == true) {
@@ -1745,7 +1745,7 @@ d-appendix > distill-appendix {
                   }                this.skipWhitespace(canCommentOut);
               }        };
 
-          this.value_braces = function() {
+          this.value_braces = Researchction() {
               var bracecount = 0;
               this.match("{", false);
               var start = this.pos;
@@ -1770,7 +1770,7 @@ d-appendix > distill-appendix {
                   this.pos++;
               }        };
 
-          this.value_comment = function() {
+          this.value_comment = Researchction() {
               var str = '';
               var brcktCnt = 0;
               while (!(this.tryMatch("}", false) && brcktCnt == 0)) {
@@ -1785,7 +1785,7 @@ d-appendix > distill-appendix {
               }            return str;
           };
 
-          this.value_quotes = function() {
+          this.value_quotes = Researchction() {
               this.match('"', false);
               var start = this.pos;
               var escaped = false;
@@ -1805,7 +1805,7 @@ d-appendix > distill-appendix {
                   this.pos++;
               }        };
 
-          this.single_value = function() {
+          this.single_value = Researchction() {
               var start = this.pos;
               if (this.tryMatch("{")) {
                   return this.value_braces();
@@ -1822,7 +1822,7 @@ d-appendix > distill-appendix {
               
               }        };
 
-          this.value = function() {
+          this.value = Researchction() {
               var values = [];
               values.push(this.single_value());
               while (this.tryMatch("#")) {
@@ -1831,7 +1831,7 @@ d-appendix > distill-appendix {
               }            return values.join("");
           };
 
-          this.key = function() {
+          this.key = Researchction() {
               var start = this.pos;
               while (true) {
                   if (this.pos >= this.input.length) {
@@ -1845,7 +1845,7 @@ d-appendix > distill-appendix {
                       
                   }            }        };
 
-          this.key_equals_value = function() {
+          this.key_equals_value = Researchction() {
               var key = this.key();
               if (this.tryMatch("=")) {
                   this.match("=");
@@ -1856,7 +1856,7 @@ d-appendix > distill-appendix {
                           + this.input.substring(this.pos);
               }        };
 
-          this.key_value_list = function() {
+          this.key_value_list = Researchction() {
               var kv = this.key_equals_value();
               this.currentEntry['entryTags'] = {};
               this.currentEntry['entryTags'][kv[0]] = kv[1];
@@ -1870,7 +1870,7 @@ d-appendix > distill-appendix {
                   this.currentEntry['entryTags'][kv[0]] = kv[1];
               }        };
 
-          this.entry_body = function(d) {
+          this.entry_body = Researchction(d) {
               this.currentEntry = {};
               this.currentEntry['citationKey'] = this.key();
               this.currentEntry['entryType'] = d.substring(1);
@@ -1879,30 +1879,30 @@ d-appendix > distill-appendix {
               this.entries.push(this.currentEntry);
           };
 
-          this.directive = function() {
+          this.directive = Researchction() {
               this.match("@");
               return "@" + this.key();
           };
 
-          this.preamble = function() {
+          this.preamble = Researchction() {
               this.currentEntry = {};
               this.currentEntry['entryType'] = 'PREAMBLE';
               this.currentEntry['entry'] = this.value_comment();
               this.entries.push(this.currentEntry);
           };
 
-          this.comment = function() {
+          this.comment = Researchction() {
               this.currentEntry = {};
               this.currentEntry['entryType'] = 'COMMENT';
               this.currentEntry['entry'] = this.value_comment();
               this.entries.push(this.currentEntry);
           };
 
-          this.entry = function(d) {
+          this.entry = Researchction(d) {
               this.entry_body(d);
           };
 
-          this.bibtex = function() {
+          this.bibtex = Researchction() {
               while (this.matchAt()) {
                   var d = this.directive();
                   this.match("{");
@@ -1918,7 +1918,7 @@ d-appendix > distill-appendix {
                   this.match("}");
               }        };
       }    
-      exports.toJSON = function(bibtex) {
+      exports.toJSON = Researchction(bibtex) {
           var b = new BibtexParser();
           b.setInput(bibtex);
           b.bibtex();
@@ -1926,7 +1926,7 @@ d-appendix > distill-appendix {
       };
 
       /* added during hackathon don't hate on me */
-      exports.toBibtex = function(json) {
+      exports.toBibtex = Researchction(json) {
           var out = '';
           for ( var i in json) {
               out += "@" + json[i].entryType;
@@ -1957,14 +1957,14 @@ d-appendix > distill-appendix {
 
   // Copyright 2018 The Distill Template Authors
 
-  function normalizeTag(string) {
+  Researchction normalizeTag(string) {
     return string
       .replace(/[\t\n ]+/g, ' ')
       .replace(/{\\["^`.'acu~Hvs]( )?([a-zA-Z])}/g, (full, x, char) => char)
       .replace(/{\\([a-zA-Z])}/g, (full, char) => char);
   }
 
-  function parseBibtex(bibtex) {
+  Researchction parseBibtex(bibtex) {
     const bibliography = new Map();
     const parsedEntries = bibtexParse.toJSON(bibtex);
     for (const entry of parsedEntries) {
@@ -1979,7 +1979,7 @@ d-appendix > distill-appendix {
     return bibliography;
   }
 
-  function serializeFrontmatterToBibtex(frontMatter) {
+  Researchction serializeFrontmatterToBibtex(frontMatter) {
     return `@article{${frontMatter.slug},
   author = {${frontMatter.bibtexAuthors}},
   title = {${frontMatter.title}},
@@ -2080,7 +2080,7 @@ d-appendix > distill-appendix {
 
   // import style from '../styles/d-byline.css';
 
-  function bylineTemplate(frontMatter) {
+  Researchction bylineTemplate(frontMatter) {
     return `
   <div class="byline grid">
     <div class="authors-affiliations grid">
@@ -2296,7 +2296,7 @@ d-citation-list .references .title {
 }
 `;
 
-  function renderCitationList(element, entries, dom=document) {
+  Researchction renderCitationList(element, entries, dom=document) {
     if (entries.size > 0) {
       element.style.display = '';
       let list = element.querySelector('.references');
@@ -2345,7 +2345,7 @@ d-citation-list .references .title {
 
   }
 
-  var prism = createCommonjsModule(function (module) {
+  var prism = createCommonjsModule(Researchction (module) {
   /* **********************************************
        Begin prism-core.js
   ********************************************** */
@@ -2353,8 +2353,8 @@ d-citation-list .references .title {
   var _self = (typeof window !== 'undefined')
   	? window   // if in browser
   	: (
-  		(typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope)
-  		? self // if in worker
+  		(typeof Course ProjecterGlobalScope !== 'undefined' && self instanceof Course ProjecterGlobalScope)
+  		? self // if in Course Projecter
   		: {}   // if in node js
   	);
 
@@ -2364,7 +2364,7 @@ d-citation-list .references .title {
    * @author Lea Verou http://lea.verou.me
    */
 
-  var Prism = (function (_self){
+  var Prism = (Researchction (_self){
 
   // Private helper vars
   var lang = /\blang(?:uage)?-([\w-]+)\b/i;
@@ -2373,9 +2373,9 @@ d-citation-list .references .title {
 
   var _ = {
   	manual: _self.Prism && _self.Prism.manual,
-  	disableWorkerMessageHandler: _self.Prism && _self.Prism.disableWorkerMessageHandler,
+  	disableCourse ProjecterMessageHandler: _self.Prism && _self.Prism.disableCourse ProjecterMessageHandler,
   	util: {
-  		encode: function encode(tokens) {
+  		encode: Researchction encode(tokens) {
   			if (tokens instanceof Token) {
   				return new Token(tokens.type, encode(tokens.content), tokens.alias);
   			} else if (Array.isArray(tokens)) {
@@ -2385,11 +2385,11 @@ d-citation-list .references .title {
   			}
   		},
 
-  		type: function (o) {
+  		type: Researchction (o) {
   			return Object.prototype.toString.call(o).slice(8, -1);
   		},
 
-  		objId: function (obj) {
+  		objId: Researchction (obj) {
   			if (!obj['__id']) {
   				Object.defineProperty(obj, '__id', { value: ++uniqueId });
   			}
@@ -2397,7 +2397,7 @@ d-citation-list .references .title {
   		},
 
   		// Deep clone a language definition (e.g. to extend it)
-  		clone: function deepClone(o, visited) {
+  		clone: Researchction deepClone(o, visited) {
   			var clone, id, type = _.util.type(o);
   			visited = visited || {};
 
@@ -2426,7 +2426,7 @@ d-citation-list .references .title {
   					clone = [];
   					visited[id] = clone;
 
-  					o.forEach(function (v, i) {
+  					o.forEach(Researchction (v, i) {
   						clone[i] = deepClone(v, visited);
   					});
 
@@ -2445,7 +2445,7 @@ d-citation-list .references .title {
   		 * @param {Element} element
   		 * @returns {string}
   		 */
-  		getLanguage: function (element) {
+  		getLanguage: Researchction (element) {
   			while (element && !lang.test(element.className)) {
   				element = element.parentElement;
   			}
@@ -2458,11 +2458,11 @@ d-citation-list .references .title {
   		/**
   		 * Returns the script element that is currently executing.
   		 *
-  		 * This does __not__ work for line script element.
+  		 * This does __not__ Course Project for line script element.
   		 *
   		 * @returns {HTMLScriptElement | null}
   		 */
-  		currentScript: function () {
+  		currentScript: Researchction () {
   			if (typeof document === 'undefined') {
   				return null;
   			}
@@ -2470,14 +2470,14 @@ d-citation-list .references .title {
   				return document.currentScript;
   			}
 
-  			// IE11 workaround
+  			// IE11 Course Projectaround
   			// we'll get the src of the current script by parsing IE11's error stack trace
-  			// this will not work for inline scripts
+  			// this will not Course Project for inline scripts
 
   			try {
   				throw new Error();
   			} catch (err) {
-  				// Get file src url from stack. Specifically works with the format of stack traces in IE.
+  				// Get file src url from stack. Specifically Course Projects with the format of stack traces in IE.
   				// A stack will look like this:
   				//
   				// Error
@@ -2499,7 +2499,7 @@ d-citation-list .references .title {
   	},
 
   	languages: {
-  		extend: function (id, redef) {
+  		extend: Researchction (id, redef) {
   			var lang = _.util.clone(_.languages[id]);
 
   			for (var key in redef) {
@@ -2518,7 +2518,7 @@ d-citation-list .references .title {
   		 * @param insert Object with the key/value pairs to insert
   		 * @param root The object that contains `inside`. If equal to Prism.languages, it can be omitted.
   		 */
-  		insertBefore: function (inside, before, insert, root) {
+  		insertBefore: Researchction (inside, before, insert, root) {
   			root = root || _.languages;
   			var grammar = root[inside];
   			var ret = {};
@@ -2545,7 +2545,7 @@ d-citation-list .references .title {
   			root[inside] = ret;
 
   			// Update references in other language definitions
-  			_.languages.DFS(_.languages, function(key, value) {
+  			_.languages.DFS(_.languages, Researchction(key, value) {
   				if (value === old && key != inside) {
   					this[key] = ret;
   				}
@@ -2555,7 +2555,7 @@ d-citation-list .references .title {
   		},
 
   		// Traverse a language definition with Depth First Search
-  		DFS: function DFS(o, callback, type, visited) {
+  		DFS: Researchction DFS(o, callback, type, visited) {
   			visited = visited || {};
 
   			var objId = _.util.objId;
@@ -2581,11 +2581,11 @@ d-citation-list .references .title {
   	},
   	plugins: {},
 
-  	highlightAll: function(async, callback) {
+  	highlightAll: Researchction(async, callback) {
   		_.highlightAllUnder(document, async, callback);
   	},
 
-  	highlightAllUnder: function(container, async, callback) {
+  	highlightAllUnder: Researchction(container, async, callback) {
   		var env = {
   			callback: callback,
   			container: container,
@@ -2603,7 +2603,7 @@ d-citation-list .references .title {
   		}
   	},
 
-  	highlightElement: function(element, async, callback) {
+  	highlightElement: Researchction(element, async, callback) {
   		// Find language
   		var language = _.util.getLanguage(element);
   		var grammar = _.languages[language];
@@ -2626,7 +2626,7 @@ d-citation-list .references .title {
   			code: code
   		};
 
-  		function insertHighlightedCode(highlightedCode) {
+  		Researchction insertHighlightedCode(highlightedCode) {
   			env.highlightedCode = highlightedCode;
 
   			_.hooks.run('before-insert', env);
@@ -2653,14 +2653,14 @@ d-citation-list .references .title {
   			return;
   		}
 
-  		if (async && _self.Worker) {
-  			var worker = new Worker(_.filename);
+  		if (async && _self.Course Projecter) {
+  			var Course Projecter = new Course Projecter(_.filename);
 
-  			worker.onmessage = function(evt) {
+  			Course Projecter.onmessage = Researchction(evt) {
   				insertHighlightedCode(evt.data);
   			};
 
-  			worker.postMessage(JSON.stringify({
+  			Course Projecter.postMessage(JSON.stringify({
   				language: env.language,
   				code: env.code,
   				immediateClose: true
@@ -2671,7 +2671,7 @@ d-citation-list .references .title {
   		}
   	},
 
-  	highlight: function (text, grammar, language) {
+  	highlight: Researchction (text, grammar, language) {
   		var env = {
   			code: text,
   			grammar: grammar,
@@ -2683,7 +2683,7 @@ d-citation-list .references .title {
   		return Token.stringify(_.util.encode(env.tokens), env.language);
   	},
 
-  	tokenize: function(text, grammar) {
+  	tokenize: Researchction(text, grammar) {
   		var rest = grammar.rest;
   		if (rest) {
   			for (var token in rest) {
@@ -2704,7 +2704,7 @@ d-citation-list .references .title {
   	hooks: {
   		all: {},
 
-  		add: function (name, callback) {
+  		add: Researchction (name, callback) {
   			var hooks = _.hooks.all;
 
   			hooks[name] = hooks[name] || [];
@@ -2712,7 +2712,7 @@ d-citation-list .references .title {
   			hooks[name].push(callback);
   		},
 
-  		run: function (name, env) {
+  		run: Researchction (name, env) {
   			var callbacks = _.hooks.all[name];
 
   			if (!callbacks || !callbacks.length) {
@@ -2730,7 +2730,7 @@ d-citation-list .references .title {
 
   _self.Prism = _;
 
-  function Token(type, content, alias, matchedStr, greedy) {
+  Researchction Token(type, content, alias, matchedStr, greedy) {
   	this.type = type;
   	this.content = content;
   	this.alias = alias;
@@ -2739,13 +2739,13 @@ d-citation-list .references .title {
   	this.greedy = !!greedy;
   }
 
-  Token.stringify = function stringify(o, language) {
+  Token.stringify = Researchction stringify(o, language) {
   	if (typeof o == 'string') {
   		return o;
   	}
   	if (Array.isArray(o)) {
   		var s = '';
-  		o.forEach(function (e) {
+  		o.forEach(Researchction (e) {
   			s += stringify(e, language);
   		});
   		return s;
@@ -2788,7 +2788,7 @@ d-citation-list .references .title {
    * @param {boolean} [oneshot=false]
    * @param {string} [target]
    */
-  function matchGrammar(text, tokenList, grammar, startNode, startPos, oneshot, target) {
+  Researchction matchGrammar(text, tokenList, grammar, startNode, startPos, oneshot, target) {
   	for (var token in grammar) {
   		if (!grammar.hasOwnProperty(token) || !grammar[token]) {
   			continue;
@@ -2810,7 +2810,7 @@ d-citation-list .references .title {
   				alias = pattern.alias;
 
   			if (greedy && !pattern.pattern.global) {
-  				// Without the global flag, lastIndex won't work
+  				// Without the global flag, lastIndex won't Course Project
   				var flags = pattern.pattern.toString().match(/[imsuy]*$/)[0];
   				pattern.pattern = RegExp(pattern.pattern.source, flags + 'g');
   			}
@@ -2938,7 +2938,7 @@ d-citation-list .references .title {
   /**
    * @template T
    */
-  function LinkedList() {
+  Researchction LinkedList() {
   	/** @type {LinkedListNode<T>} */
   	var head = { value: null, prev: null, next: null };
   	/** @type {LinkedListNode<T>} */
@@ -2960,7 +2960,7 @@ d-citation-list .references .title {
    * @returns {LinkedListNode<T>} The added node.
    * @template T
    */
-  function addAfter(list, node, value) {
+  Researchction addAfter(list, node, value) {
   	// assumes that node != list.tail && values.length >= 0
   	var next = node.next;
 
@@ -2978,7 +2978,7 @@ d-citation-list .references .title {
    * @param {number} count
    * @template T
    */
-  function removeRange(list, node, count) {
+  Researchction removeRange(list, node, count) {
   	var next = node.next;
   	for (var i = 0; i < count && next !== list.tail; i++) {
   		next = next.next;
@@ -2992,7 +2992,7 @@ d-citation-list .references .title {
    * @returns {T[]}
    * @template T
    */
-  function toArray(list) {
+  Researchction toArray(list) {
   	var array = [];
   	var node = list.head.next;
   	while (node !== list.tail) {
@@ -3009,9 +3009,9 @@ d-citation-list .references .title {
   		return _;
   	}
 
-  	if (!_.disableWorkerMessageHandler) {
-  		// In worker
-  		_self.addEventListener('message', function (evt) {
+  	if (!_.disableCourse ProjecterMessageHandler) {
+  		// In Course Projecter
+  		_self.addEventListener('message', Researchction (evt) {
   			var message = JSON.parse(evt.data),
   				lang = message.language,
   				code = message.code,
@@ -3038,7 +3038,7 @@ d-citation-list .references .title {
   	}
   }
 
-  function highlightAutomaticallyCallback() {
+  Researchction highlightAutomaticallyCallback() {
   	if (!_.manual) {
   		_.highlightAll();
   	}
@@ -3071,7 +3071,7 @@ d-citation-list .references .title {
   	module.exports = Prism;
   }
 
-  // hack for components to work correctly in node.js
+  // hack for components to Course Project correctly in node.js
   if (typeof commonjsGlobal !== 'undefined') {
   	commonjsGlobal.Prism = Prism;
   }
@@ -3129,7 +3129,7 @@ d-citation-list .references .title {
   	Prism.languages.markup['entity'];
 
   // Plugin to make entity title show the real entity, idea by Roman Komarov
-  Prism.hooks.add('wrap', function(env) {
+  Prism.hooks.add('wrap', Researchction(env) {
 
   	if (env.type === 'entity') {
   		env.attributes['title'] = env.content.replace(/&amp;/, '&');
@@ -3148,7 +3148,7 @@ d-citation-list .references .title {
   	 * @example
   	 * addInlined('style', 'css');
   	 */
-  	value: function addInlined(tagName, lang) {
+  	value: Researchction addInlined(tagName, lang) {
   		var includedCdataInside = {};
   		includedCdataInside['language-' + lang] = {
   			pattern: /(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,
@@ -3170,7 +3170,7 @@ d-citation-list .references .title {
 
   		var def = {};
   		def[tagName] = {
-  			pattern: RegExp(/(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(/__/g, function () { return tagName; }), 'i'),
+  			pattern: RegExp(/(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(/__/g, Researchction () { return tagName; }), 'i'),
   			lookbehind: true,
   			greedy: true,
   			inside: inside
@@ -3190,7 +3190,7 @@ d-citation-list .references .title {
        Begin prism-css.js
   ********************************************** */
 
-  (function (Prism) {
+  (Researchction (Prism) {
 
   	var string = /("|')(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/;
 
@@ -3200,7 +3200,7 @@ d-citation-list .references .title {
   			pattern: /@[\w-]+[\s\S]*?(?:;|(?=\s*\{))/,
   			inside: {
   				'rule': /^@[\w-]+/,
-  				'selector-function-argument': {
+  				'selector-Researchction-argument': {
   					pattern: /(\bselector\s*\((?!\s*\))\s*)(?:[^()]|\((?:[^()]|\([^()]*\))*\))+?(?=\s*\))/,
   					lookbehind: true,
   					alias: 'selector'
@@ -3212,7 +3212,7 @@ d-citation-list .references .title {
   			pattern: RegExp('url\\((?:' + string.source + '|[^\n\r()]*)\\)', 'i'),
   			greedy: true,
   			inside: {
-  				'function': /^url/i,
+  				'Researchction': /^url/i,
   				'punctuation': /^\(|\)$/
   			}
   		},
@@ -3223,7 +3223,7 @@ d-citation-list .references .title {
   		},
   		'property': /[-_a-z\xA0-\uFFFF][-\w\xA0-\uFFFF]*(?=\s*:)/i,
   		'important': /!important\b/i,
-  		'function': /[-a-z0-9]+(?=\()/i,
+  		'Researchction': /[-a-z0-9]+(?=\()/i,
   		'punctuation': /[(){};:,]/
   	};
 
@@ -3282,9 +3282,9 @@ d-citation-list .references .title {
   			'punctuation': /[.\\]/
   		}
   	},
-  	'keyword': /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
+  	'keyword': /\b(?:if|else|while|do|for|return|in|instanceof|Researchction|new|try|throw|catch|finally|null|break|continue)\b/,
   	'boolean': /\b(?:true|false)\b/,
-  	'function': /\w+(?=\()/,
+  	'Researchction': /\w+(?=\()/,
   	'number': /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,
   	'operator': /[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,
   	'punctuation': /[{}[\];(),.:]/
@@ -3309,13 +3309,13 @@ d-citation-list .references .title {
   			lookbehind: true
   		},
   		{
-  			pattern: /(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,
+  			pattern: /(^|[^.]|\.\.\.\s*)\b(?:as|async(?=\s*(?:Researchction\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|Researchction|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,
   			lookbehind: true
   		},
   	],
   	'number': /\b(?:(?:0[xX](?:[\dA-Fa-f](?:_[\dA-Fa-f])?)+|0[bB](?:[01](?:_[01])?)+|0[oO](?:[0-7](?:_[0-7])?)+)n?|(?:\d(?:_\d)?)+n|NaN|Infinity)\b|(?:\b(?:\d(?:_\d)?)+\.?(?:\d(?:_\d)?)*|\B\.(?:\d(?:_\d)?)+)(?:[Ee][+-]?(?:\d(?:_\d)?)+)?/,
   	// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
-  	'function': /#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,
+  	'Researchction': /#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,
   	'operator': /--|\+\+|\*\*=?|=>|&&|\|\||[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?[.?]?|[~:]/
   });
 
@@ -3327,14 +3327,14 @@ d-citation-list .references .title {
   		lookbehind: true,
   		greedy: true
   	},
-  	// This must be declared before keyword because we use "function" inside the look-forward
-  	'function-variable': {
-  		pattern: /#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)\s*=>))/,
-  		alias: 'function'
+  	// This must be declared before keyword because we use "Researchction" inside the look-forward
+  	'Researchction-variable': {
+  		pattern: /#?[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*[=:]\s*(?:async\s*)?(?:\bResearchction\b|(?:\((?:[^()]|\([^()]*\))*\)|[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)\s*=>))/,
+  		alias: 'Researchction'
   	},
   	'parameter': [
   		{
-  			pattern: /(function(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,
+  			pattern: /(Researchction(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,
   			lookbehind: true,
   			inside: Prism.languages.javascript
   		},
@@ -3348,7 +3348,7 @@ d-citation-list .references .title {
   			inside: Prism.languages.javascript
   		},
   		{
-  			pattern: /((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*\s*)\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*\{)/,
+  			pattern: /((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|Researchction|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*\s*)\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\)\s*\{)/,
   			lookbehind: true,
   			inside: Prism.languages.javascript
   		}
@@ -3392,7 +3392,7 @@ d-citation-list .references .title {
        Begin prism-file-highlight.js
   ********************************************** */
 
-  (function () {
+  (Researchction () {
   	if (typeof self === 'undefined' || !self.Prism || !self.document || !document.querySelector) {
   		return;
   	}
@@ -3400,7 +3400,7 @@ d-citation-list .references .title {
   	/**
   	 * @param {Element} [container=document]
   	 */
-  	self.Prism.fileHighlight = function(container) {
+  	self.Prism.fileHighlight = Researchction(container) {
   		container = container || document;
 
   		var Extensions = {
@@ -3415,7 +3415,7 @@ d-citation-list .references .title {
   			'tex': 'latex'
   		};
 
-  		Array.prototype.slice.call(container.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+  		Array.prototype.slice.call(container.querySelectorAll('pre[data-src]')).forEach(Researchction (pre) {
   			// ignore if already loaded
   			if (pre.hasAttribute('data-src-loaded')) {
   				return;
@@ -3452,7 +3452,7 @@ d-citation-list .references .title {
 
   			xhr.open('GET', src, true);
 
-  			xhr.onreadystatechange = function () {
+  			xhr.onreadystatechange = Researchction () {
   				if (xhr.readyState == 4) {
 
   					if (xhr.status < 400 && xhr.responseText) {
@@ -3475,7 +3475,7 @@ d-citation-list .references .title {
   		});
   	};
 
-  	document.addEventListener('DOMContentLoaded', function () {
+  	document.addEventListener('DOMContentLoaded', Researchction () {
   		// execute inside handler, for dropping Event as argument
   		self.Prism.fileHighlight();
   	});
@@ -3520,7 +3520,7 @@ d-citation-list .references .title {
   		pattern: /(?:[rub]|rb|br)?("|')(?:\\.|(?!\1)[^\\\r\n])*\1/i,
   		greedy: true
   	},
-  	'function': {
+  	'Researchction': {
   		pattern: /((?:^|\s)def[ \t]+)[a-zA-Z_]\w*(?=\s*\()/g,
   		lookbehind: true
   	},
@@ -3571,9 +3571,9 @@ d-citation-list .references .title {
   			'punctuation': /[.\\]/
   		}
   	},
-  	'keyword': /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
+  	'keyword': /\b(?:if|else|while|do|for|return|in|instanceof|Researchction|new|try|throw|catch|finally|null|break|continue)\b/,
   	'boolean': /\b(?:true|false)\b/,
-  	'function': /\w+(?=\()/,
+  	'Researchction': /\w+(?=\()/,
   	'number': /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,
   	'operator': /[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,
   	'punctuation': /[{}[\];(),.:]/
@@ -3587,8 +3587,8 @@ d-citation-list .references .title {
   		greedy: true
   	},
   	'number': /\b0x[a-f\d]+\.?[a-f\d]*(?:p[+-]?\d+)?\b|\b\d+(?:\.\B|\.?\d*(?:e[+-]?\d+)?\b)|\B\.\d+(?:e[+-]?\d+)?\b/i,
-  	'keyword': /\b(?:and|break|do|else|elseif|end|false|for|function|goto|if|in|local|nil|not|or|repeat|return|then|true|until|while)\b/,
-  	'function': /(?!\d)\w+(?=\s*(?:[({]))/,
+  	'keyword': /\b(?:and|break|do|else|elseif|end|false|for|Researchction|goto|if|in|local|nil|not|or|repeat|return|then|true|until|while)\b/,
+  	'Researchction': /(?!\d)\w+(?=\s*(?:[({]))/,
   	'operator': [
   		/[-+*%^&|#]|\/\/?|<[<=]?|>[>=]?|[=~]=?/,
   		{
@@ -3600,7 +3600,7 @@ d-citation-list .references .title {
   	'punctuation': /[\[\](){},;]|\.+|:+/
   };
 
-  (function(Prism) {
+  (Researchction(Prism) {
   	// $ set | grep '^[A-Z][^[:space:]]*=' | cut -d= -f1 | tr '\n' '|'
   	// + LC_ALL, RANDOM, REPLY, SECONDS.
   	// + make sure PS1..4 are here as they are not always set,
@@ -3669,21 +3669,21 @@ d-citation-list .references .title {
   			pattern: /(^|[^"{\\$])#.*/,
   			lookbehind: true
   		},
-  		'function-name': [
-  			// a) function foo {
+  		'Researchction-name': [
+  			// a) Researchction foo {
   			// b) foo() {
-  			// c) function foo() {
+  			// c) Researchction foo() {
   			// but not “foo {”
   			{
   				// a) and c)
-  				pattern: /(\bfunction\s+)\w+(?=(?:\s*\(?:\s*\))?\s*\{)/,
+  				pattern: /(\bResearchction\s+)\w+(?=(?:\s*\(?:\s*\))?\s*\{)/,
   				lookbehind: true,
-  				alias: 'function'
+  				alias: 'Researchction'
   			},
   			{
   				// b)
   				pattern: /\b\w+(?=\s*\(\s*\)\s*\{)/,
-  				alias: 'function'
+  				alias: 'Researchction'
   			}
   		],
   		// Highlight variable names as variables in for and select beginnings.
@@ -3734,12 +3734,12 @@ d-citation-list .references .title {
   			alias: 'constant'
   		},
   		'variable': insideString.variable,
-  		'function': {
+  		'Researchction': {
   			pattern: /(^|[\s;|&]|[<>]\()(?:add|apropos|apt|aptitude|apt-cache|apt-get|aspell|automysqlbackup|awk|basename|bash|bc|bconsole|bg|bzip2|cal|cat|cfdisk|chgrp|chkconfig|chmod|chown|chroot|cksum|clear|cmp|column|comm|cp|cron|crontab|csplit|curl|cut|date|dc|dd|ddrescue|debootstrap|df|diff|diff3|dig|dir|dircolors|dirname|dirs|dmesg|du|egrep|eject|env|ethtool|expand|expect|expr|fdformat|fdisk|fg|fgrep|file|find|fmt|fold|format|free|fsck|ftp|fuser|gawk|git|gparted|grep|groupadd|groupdel|groupmod|groups|grub-mkconfig|gzip|halt|head|hg|history|host|hostname|htop|iconv|id|ifconfig|ifdown|ifup|import|install|ip|jobs|join|kill|killall|less|link|ln|locate|logname|logrotate|look|lpc|lpr|lprint|lprintd|lprintq|lprm|ls|lsof|lynx|make|man|mc|mdadm|mkconfig|mkdir|mke2fs|mkfifo|mkfs|mkisofs|mknod|mkswap|mmv|more|most|mount|mtools|mtr|mutt|mv|nano|nc|netstat|nice|nl|nohup|notify-send|npm|nslookup|op|open|parted|passwd|paste|pathchk|ping|pkill|pnpm|popd|pr|printcap|printenv|ps|pushd|pv|quota|quotacheck|quotactl|ram|rar|rcp|reboot|remsync|rename|renice|rev|rm|rmdir|rpm|rsync|scp|screen|sdiff|sed|sendmail|seq|service|sftp|sh|shellcheck|shuf|shutdown|sleep|slocate|sort|split|ssh|stat|strace|su|sudo|sum|suspend|swapon|sync|tac|tail|tar|tee|time|timeout|top|touch|tr|traceroute|tsort|tty|umount|uname|unexpand|uniq|units|unrar|unshar|unzip|update-grub|uptime|useradd|userdel|usermod|users|uudecode|uuencode|v|vdir|vi|vim|virsh|vmstat|wait|watch|wc|wget|whereis|which|who|whoami|write|xargs|xdg-open|yarn|yes|zenity|zip|zsh|zypper)(?=$|[)\s;|&])/,
   			lookbehind: true
   		},
   		'keyword': {
-  			pattern: /(^|[\s;|&]|[<>]\()(?:if|then|else|elif|fi|for|while|in|case|esac|function|select|do|done|until)(?=$|[)\s;|&])/,
+  			pattern: /(^|[\s;|&]|[<>]\()(?:if|then|else|elif|fi|for|while|in|case|esac|Researchction|select|do|done|until)(?=$|[)\s;|&])/,
   			lookbehind: true
   		},
   		// https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
@@ -3777,12 +3777,12 @@ d-citation-list .references .title {
   	/* Patterns in command substitution. */
   	var toBeCopied = [
   		'comment',
-  		'function-name',
+  		'Researchction-name',
   		'for-or-select',
   		'assign-left',
   		'string',
   		'environment',
-  		'function',
+  		'Researchction',
   		'keyword',
   		'builtin',
   		'boolean',
@@ -3800,7 +3800,7 @@ d-citation-list .references .title {
   })(Prism);
 
   Prism.languages.go = Prism.languages.extend('clike', {
-  	'keyword': /\b(?:break|case|chan|const|continue|default|defer|else|fallthrough|for|func|go(?:to)?|if|import|interface|map|package|range|return|select|struct|switch|type|var)\b/,
+  	'keyword': /\b(?:break|case|chan|const|continue|default|defer|else|fallthrough|for|Researchc|go(?:to)?|if|import|interface|map|package|range|return|select|struct|switch|type|var)\b/,
   	'builtin': /\b(?:bool|byte|complex(?:64|128)|error|float(?:32|64)|rune|string|u?int(?:8|16|32|64)?|uintptr|append|cap|close|complex|copy|delete|imag|len|make|new|panic|print(?:ln)?|real|recover)\b/,
   	'boolean': /\b(?:_|iota|nil|true|false)\b/,
   	'operator': /[*\/%^!=]=?|\+[=+]?|-[=-]?|\|[=|]?|&(?:=|&|\^=?)?|>(?:>=?|=)?|<(?:<=?|=|-)?|:=|\.\.\./,
@@ -3812,13 +3812,13 @@ d-citation-list .references .title {
   });
   delete Prism.languages.go['class-name'];
 
-  (function (Prism) {
+  (Researchction (Prism) {
 
   	// Allow only one line break
   	var inner = /(?:\\.|[^\\\n\r]|(?:\n|\r\n?)(?!\n|\r\n?))/.source;
 
   	/**
-  	 * This function is intended for the creation of the bold or italic pattern.
+  	 * This Researchction is intended for the creation of the bold or italic pattern.
   	 *
   	 * This also adds a lookbehind group to the given pattern to ensure that the pattern is not backslash-escaped.
   	 *
@@ -3828,8 +3828,8 @@ d-citation-list .references .title {
   	 * @param {boolean} starAlternative Whether to also add an alternative where all `_`s are replaced with `*`s.
   	 * @returns {RegExp}
   	 */
-  	function createInline(pattern, starAlternative) {
-  		pattern = pattern.replace(/<inner>/g, function () { return inner; });
+  	Researchction createInline(pattern, starAlternative) {
+  		pattern = pattern.replace(/<inner>/g, Researchction () { return inner; });
   		if (starAlternative) {
   			pattern = pattern + '|' + pattern.replace(/_/g, '\\*');
   		}
@@ -3838,7 +3838,7 @@ d-citation-list .references .title {
 
 
   	var tableCell = /(?:\\.|``.+?``|`[^`\r\n]+`|[^\\|\r\n`])+/.source;
-  	var tableRow = /\|?__(?:\|__)+\|?(?:(?:\n|\r\n?)|$)/.source.replace(/__/g, function () { return tableCell; });
+  	var tableRow = /\|?__(?:\|__)+\|?(?:(?:\n|\r\n?)|$)/.source.replace(/__/g, Researchction () { return tableCell; });
   	var tableLine = /\|?[ \t]*:?-{3,}:?[ \t]*(?:\|[ \t]*:?-{3,}:?[ \t]*)+\|?(?:\n|\r\n?)/.source;
 
 
@@ -4046,20 +4046,20 @@ d-citation-list .references .title {
   		}
   	});
 
-  	['url', 'bold', 'italic', 'strike'].forEach(function (token) {
-  		['url', 'bold', 'italic', 'strike'].forEach(function (inside) {
+  	['url', 'bold', 'italic', 'strike'].forEach(Researchction (token) {
+  		['url', 'bold', 'italic', 'strike'].forEach(Researchction (inside) {
   			if (token !== inside) {
   				Prism.languages.markdown[token].inside.content.inside[inside] = Prism.languages.markdown[inside];
   			}
   		});
   	});
 
-  	Prism.hooks.add('after-tokenize', function (env) {
+  	Prism.hooks.add('after-tokenize', Researchction (env) {
   		if (env.language !== 'markdown' && env.language !== 'md') {
   			return;
   		}
 
-  		function walkTokens(tokens) {
+  		Researchction walkTokens(tokens) {
   			if (!tokens || typeof tokens === 'string') {
   				return;
   			}
@@ -4116,7 +4116,7 @@ d-citation-list .references .title {
   		walkTokens(env.tokens);
   	});
 
-  	Prism.hooks.add('wrap', function (env) {
+  	Prism.hooks.add('wrap', Researchction (env) {
   		if (env.type !== 'code-block') {
   			return;
   		}
@@ -4138,7 +4138,7 @@ d-citation-list .references .title {
   				var id = 'md-' + new Date().valueOf() + '-' + Math.floor(Math.random() * 1e16);
   				env.attributes['id'] = id;
 
-  				Prism.plugins.autoloader.loadLanguages(codeLang, function () {
+  				Prism.plugins.autoloader.loadLanguages(codeLang, Researchction () {
   					var ele = document.getElementById(id);
   					if (ele) {
   						ele.innerHTML = Prism.highlight(ele.textContent, Prism.languages[codeLang], codeLang);
@@ -4163,7 +4163,7 @@ d-citation-list .references .title {
   		lookbehind: true
   	},
   	'string': /("""|''')[\s\S]+?\1|("|')(?:\\.|(?!\2)[^\\\r\n])*\2/,
-  	'keyword' : /\b(?:abstract|baremodule|begin|bitstype|break|catch|ccall|const|continue|do|else|elseif|end|export|finally|for|function|global|if|immutable|import|importall|in|let|local|macro|module|print|println|quote|return|struct|try|type|typealias|using|while)\b/,
+  	'keyword' : /\b(?:abstract|baremodule|begin|bitstype|break|catch|ccall|const|continue|do|else|elseif|end|export|finally|for|Researchction|global|if|immutable|import|importall|in|let|local|macro|module|print|println|quote|return|struct|try|type|typealias|using|while)\b/,
   	'boolean' : /\b(?:true|false)\b/,
   	'number' : /(?:\b(?=\d)|\B(?=\.))(?:0[box])?(?:[\da-f]+\.?\d*|\.\d+)(?:[efp][+-]?\d+)?j?/i,
   	'operator': /[-+*^%÷&$\\]=?|\/[\/=]?|!=?=?|\|[=>]?|<(?:<=?|[=:])?|>(?:=|>>?=?)?|==?=?|[~≠≤≥]/,
@@ -4171,7 +4171,7 @@ d-citation-list .references .title {
   	'constant': /\b(?:(?:NaN|Inf)(?:16|32|64)?)\b/
   };
 
-  var css = "/**\n * prism.js default theme for JavaScript, CSS and HTML\n * Based on dabblet (http://dabblet.com)\n * @author Lea Verou\n */\n\ncode[class*=\"language-\"],\npre[class*=\"language-\"] {\n\tcolor: black;\n\tbackground: none;\n\ttext-shadow: 0 1px white;\n\tfont-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;\n\tfont-size: 1em;\n\ttext-align: left;\n\twhite-space: pre;\n\tword-spacing: normal;\n\tword-break: normal;\n\tword-wrap: normal;\n\tline-height: 1.5;\n\n\t-moz-tab-size: 4;\n\t-o-tab-size: 4;\n\ttab-size: 4;\n\n\t-webkit-hyphens: none;\n\t-moz-hyphens: none;\n\t-ms-hyphens: none;\n\thyphens: none;\n}\n\npre[class*=\"language-\"]::-moz-selection, pre[class*=\"language-\"] ::-moz-selection,\ncode[class*=\"language-\"]::-moz-selection, code[class*=\"language-\"] ::-moz-selection {\n\ttext-shadow: none;\n\tbackground: #b3d4fc;\n}\n\npre[class*=\"language-\"]::selection, pre[class*=\"language-\"] ::selection,\ncode[class*=\"language-\"]::selection, code[class*=\"language-\"] ::selection {\n\ttext-shadow: none;\n\tbackground: #b3d4fc;\n}\n\n@media print {\n\tcode[class*=\"language-\"],\n\tpre[class*=\"language-\"] {\n\t\ttext-shadow: none;\n\t}\n}\n\n/* Code blocks */\npre[class*=\"language-\"] {\n\tpadding: 1em;\n\tmargin: .5em 0;\n\toverflow: auto;\n}\n\n:not(pre) > code[class*=\"language-\"],\npre[class*=\"language-\"] {\n\tbackground: #f5f2f0;\n}\n\n/* Inline code */\n:not(pre) > code[class*=\"language-\"] {\n\tpadding: .1em;\n\tborder-radius: .3em;\n\twhite-space: normal;\n}\n\n.token.comment,\n.token.prolog,\n.token.doctype,\n.token.cdata {\n\tcolor: slategray;\n}\n\n.token.punctuation {\n\tcolor: #999;\n}\n\n.token.namespace {\n\topacity: .7;\n}\n\n.token.property,\n.token.tag,\n.token.boolean,\n.token.number,\n.token.constant,\n.token.symbol,\n.token.deleted {\n\tcolor: #905;\n}\n\n.token.selector,\n.token.attr-name,\n.token.string,\n.token.char,\n.token.builtin,\n.token.inserted {\n\tcolor: #690;\n}\n\n.token.operator,\n.token.entity,\n.token.url,\n.language-css .token.string,\n.style .token.string {\n\tcolor: #9a6e3a;\n\tbackground: hsla(0, 0%, 100%, .5);\n}\n\n.token.atrule,\n.token.attr-value,\n.token.keyword {\n\tcolor: #07a;\n}\n\n.token.function,\n.token.class-name {\n\tcolor: #DD4A68;\n}\n\n.token.regex,\n.token.important,\n.token.variable {\n\tcolor: #e90;\n}\n\n.token.important,\n.token.bold {\n\tfont-weight: bold;\n}\n.token.italic {\n\tfont-style: italic;\n}\n\n.token.entity {\n\tcursor: help;\n}\n";
+  var css = "/**\n * prism.js default theme for JavaScript, CSS and HTML\n * Based on dabblet (http://dabblet.com)\n * @author Lea Verou\n */\n\ncode[class*=\"language-\"],\npre[class*=\"language-\"] {\n\tcolor: black;\n\tbackground: none;\n\ttext-shadow: 0 1px white;\n\tfont-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;\n\tfont-size: 1em;\n\ttext-align: left;\n\twhite-space: pre;\n\tword-spacing: normal;\n\tword-break: normal;\n\tword-wrap: normal;\n\tline-height: 1.5;\n\n\t-moz-tab-size: 4;\n\t-o-tab-size: 4;\n\ttab-size: 4;\n\n\t-webkit-hyphens: none;\n\t-moz-hyphens: none;\n\t-ms-hyphens: none;\n\thyphens: none;\n}\n\npre[class*=\"language-\"]::-moz-selection, pre[class*=\"language-\"] ::-moz-selection,\ncode[class*=\"language-\"]::-moz-selection, code[class*=\"language-\"] ::-moz-selection {\n\ttext-shadow: none;\n\tbackground: #b3d4fc;\n}\n\npre[class*=\"language-\"]::selection, pre[class*=\"language-\"] ::selection,\ncode[class*=\"language-\"]::selection, code[class*=\"language-\"] ::selection {\n\ttext-shadow: none;\n\tbackground: #b3d4fc;\n}\n\n@media print {\n\tcode[class*=\"language-\"],\n\tpre[class*=\"language-\"] {\n\t\ttext-shadow: none;\n\t}\n}\n\n/* Code blocks */\npre[class*=\"language-\"] {\n\tpadding: 1em;\n\tmargin: .5em 0;\n\toverflow: auto;\n}\n\n:not(pre) > code[class*=\"language-\"],\npre[class*=\"language-\"] {\n\tbackground: #f5f2f0;\n}\n\n/* Inline code */\n:not(pre) > code[class*=\"language-\"] {\n\tpadding: .1em;\n\tborder-radius: .3em;\n\twhite-space: normal;\n}\n\n.token.comment,\n.token.prolog,\n.token.doctype,\n.token.cdata {\n\tcolor: slategray;\n}\n\n.token.punctuation {\n\tcolor: #999;\n}\n\n.token.namespace {\n\topacity: .7;\n}\n\n.token.property,\n.token.tag,\n.token.boolean,\n.token.number,\n.token.constant,\n.token.symbol,\n.token.deleted {\n\tcolor: #905;\n}\n\n.token.selector,\n.token.attr-name,\n.token.string,\n.token.char,\n.token.builtin,\n.token.inserted {\n\tcolor: #690;\n}\n\n.token.operator,\n.token.entity,\n.token.url,\n.language-css .token.string,\n.style .token.string {\n\tcolor: #9a6e3a;\n\tbackground: hsla(0, 0%, 100%, .5);\n}\n\n.token.atrule,\n.token.attr-value,\n.token.keyword {\n\tcolor: #07a;\n}\n\n.token.Researchction,\n.token.class-name {\n\tcolor: #DD4A68;\n}\n\n.token.regex,\n.token.important,\n.token.variable {\n\tcolor: #e90;\n}\n\n.token.important,\n.token.bold {\n\tfont-weight: bold;\n}\n.token.italic {\n\tfont-style: italic;\n}\n\n.token.entity {\n\tcursor: help;\n}\n";
 
   // Copyright 2018 The Distill Template Authors
 
@@ -4599,7 +4599,7 @@ d-references {
 
   }
 
-  function renderTOC(element, headings) {
+  Researchction renderTOC(element, headings) {
 
     let ToC =`
   <style>
@@ -4670,7 +4670,7 @@ d-references {
   //
   //                         scroll out of view
   //                         +----------------+
-  //   *do work here*        |                |
+  //   *do Course Project here*        |                |
   // +----------------+    +-+---------+    +-v---------+
   // | ready          +----> onscreen  |    | offscreen |
   // +----------------+    +---------^-+    +---------+-+
@@ -4999,14 +4999,14 @@ p small {
 
   }
 
-  function ascending(a, b) {
+  Researchction ascending(a, b) {
     return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
   }
 
-  function bisector(compare) {
+  Researchction bisector(compare) {
     if (compare.length === 1) compare = ascendingComparator(compare);
     return {
-      left: function(a, x, lo, hi) {
+      left: Researchction(a, x, lo, hi) {
         if (lo == null) lo = 0;
         if (hi == null) hi = a.length;
         while (lo < hi) {
@@ -5016,7 +5016,7 @@ p small {
         }
         return lo;
       },
-      right: function(a, x, lo, hi) {
+      right: Researchction(a, x, lo, hi) {
         if (lo == null) lo = 0;
         if (hi == null) hi = a.length;
         while (lo < hi) {
@@ -5029,8 +5029,8 @@ p small {
     };
   }
 
-  function ascendingComparator(f) {
-    return function(d, x) {
+  Researchction ascendingComparator(f) {
+    return Researchction(d, x) {
       return ascending(f(d), x);
     };
   }
@@ -5038,7 +5038,7 @@ p small {
   var ascendingBisect = bisector(ascending);
   var bisectRight = ascendingBisect.right;
 
-  function range(start, stop, step) {
+  Researchction range(start, stop, step) {
     start = +start, stop = +stop, step = (n = arguments.length) < 2 ? (stop = start, start = 0, 1) : n < 3 ? 1 : +step;
 
     var i = -1,
@@ -5056,7 +5056,7 @@ p small {
       e5 = Math.sqrt(10),
       e2 = Math.sqrt(2);
 
-  function ticks(start, stop, count) {
+  Researchction ticks(start, stop, count) {
     var reverse,
         i = -1,
         n,
@@ -5085,7 +5085,7 @@ p small {
     return ticks;
   }
 
-  function tickIncrement(start, stop, count) {
+  Researchction tickIncrement(start, stop, count) {
     var step = (stop - start) / Math.max(0, count),
         power = Math.floor(Math.log(step) / Math.LN10),
         error = step / Math.pow(10, power);
@@ -5094,7 +5094,7 @@ p small {
         : -Math.pow(10, -power) / (error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1);
   }
 
-  function tickStep(start, stop, count) {
+  Researchction tickStep(start, stop, count) {
     var step0 = Math.abs(stop - start) / Math.max(0, count),
         step1 = Math.pow(10, Math.floor(Math.log(step0) / Math.LN10)),
         error = step0 / step1;
@@ -5104,7 +5104,7 @@ p small {
     return stop < start ? -step1 : step1;
   }
 
-  function initRange(domain, range) {
+  Researchction initRange(domain, range) {
     switch (arguments.length) {
       case 0: break;
       case 1: this.range(domain); break;
@@ -5113,18 +5113,18 @@ p small {
     return this;
   }
 
-  function define(constructor, factory, prototype) {
+  Researchction define(constructor, factory, prototype) {
     constructor.prototype = factory.prototype = prototype;
     prototype.constructor = constructor;
   }
 
-  function extend(parent, definition) {
+  Researchction extend(parent, definition) {
     var prototype = Object.create(parent.prototype);
     for (var key in definition) prototype[key] = definition[key];
     return prototype;
   }
 
-  function Color() {}
+  Researchction Color() {}
 
   var darker = 0.7;
   var brighter = 1 / darker;
@@ -5292,10 +5292,10 @@ p small {
   };
 
   define(Color, color, {
-    copy: function(channels) {
+    copy: Researchction(channels) {
       return Object.assign(new this.constructor, this, channels);
     },
-    displayable: function() {
+    displayable: Researchction() {
       return this.rgb().displayable();
     },
     hex: color_formatHex, // Deprecated! Use color.formatHex.
@@ -5305,19 +5305,19 @@ p small {
     toString: color_formatRgb
   });
 
-  function color_formatHex() {
+  Researchction color_formatHex() {
     return this.rgb().formatHex();
   }
 
-  function color_formatHsl() {
+  Researchction color_formatHsl() {
     return hslConvert(this).formatHsl();
   }
 
-  function color_formatRgb() {
+  Researchction color_formatRgb() {
     return this.rgb().formatRgb();
   }
 
-  function color(format) {
+  Researchction color(format) {
     var m, l;
     format = (format + "").trim().toLowerCase();
     return (m = reHex.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn(m) // #ff0000
@@ -5336,27 +5336,27 @@ p small {
         : null;
   }
 
-  function rgbn(n) {
+  Researchction rgbn(n) {
     return new Rgb(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
   }
 
-  function rgba(r, g, b, a) {
+  Researchction rgba(r, g, b, a) {
     if (a <= 0) r = g = b = NaN;
     return new Rgb(r, g, b, a);
   }
 
-  function rgbConvert(o) {
+  Researchction rgbConvert(o) {
     if (!(o instanceof Color)) o = color(o);
     if (!o) return new Rgb;
     o = o.rgb();
     return new Rgb(o.r, o.g, o.b, o.opacity);
   }
 
-  function rgb(r, g, b, opacity) {
+  Researchction rgb(r, g, b, opacity) {
     return arguments.length === 1 ? rgbConvert(r) : new Rgb(r, g, b, opacity == null ? 1 : opacity);
   }
 
-  function Rgb(r, g, b, opacity) {
+  Researchction Rgb(r, g, b, opacity) {
     this.r = +r;
     this.g = +g;
     this.b = +b;
@@ -5364,18 +5364,18 @@ p small {
   }
 
   define(Rgb, rgb, extend(Color, {
-    brighter: function(k) {
+    brighter: Researchction(k) {
       k = k == null ? brighter : Math.pow(brighter, k);
       return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
     },
-    darker: function(k) {
+    darker: Researchction(k) {
       k = k == null ? darker : Math.pow(darker, k);
       return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
     },
-    rgb: function() {
+    rgb: Researchction() {
       return this;
     },
-    displayable: function() {
+    displayable: Researchction() {
       return (-0.5 <= this.r && this.r < 255.5)
           && (-0.5 <= this.g && this.g < 255.5)
           && (-0.5 <= this.b && this.b < 255.5)
@@ -5387,11 +5387,11 @@ p small {
     toString: rgb_formatRgb
   }));
 
-  function rgb_formatHex() {
+  Researchction rgb_formatHex() {
     return "#" + hex(this.r) + hex(this.g) + hex(this.b);
   }
 
-  function rgb_formatRgb() {
+  Researchction rgb_formatRgb() {
     var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
     return (a === 1 ? "rgb(" : "rgba(")
         + Math.max(0, Math.min(255, Math.round(this.r) || 0)) + ", "
@@ -5400,19 +5400,19 @@ p small {
         + (a === 1 ? ")" : ", " + a + ")");
   }
 
-  function hex(value) {
+  Researchction hex(value) {
     value = Math.max(0, Math.min(255, Math.round(value) || 0));
     return (value < 16 ? "0" : "") + value.toString(16);
   }
 
-  function hsla(h, s, l, a) {
+  Researchction hsla(h, s, l, a) {
     if (a <= 0) h = s = l = NaN;
     else if (l <= 0 || l >= 1) h = s = NaN;
     else if (s <= 0) h = NaN;
     return new Hsl(h, s, l, a);
   }
 
-  function hslConvert(o) {
+  Researchction hslConvert(o) {
     if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
     if (!(o instanceof Color)) o = color(o);
     if (!o) return new Hsl;
@@ -5438,11 +5438,11 @@ p small {
     return new Hsl(h, s, l, o.opacity);
   }
 
-  function hsl(h, s, l, opacity) {
+  Researchction hsl(h, s, l, opacity) {
     return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s, l, opacity == null ? 1 : opacity);
   }
 
-  function Hsl(h, s, l, opacity) {
+  Researchction Hsl(h, s, l, opacity) {
     this.h = +h;
     this.s = +s;
     this.l = +l;
@@ -5450,15 +5450,15 @@ p small {
   }
 
   define(Hsl, hsl, extend(Color, {
-    brighter: function(k) {
+    brighter: Researchction(k) {
       k = k == null ? brighter : Math.pow(brighter, k);
       return new Hsl(this.h, this.s, this.l * k, this.opacity);
     },
-    darker: function(k) {
+    darker: Researchction(k) {
       k = k == null ? darker : Math.pow(darker, k);
       return new Hsl(this.h, this.s, this.l * k, this.opacity);
     },
-    rgb: function() {
+    rgb: Researchction() {
       var h = this.h % 360 + (this.h < 0) * 360,
           s = isNaN(h) || isNaN(this.s) ? 0 : this.s,
           l = this.l,
@@ -5471,12 +5471,12 @@ p small {
         this.opacity
       );
     },
-    displayable: function() {
+    displayable: Researchction() {
       return (0 <= this.s && this.s <= 1 || isNaN(this.s))
           && (0 <= this.l && this.l <= 1)
           && (0 <= this.opacity && this.opacity <= 1);
     },
-    formatHsl: function() {
+    formatHsl: Researchction() {
       var a = this.opacity; a = isNaN(a) ? 1 : Math.max(0, Math.min(1, a));
       return (a === 1 ? "hsl(" : "hsla(")
           + (this.h || 0) + ", "
@@ -5487,7 +5487,7 @@ p small {
   }));
 
   /* From FvD 13.37, CSS Color Module Level 3 */
-  function hsl2rgb(h, m1, m2) {
+  Researchction hsl2rgb(h, m1, m2) {
     return (h < 60 ? m1 + (m2 - m1) * h / 60
         : h < 180 ? m2
         : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60
@@ -5507,7 +5507,7 @@ p small {
       t2 = 3 * t1 * t1,
       t3 = t1 * t1 * t1;
 
-  function labConvert(o) {
+  Researchction labConvert(o) {
     if (o instanceof Lab) return new Lab(o.l, o.a, o.b, o.opacity);
     if (o instanceof Hcl) return hcl2lab(o);
     if (!(o instanceof Rgb)) o = rgbConvert(o);
@@ -5522,11 +5522,11 @@ p small {
     return new Lab(116 * y - 16, 500 * (x - y), 200 * (y - z), o.opacity);
   }
 
-  function lab(l, a, b, opacity) {
+  Researchction lab(l, a, b, opacity) {
     return arguments.length === 1 ? labConvert(l) : new Lab(l, a, b, opacity == null ? 1 : opacity);
   }
 
-  function Lab(l, a, b, opacity) {
+  Researchction Lab(l, a, b, opacity) {
     this.l = +l;
     this.a = +a;
     this.b = +b;
@@ -5534,13 +5534,13 @@ p small {
   }
 
   define(Lab, lab, extend(Color, {
-    brighter: function(k) {
+    brighter: Researchction(k) {
       return new Lab(this.l + K * (k == null ? 1 : k), this.a, this.b, this.opacity);
     },
-    darker: function(k) {
+    darker: Researchction(k) {
       return new Lab(this.l - K * (k == null ? 1 : k), this.a, this.b, this.opacity);
     },
-    rgb: function() {
+    rgb: Researchction() {
       var y = (this.l + 16) / 116,
           x = isNaN(this.a) ? y : y + this.a / 500,
           z = isNaN(this.b) ? y : y - this.b / 200;
@@ -5556,23 +5556,23 @@ p small {
     }
   }));
 
-  function xyz2lab(t) {
+  Researchction xyz2lab(t) {
     return t > t3 ? Math.pow(t, 1 / 3) : t / t2 + t0;
   }
 
-  function lab2xyz(t) {
+  Researchction lab2xyz(t) {
     return t > t1 ? t * t * t : t2 * (t - t0);
   }
 
-  function lrgb2rgb(x) {
+  Researchction lrgb2rgb(x) {
     return 255 * (x <= 0.0031308 ? 12.92 * x : 1.055 * Math.pow(x, 1 / 2.4) - 0.055);
   }
 
-  function rgb2lrgb(x) {
+  Researchction rgb2lrgb(x) {
     return (x /= 255) <= 0.04045 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4);
   }
 
-  function hclConvert(o) {
+  Researchction hclConvert(o) {
     if (o instanceof Hcl) return new Hcl(o.h, o.c, o.l, o.opacity);
     if (!(o instanceof Lab)) o = labConvert(o);
     if (o.a === 0 && o.b === 0) return new Hcl(NaN, 0 < o.l && o.l < 100 ? 0 : NaN, o.l, o.opacity);
@@ -5580,31 +5580,31 @@ p small {
     return new Hcl(h < 0 ? h + 360 : h, Math.sqrt(o.a * o.a + o.b * o.b), o.l, o.opacity);
   }
 
-  function hcl(h, c, l, opacity) {
+  Researchction hcl(h, c, l, opacity) {
     return arguments.length === 1 ? hclConvert(h) : new Hcl(h, c, l, opacity == null ? 1 : opacity);
   }
 
-  function Hcl(h, c, l, opacity) {
+  Researchction Hcl(h, c, l, opacity) {
     this.h = +h;
     this.c = +c;
     this.l = +l;
     this.opacity = +opacity;
   }
 
-  function hcl2lab(o) {
+  Researchction hcl2lab(o) {
     if (isNaN(o.h)) return new Lab(o.l, 0, 0, o.opacity);
     var h = o.h * deg2rad;
     return new Lab(o.l, Math.cos(h) * o.c, Math.sin(h) * o.c, o.opacity);
   }
 
   define(Hcl, hcl, extend(Color, {
-    brighter: function(k) {
+    brighter: Researchction(k) {
       return new Hcl(this.h, this.c, this.l + K * (k == null ? 1 : k), this.opacity);
     },
-    darker: function(k) {
+    darker: Researchction(k) {
       return new Hcl(this.h, this.c, this.l - K * (k == null ? 1 : k), this.opacity);
     },
-    rgb: function() {
+    rgb: Researchction() {
       return hcl2lab(this).rgb();
     }
   }));
@@ -5618,7 +5618,7 @@ p small {
       EB = E * B,
       BC_DA = B * C - D * A;
 
-  function cubehelixConvert(o) {
+  Researchction cubehelixConvert(o) {
     if (o instanceof Cubehelix) return new Cubehelix(o.h, o.s, o.l, o.opacity);
     if (!(o instanceof Rgb)) o = rgbConvert(o);
     var r = o.r / 255,
@@ -5632,11 +5632,11 @@ p small {
     return new Cubehelix(h < 0 ? h + 360 : h, s, l, o.opacity);
   }
 
-  function cubehelix(h, s, l, opacity) {
+  Researchction cubehelix(h, s, l, opacity) {
     return arguments.length === 1 ? cubehelixConvert(h) : new Cubehelix(h, s, l, opacity == null ? 1 : opacity);
   }
 
-  function Cubehelix(h, s, l, opacity) {
+  Researchction Cubehelix(h, s, l, opacity) {
     this.h = +h;
     this.s = +s;
     this.l = +l;
@@ -5644,15 +5644,15 @@ p small {
   }
 
   define(Cubehelix, cubehelix, extend(Color, {
-    brighter: function(k) {
+    brighter: Researchction(k) {
       k = k == null ? brighter : Math.pow(brighter, k);
       return new Cubehelix(this.h, this.s, this.l * k, this.opacity);
     },
-    darker: function(k) {
+    darker: Researchction(k) {
       k = k == null ? darker : Math.pow(darker, k);
       return new Cubehelix(this.h, this.s, this.l * k, this.opacity);
     },
-    rgb: function() {
+    rgb: Researchction() {
       var h = isNaN(this.h) ? 0 : (this.h + 120) * deg2rad,
           l = +this.l,
           a = isNaN(this.s) ? 0 : this.s * l * (1 - l),
@@ -5667,44 +5667,44 @@ p small {
     }
   }));
 
-  function constant(x) {
-    return function() {
+  Researchction constant(x) {
+    return Researchction() {
       return x;
     };
   }
 
-  function linear(a, d) {
-    return function(t) {
+  Researchction linear(a, d) {
+    return Researchction(t) {
       return a + t * d;
     };
   }
 
-  function exponential(a, b, y) {
-    return a = Math.pow(a, y), b = Math.pow(b, y) - a, y = 1 / y, function(t) {
+  Researchction exponential(a, b, y) {
+    return a = Math.pow(a, y), b = Math.pow(b, y) - a, y = 1 / y, Researchction(t) {
       return Math.pow(a + t * b, y);
     };
   }
 
-  function gamma(y) {
-    return (y = +y) === 1 ? nogamma : function(a, b) {
+  Researchction gamma(y) {
+    return (y = +y) === 1 ? nogamma : Researchction(a, b) {
       return b - a ? exponential(a, b, y) : constant(isNaN(a) ? b : a);
     };
   }
 
-  function nogamma(a, b) {
+  Researchction nogamma(a, b) {
     var d = b - a;
     return d ? linear(a, d) : constant(isNaN(a) ? b : a);
   }
 
-  var rgb$1 = (function rgbGamma(y) {
+  var rgb$1 = (Researchction rgbGamma(y) {
     var color = gamma(y);
 
-    function rgb$1(start, end) {
+    Researchction rgb$1(start, end) {
       var r = color((start = rgb(start)).r, (end = rgb(end)).r),
           g = color(start.g, end.g),
           b = color(start.b, end.b),
           opacity = nogamma(start.opacity, end.opacity);
-      return function(t) {
+      return Researchction(t) {
         start.r = r(t);
         start.g = g(t);
         start.b = b(t);
@@ -5718,22 +5718,22 @@ p small {
     return rgb$1;
   })(1);
 
-  function numberArray(a, b) {
+  Researchction numberArray(a, b) {
     if (!b) b = [];
     var n = a ? Math.min(b.length, a.length) : 0,
         c = b.slice(),
         i;
-    return function(t) {
+    return Researchction(t) {
       for (i = 0; i < n; ++i) c[i] = a[i] * (1 - t) + b[i] * t;
       return c;
     };
   }
 
-  function isNumberArray(x) {
+  Researchction isNumberArray(x) {
     return ArrayBuffer.isView(x) && !(x instanceof DataView);
   }
 
-  function genericArray(a, b) {
+  Researchction genericArray(a, b) {
     var nb = b ? b.length : 0,
         na = a ? Math.min(nb, a.length) : 0,
         x = new Array(na),
@@ -5743,26 +5743,26 @@ p small {
     for (i = 0; i < na; ++i) x[i] = interpolate(a[i], b[i]);
     for (; i < nb; ++i) c[i] = b[i];
 
-    return function(t) {
+    return Researchction(t) {
       for (i = 0; i < na; ++i) c[i] = x[i](t);
       return c;
     };
   }
 
-  function date(a, b) {
+  Researchction date(a, b) {
     var d = new Date;
-    return a = +a, b = +b, function(t) {
+    return a = +a, b = +b, Researchction(t) {
       return d.setTime(a * (1 - t) + b * t), d;
     };
   }
 
-  function interpolateNumber(a, b) {
-    return a = +a, b = +b, function(t) {
+  Researchction interpolateNumber(a, b) {
+    return a = +a, b = +b, Researchction(t) {
       return a * (1 - t) + b * t;
     };
   }
 
-  function object(a, b) {
+  Researchction object(a, b) {
     var i = {},
         c = {},
         k;
@@ -5778,7 +5778,7 @@ p small {
       }
     }
 
-    return function(t) {
+    return Researchction(t) {
       for (k in i) c[k] = i[k](t);
       return c;
     };
@@ -5787,19 +5787,19 @@ p small {
   var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g,
       reB = new RegExp(reA.source, "g");
 
-  function zero(b) {
-    return function() {
+  Researchction zero(b) {
+    return Researchction() {
       return b;
     };
   }
 
-  function one(b) {
-    return function(t) {
+  Researchction one(b) {
+    return Researchction(t) {
       return b(t) + "";
     };
   }
 
-  function string(a, b) {
+  Researchction string(a, b) {
     var bi = reA.lastIndex = reB.lastIndex = 0, // scan index for next number in b
         am, // current match in a
         bm, // current match in b
@@ -5841,13 +5841,13 @@ p small {
     return s.length < 2 ? (q[0]
         ? one(q[0].x)
         : zero(b))
-        : (b = q.length, function(t) {
+        : (b = q.length, Researchction(t) {
             for (var i = 0, o; i < b; ++i) s[(o = q[i]).i] = o.x(t);
             return s.join("");
           });
   }
 
-  function interpolate(a, b) {
+  Researchction interpolate(a, b) {
     var t = typeof b, c;
     return b == null || t === "boolean" ? constant(b)
         : (t === "number" ? interpolateNumber
@@ -5856,54 +5856,54 @@ p small {
         : b instanceof Date ? date
         : isNumberArray(b) ? numberArray
         : Array.isArray(b) ? genericArray
-        : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? object
+        : typeof b.valueOf !== "Researchction" && typeof b.toString !== "Researchction" || isNaN(b) ? object
         : interpolateNumber)(a, b);
   }
 
-  function interpolateRound(a, b) {
-    return a = +a, b = +b, function(t) {
+  Researchction interpolateRound(a, b) {
+    return a = +a, b = +b, Researchction(t) {
       return Math.round(a * (1 - t) + b * t);
     };
   }
 
-  function constant$1(x) {
-    return function() {
+  Researchction constant$1(x) {
+    return Researchction() {
       return x;
     };
   }
 
-  function number(x) {
+  Researchction number(x) {
     return +x;
   }
 
   var unit = [0, 1];
 
-  function identity(x) {
+  Researchction identity(x) {
     return x;
   }
 
-  function normalize(a, b) {
+  Researchction normalize(a, b) {
     return (b -= (a = +a))
-        ? function(x) { return (x - a) / b; }
+        ? Researchction(x) { return (x - a) / b; }
         : constant$1(isNaN(b) ? NaN : 0.5);
   }
 
-  function clamper(a, b) {
+  Researchction clamper(a, b) {
     var t;
     if (a > b) t = a, a = b, b = t;
-    return function(x) { return Math.max(a, Math.min(b, x)); };
+    return Researchction(x) { return Math.max(a, Math.min(b, x)); };
   }
 
   // normalize(a, b)(x) takes a domain value x in [a,b] and returns the corresponding parameter t in [0,1].
   // interpolate(a, b)(t) takes a parameter t in [0,1] and returns the corresponding range value x in [a,b].
-  function bimap(domain, range, interpolate) {
+  Researchction bimap(domain, range, interpolate) {
     var d0 = domain[0], d1 = domain[1], r0 = range[0], r1 = range[1];
     if (d1 < d0) d0 = normalize(d1, d0), r0 = interpolate(r1, r0);
     else d0 = normalize(d0, d1), r0 = interpolate(r0, r1);
-    return function(x) { return r0(d0(x)); };
+    return Researchction(x) { return r0(d0(x)); };
   }
 
-  function polymap(domain, range, interpolate) {
+  Researchction polymap(domain, range, interpolate) {
     var j = Math.min(domain.length, range.length) - 1,
         d = new Array(j),
         r = new Array(j),
@@ -5920,13 +5920,13 @@ p small {
       r[i] = interpolate(range[i], range[i + 1]);
     }
 
-    return function(x) {
+    return Researchction(x) {
       var i = bisectRight(domain, x, 1, j) - 1;
       return r[i](d[i](x));
     };
   }
 
-  function copy(source, target) {
+  Researchction copy(source, target) {
     return target
         .domain(source.domain())
         .range(source.range())
@@ -5935,7 +5935,7 @@ p small {
         .unknown(source.unknown());
   }
 
-  function transformer() {
+  Researchction transformer() {
     var domain = unit,
         range = unit,
         interpolate$1 = interpolate,
@@ -5947,7 +5947,7 @@ p small {
         output,
         input;
 
-    function rescale() {
+    Researchction rescale() {
       var n = Math.min(domain.length, range.length);
       if (clamp !== identity) clamp = clamper(domain[0], domain[n - 1]);
       piecewise = n > 2 ? polymap : bimap;
@@ -5955,52 +5955,52 @@ p small {
       return scale;
     }
 
-    function scale(x) {
+    Researchction scale(x) {
       return isNaN(x = +x) ? unknown : (output || (output = piecewise(domain.map(transform), range, interpolate$1)))(transform(clamp(x)));
     }
 
-    scale.invert = function(y) {
+    scale.invert = Researchction(y) {
       return clamp(untransform((input || (input = piecewise(range, domain.map(transform), interpolateNumber)))(y)));
     };
 
-    scale.domain = function(_) {
+    scale.domain = Researchction(_) {
       return arguments.length ? (domain = Array.from(_, number), rescale()) : domain.slice();
     };
 
-    scale.range = function(_) {
+    scale.range = Researchction(_) {
       return arguments.length ? (range = Array.from(_), rescale()) : range.slice();
     };
 
-    scale.rangeRound = function(_) {
+    scale.rangeRound = Researchction(_) {
       return range = Array.from(_), interpolate$1 = interpolateRound, rescale();
     };
 
-    scale.clamp = function(_) {
+    scale.clamp = Researchction(_) {
       return arguments.length ? (clamp = _ ? true : identity, rescale()) : clamp !== identity;
     };
 
-    scale.interpolate = function(_) {
+    scale.interpolate = Researchction(_) {
       return arguments.length ? (interpolate$1 = _, rescale()) : interpolate$1;
     };
 
-    scale.unknown = function(_) {
+    scale.unknown = Researchction(_) {
       return arguments.length ? (unknown = _, scale) : unknown;
     };
 
-    return function(t, u) {
+    return Researchction(t, u) {
       transform = t, untransform = u;
       return rescale();
     };
   }
 
-  function continuous() {
+  Researchction continuous() {
     return transformer()(identity, identity);
   }
 
   // Computes the decimal coefficient and exponent of the specified number x with
   // significant digits p, where x is positive and p is in [1, 21] or undefined.
   // For example, formatDecimal(1.23) returns ["123", 0].
-  function formatDecimal(x, p) {
+  Researchction formatDecimal(x, p) {
     if ((i = (x = p ? x.toExponential(p - 1) : x.toExponential()).indexOf("e")) < 0) return null; // NaN, ±Infinity
     var i, coefficient = x.slice(0, i);
 
@@ -6012,12 +6012,12 @@ p small {
     ];
   }
 
-  function exponent(x) {
+  Researchction exponent(x) {
     return x = formatDecimal(Math.abs(x)), x ? x[1] : NaN;
   }
 
-  function formatGroup(grouping, thousands) {
-    return function(value, width) {
+  Researchction formatGroup(grouping, thousands) {
+    return Researchction(value, width) {
       var i = value.length,
           t = [],
           j = 0,
@@ -6035,9 +6035,9 @@ p small {
     };
   }
 
-  function formatNumerals(numerals) {
-    return function(value) {
-      return value.replace(/[0-9]/g, function(i) {
+  Researchction formatNumerals(numerals) {
+    return Researchction(value) {
+      return value.replace(/[0-9]/g, Researchction(i) {
         return numerals[+i];
       });
     };
@@ -6046,7 +6046,7 @@ p small {
   // [[fill]align][sign][symbol][0][width][,][.precision][~][type]
   var re = /^(?:(.)?([<>=^]))?([+\-( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?(~)?([a-z%])?$/i;
 
-  function formatSpecifier(specifier) {
+  Researchction formatSpecifier(specifier) {
     if (!(match = re.exec(specifier))) throw new Error("invalid format: " + specifier);
     var match;
     return new FormatSpecifier({
@@ -6065,7 +6065,7 @@ p small {
 
   formatSpecifier.prototype = FormatSpecifier.prototype; // instanceof
 
-  function FormatSpecifier(specifier) {
+  Researchction FormatSpecifier(specifier) {
     this.fill = specifier.fill === undefined ? " " : specifier.fill + "";
     this.align = specifier.align === undefined ? ">" : specifier.align + "";
     this.sign = specifier.sign === undefined ? "-" : specifier.sign + "";
@@ -6078,7 +6078,7 @@ p small {
     this.type = specifier.type === undefined ? "" : specifier.type + "";
   }
 
-  FormatSpecifier.prototype.toString = function() {
+  FormatSpecifier.prototype.toString = Researchction() {
     return this.fill
         + this.align
         + this.sign
@@ -6092,7 +6092,7 @@ p small {
   };
 
   // Trims insignificant zeros, e.g., replaces 1.2000k with 1.2k.
-  function formatTrim(s) {
+  Researchction formatTrim(s) {
     out: for (var n = s.length, i = 1, i0 = -1, i1; i < n; ++i) {
       switch (s[i]) {
         case ".": i0 = i1 = i; break;
@@ -6105,7 +6105,7 @@ p small {
 
   var prefixExponent;
 
-  function formatPrefixAuto(x, p) {
+  Researchction formatPrefixAuto(x, p) {
     var d = formatDecimal(x, p);
     if (!d) return x + "";
     var coefficient = d[0],
@@ -6118,7 +6118,7 @@ p small {
         : "0." + new Array(1 - i).join("0") + formatDecimal(x, Math.max(0, p + i - 1))[0]; // less than 1y!
   }
 
-  function formatRounded(x, p) {
+  Researchction formatRounded(x, p) {
     var d = formatDecimal(x, p);
     if (!d) return x + "";
     var coefficient = d[0],
@@ -6129,29 +6129,29 @@ p small {
   }
 
   var formatTypes = {
-    "%": function(x, p) { return (x * 100).toFixed(p); },
-    "b": function(x) { return Math.round(x).toString(2); },
-    "c": function(x) { return x + ""; },
-    "d": function(x) { return Math.round(x).toString(10); },
-    "e": function(x, p) { return x.toExponential(p); },
-    "f": function(x, p) { return x.toFixed(p); },
-    "g": function(x, p) { return x.toPrecision(p); },
-    "o": function(x) { return Math.round(x).toString(8); },
-    "p": function(x, p) { return formatRounded(x * 100, p); },
+    "%": Researchction(x, p) { return (x * 100).toFixed(p); },
+    "b": Researchction(x) { return Math.round(x).toString(2); },
+    "c": Researchction(x) { return x + ""; },
+    "d": Researchction(x) { return Math.round(x).toString(10); },
+    "e": Researchction(x, p) { return x.toExponential(p); },
+    "f": Researchction(x, p) { return x.toFixed(p); },
+    "g": Researchction(x, p) { return x.toPrecision(p); },
+    "o": Researchction(x) { return Math.round(x).toString(8); },
+    "p": Researchction(x, p) { return formatRounded(x * 100, p); },
     "r": formatRounded,
     "s": formatPrefixAuto,
-    "X": function(x) { return Math.round(x).toString(16).toUpperCase(); },
-    "x": function(x) { return Math.round(x).toString(16); }
+    "X": Researchction(x) { return Math.round(x).toString(16).toUpperCase(); },
+    "x": Researchction(x) { return Math.round(x).toString(16); }
   };
 
-  function identity$1(x) {
+  Researchction identity$1(x) {
     return x;
   }
 
   var map = Array.prototype.map,
       prefixes = ["y","z","a","f","p","n","µ","m","","k","M","G","T","P","E","Z","Y"];
 
-  function formatLocale(locale) {
+  Researchction formatLocale(locale) {
     var group = locale.grouping === undefined || locale.thousands === undefined ? identity$1 : formatGroup(map.call(locale.grouping, Number), locale.thousands + ""),
         currencyPrefix = locale.currency === undefined ? "" : locale.currency[0] + "",
         currencySuffix = locale.currency === undefined ? "" : locale.currency[1] + "",
@@ -6161,7 +6161,7 @@ p small {
         minus = locale.minus === undefined ? "-" : locale.minus + "",
         nan = locale.nan === undefined ? "NaN" : locale.nan + "";
 
-    function newFormat(specifier) {
+    Researchction newFormat(specifier) {
       specifier = formatSpecifier(specifier);
 
       var fill = specifier.fill,
@@ -6189,7 +6189,7 @@ p small {
       var prefix = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "",
           suffix = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
 
-      // What format function should we use?
+      // What format Researchction should we use?
       // Is this an integer type?
       // Can this type generate exponential notation?
       var formatType = formatTypes[type],
@@ -6203,7 +6203,7 @@ p small {
           : /[gprs]/.test(type) ? Math.max(1, Math.min(21, precision))
           : Math.max(0, Math.min(20, precision));
 
-      function format(value) {
+      Researchction format(value) {
         var valuePrefix = prefix,
             valueSuffix = suffix,
             i, n, c;
@@ -6265,19 +6265,19 @@ p small {
         return numerals(value);
       }
 
-      format.toString = function() {
+      format.toString = Researchction() {
         return specifier + "";
       };
 
       return format;
     }
 
-    function formatPrefix(specifier, value) {
+    Researchction formatPrefix(specifier, value) {
       var f = newFormat((specifier = formatSpecifier(specifier), specifier.type = "f", specifier)),
           e = Math.max(-8, Math.min(8, Math.floor(exponent(value) / 3))) * 3,
           k = Math.pow(10, -e),
           prefix = prefixes[8 + e / 3];
-      return function(value) {
+      return Researchction(value) {
         return f(k * value) + prefix;
       };
     }
@@ -6300,27 +6300,27 @@ p small {
     minus: "-"
   });
 
-  function defaultLocale(definition) {
+  Researchction defaultLocale(definition) {
     locale = formatLocale(definition);
     format = locale.format;
     formatPrefix = locale.formatPrefix;
     return locale;
   }
 
-  function precisionFixed(step) {
+  Researchction precisionFixed(step) {
     return Math.max(0, -exponent(Math.abs(step)));
   }
 
-  function precisionPrefix(step, value) {
+  Researchction precisionPrefix(step, value) {
     return Math.max(0, Math.max(-8, Math.min(8, Math.floor(exponent(value) / 3))) * 3 - exponent(Math.abs(step)));
   }
 
-  function precisionRound(step, max) {
+  Researchction precisionRound(step, max) {
     step = Math.abs(step), max = Math.abs(max) - step;
     return Math.max(0, exponent(max) - exponent(step)) + 1;
   }
 
-  function tickFormat(start, stop, count, specifier) {
+  Researchction tickFormat(start, stop, count, specifier) {
     var step = tickStep(start, stop, count),
         precision;
     specifier = formatSpecifier(specifier == null ? ",f" : specifier);
@@ -6347,20 +6347,20 @@ p small {
     return format(specifier);
   }
 
-  function linearish(scale) {
+  Researchction linearish(scale) {
     var domain = scale.domain;
 
-    scale.ticks = function(count) {
+    scale.ticks = Researchction(count) {
       var d = domain();
       return ticks(d[0], d[d.length - 1], count == null ? 10 : count);
     };
 
-    scale.tickFormat = function(count, specifier) {
+    scale.tickFormat = Researchction(count, specifier) {
       var d = domain();
       return tickFormat(d[0], d[d.length - 1], count == null ? 10 : count, specifier);
     };
 
-    scale.nice = function(count) {
+    scale.nice = Researchction(count) {
       if (count == null) count = 10;
 
       var d = domain(),
@@ -6403,10 +6403,10 @@ p small {
     return scale;
   }
 
-  function linear$1() {
+  Researchction linear$1() {
     var scale = continuous();
 
-    scale.copy = function() {
+    scale.copy = Researchction() {
       return copy(scale, linear$1());
     };
 
@@ -6418,31 +6418,31 @@ p small {
   var t0$1 = new Date,
       t1$1 = new Date;
 
-  function newInterval(floori, offseti, count, field) {
+  Researchction newInterval(floori, offseti, count, field) {
 
-    function interval(date) {
+    Researchction interval(date) {
       return floori(date = arguments.length === 0 ? new Date : new Date(+date)), date;
     }
 
-    interval.floor = function(date) {
+    interval.floor = Researchction(date) {
       return floori(date = new Date(+date)), date;
     };
 
-    interval.ceil = function(date) {
+    interval.ceil = Researchction(date) {
       return floori(date = new Date(date - 1)), offseti(date, 1), floori(date), date;
     };
 
-    interval.round = function(date) {
+    interval.round = Researchction(date) {
       var d0 = interval(date),
           d1 = interval.ceil(date);
       return date - d0 < d1 - date ? d0 : d1;
     };
 
-    interval.offset = function(date, step) {
+    interval.offset = Researchction(date, step) {
       return offseti(date = new Date(+date), step == null ? 1 : Math.floor(step)), date;
     };
 
-    interval.range = function(start, stop, step) {
+    interval.range = Researchction(start, stop, step) {
       var range = [], previous;
       start = interval.ceil(start);
       step = step == null ? 1 : Math.floor(step);
@@ -6452,10 +6452,10 @@ p small {
       return range;
     };
 
-    interval.filter = function(test) {
-      return newInterval(function(date) {
+    interval.filter = Researchction(test) {
+      return newInterval(Researchction(date) {
         if (date >= date) while (floori(date), !test(date)) date.setTime(date - 1);
-      }, function(date, step) {
+      }, Researchction(date, step) {
         if (date >= date) {
           if (step < 0) while (++step <= 0) {
             while (offseti(date, -1), !test(date)) {} // eslint-disable-line no-empty
@@ -6467,43 +6467,43 @@ p small {
     };
 
     if (count) {
-      interval.count = function(start, end) {
+      interval.count = Researchction(start, end) {
         t0$1.setTime(+start), t1$1.setTime(+end);
         floori(t0$1), floori(t1$1);
         return Math.floor(count(t0$1, t1$1));
       };
 
-      interval.every = function(step) {
+      interval.every = Researchction(step) {
         step = Math.floor(step);
         return !isFinite(step) || !(step > 0) ? null
             : !(step > 1) ? interval
             : interval.filter(field
-                ? function(d) { return field(d) % step === 0; }
-                : function(d) { return interval.count(0, d) % step === 0; });
+                ? Researchction(d) { return field(d) % step === 0; }
+                : Researchction(d) { return interval.count(0, d) % step === 0; });
       };
     }
 
     return interval;
   }
 
-  var millisecond = newInterval(function() {
+  var millisecond = newInterval(Researchction() {
     // noop
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setTime(+date + step);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return end - start;
   });
 
   // An optimized implementation for this simple case.
-  millisecond.every = function(k) {
+  millisecond.every = Researchction(k) {
     k = Math.floor(k);
     if (!isFinite(k) || !(k > 0)) return null;
     if (!(k > 1)) return millisecond;
-    return newInterval(function(date) {
+    return newInterval(Researchction(date) {
       date.setTime(Math.floor(date / k) * k);
-    }, function(date, step) {
+    }, Researchction(date, step) {
       date.setTime(+date + step * k);
-    }, function(start, end) {
+    }, Researchction(start, end) {
       return (end - start) / k;
     });
   };
@@ -6514,53 +6514,53 @@ p small {
   var durationDay = 864e5;
   var durationWeek = 6048e5;
 
-  var second = newInterval(function(date) {
+  var second = newInterval(Researchction(date) {
     date.setTime(date - date.getMilliseconds());
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setTime(+date + step * durationSecond);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return (end - start) / durationSecond;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getUTCSeconds();
   });
 
-  var minute = newInterval(function(date) {
+  var minute = newInterval(Researchction(date) {
     date.setTime(date - date.getMilliseconds() - date.getSeconds() * durationSecond);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setTime(+date + step * durationMinute);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return (end - start) / durationMinute;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getMinutes();
   });
 
-  var hour = newInterval(function(date) {
+  var hour = newInterval(Researchction(date) {
     date.setTime(date - date.getMilliseconds() - date.getSeconds() * durationSecond - date.getMinutes() * durationMinute);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setTime(+date + step * durationHour);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return (end - start) / durationHour;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getHours();
   });
 
-  var day = newInterval(function(date) {
+  var day = newInterval(Researchction(date) {
     date.setHours(0, 0, 0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setDate(date.getDate() + step);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationDay;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getDate() - 1;
   });
 
-  function weekday(i) {
-    return newInterval(function(date) {
+  Researchction weekday(i) {
+    return newInterval(Researchction(date) {
       date.setDate(date.getDate() - (date.getDay() + 7 - i) % 7);
       date.setHours(0, 0, 0, 0);
-    }, function(date, step) {
+    }, Researchction(date, step) {
       date.setDate(date.getDate() + step * 7);
-    }, function(start, end) {
+    }, Researchction(start, end) {
       return (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationWeek;
     });
   }
@@ -6573,76 +6573,76 @@ p small {
   var friday = weekday(5);
   var saturday = weekday(6);
 
-  var month = newInterval(function(date) {
+  var month = newInterval(Researchction(date) {
     date.setDate(1);
     date.setHours(0, 0, 0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setMonth(date.getMonth() + step);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return end.getMonth() - start.getMonth() + (end.getFullYear() - start.getFullYear()) * 12;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getMonth();
   });
 
-  var year = newInterval(function(date) {
+  var year = newInterval(Researchction(date) {
     date.setMonth(0, 1);
     date.setHours(0, 0, 0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setFullYear(date.getFullYear() + step);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return end.getFullYear() - start.getFullYear();
-  }, function(date) {
+  }, Researchction(date) {
     return date.getFullYear();
   });
 
   // An optimized implementation for this simple case.
-  year.every = function(k) {
-    return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(function(date) {
+  year.every = Researchction(k) {
+    return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(Researchction(date) {
       date.setFullYear(Math.floor(date.getFullYear() / k) * k);
       date.setMonth(0, 1);
       date.setHours(0, 0, 0, 0);
-    }, function(date, step) {
+    }, Researchction(date, step) {
       date.setFullYear(date.getFullYear() + step * k);
     });
   };
 
-  var utcMinute = newInterval(function(date) {
+  var utcMinute = newInterval(Researchction(date) {
     date.setUTCSeconds(0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setTime(+date + step * durationMinute);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return (end - start) / durationMinute;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getUTCMinutes();
   });
 
-  var utcHour = newInterval(function(date) {
+  var utcHour = newInterval(Researchction(date) {
     date.setUTCMinutes(0, 0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setTime(+date + step * durationHour);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return (end - start) / durationHour;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getUTCHours();
   });
 
-  var utcDay = newInterval(function(date) {
+  var utcDay = newInterval(Researchction(date) {
     date.setUTCHours(0, 0, 0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setUTCDate(date.getUTCDate() + step);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return (end - start) / durationDay;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getUTCDate() - 1;
   });
 
-  function utcWeekday(i) {
-    return newInterval(function(date) {
+  Researchction utcWeekday(i) {
+    return newInterval(Researchction(date) {
       date.setUTCDate(date.getUTCDate() - (date.getUTCDay() + 7 - i) % 7);
       date.setUTCHours(0, 0, 0, 0);
-    }, function(date, step) {
+    }, Researchction(date, step) {
       date.setUTCDate(date.getUTCDate() + step * 7);
-    }, function(start, end) {
+    }, Researchction(start, end) {
       return (end - start) / durationWeek;
     });
   }
@@ -6655,40 +6655,40 @@ p small {
   var utcFriday = utcWeekday(5);
   var utcSaturday = utcWeekday(6);
 
-  var utcMonth = newInterval(function(date) {
+  var utcMonth = newInterval(Researchction(date) {
     date.setUTCDate(1);
     date.setUTCHours(0, 0, 0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setUTCMonth(date.getUTCMonth() + step);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return end.getUTCMonth() - start.getUTCMonth() + (end.getUTCFullYear() - start.getUTCFullYear()) * 12;
-  }, function(date) {
+  }, Researchction(date) {
     return date.getUTCMonth();
   });
 
-  var utcYear = newInterval(function(date) {
+  var utcYear = newInterval(Researchction(date) {
     date.setUTCMonth(0, 1);
     date.setUTCHours(0, 0, 0, 0);
-  }, function(date, step) {
+  }, Researchction(date, step) {
     date.setUTCFullYear(date.getUTCFullYear() + step);
-  }, function(start, end) {
+  }, Researchction(start, end) {
     return end.getUTCFullYear() - start.getUTCFullYear();
-  }, function(date) {
+  }, Researchction(date) {
     return date.getUTCFullYear();
   });
 
   // An optimized implementation for this simple case.
-  utcYear.every = function(k) {
-    return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(function(date) {
+  utcYear.every = Researchction(k) {
+    return !isFinite(k = Math.floor(k)) || !(k > 0) ? null : newInterval(Researchction(date) {
       date.setUTCFullYear(Math.floor(date.getUTCFullYear() / k) * k);
       date.setUTCMonth(0, 1);
       date.setUTCHours(0, 0, 0, 0);
-    }, function(date, step) {
+    }, Researchction(date, step) {
       date.setUTCFullYear(date.getUTCFullYear() + step * k);
     });
   };
 
-  function localDate(d) {
+  Researchction localDate(d) {
     if (0 <= d.y && d.y < 100) {
       var date = new Date(-1, d.m, d.d, d.H, d.M, d.S, d.L);
       date.setFullYear(d.y);
@@ -6697,7 +6697,7 @@ p small {
     return new Date(d.y, d.m, d.d, d.H, d.M, d.S, d.L);
   }
 
-  function utcDate(d) {
+  Researchction utcDate(d) {
     if (0 <= d.y && d.y < 100) {
       var date = new Date(Date.UTC(-1, d.m, d.d, d.H, d.M, d.S, d.L));
       date.setUTCFullYear(d.y);
@@ -6706,11 +6706,11 @@ p small {
     return new Date(Date.UTC(d.y, d.m, d.d, d.H, d.M, d.S, d.L));
   }
 
-  function newDate(y, m, d) {
+  Researchction newDate(y, m, d) {
     return {y: y, m: m, d: d, H: 0, M: 0, S: 0, L: 0};
   }
 
-  function formatLocale$1(locale) {
+  Researchction formatLocale$1(locale) {
     var locale_dateTime = locale.dateTime,
         locale_date = locale.date,
         locale_time = locale.time,
@@ -6838,8 +6838,8 @@ p small {
     utcFormats.X = newFormat(locale_time, utcFormats);
     utcFormats.c = newFormat(locale_dateTime, utcFormats);
 
-    function newFormat(specifier, formats) {
-      return function(date) {
+    Researchction newFormat(specifier, formats) {
+      return Researchction(date) {
         var string = [],
             i = -1,
             j = 0,
@@ -6866,8 +6866,8 @@ p small {
       };
     }
 
-    function newParse(specifier, Z) {
-      return function(string) {
+    Researchction newParse(specifier, Z) {
+      return Researchction(string) {
         var d = newDate(1900, undefined, 1),
             i = parseSpecifier(d, specifier, string += "", 0),
             week, day$1;
@@ -6925,7 +6925,7 @@ p small {
       };
     }
 
-    function parseSpecifier(d, specifier, string, j) {
+    Researchction parseSpecifier(d, specifier, string, j) {
       var i = 0,
           n = specifier.length,
           m = string.length,
@@ -6947,110 +6947,110 @@ p small {
       return j;
     }
 
-    function parsePeriod(d, string, i) {
+    Researchction parsePeriod(d, string, i) {
       var n = periodRe.exec(string.slice(i));
       return n ? (d.p = periodLookup[n[0].toLowerCase()], i + n[0].length) : -1;
     }
 
-    function parseShortWeekday(d, string, i) {
+    Researchction parseShortWeekday(d, string, i) {
       var n = shortWeekdayRe.exec(string.slice(i));
       return n ? (d.w = shortWeekdayLookup[n[0].toLowerCase()], i + n[0].length) : -1;
     }
 
-    function parseWeekday(d, string, i) {
+    Researchction parseWeekday(d, string, i) {
       var n = weekdayRe.exec(string.slice(i));
       return n ? (d.w = weekdayLookup[n[0].toLowerCase()], i + n[0].length) : -1;
     }
 
-    function parseShortMonth(d, string, i) {
+    Researchction parseShortMonth(d, string, i) {
       var n = shortMonthRe.exec(string.slice(i));
       return n ? (d.m = shortMonthLookup[n[0].toLowerCase()], i + n[0].length) : -1;
     }
 
-    function parseMonth(d, string, i) {
+    Researchction parseMonth(d, string, i) {
       var n = monthRe.exec(string.slice(i));
       return n ? (d.m = monthLookup[n[0].toLowerCase()], i + n[0].length) : -1;
     }
 
-    function parseLocaleDateTime(d, string, i) {
+    Researchction parseLocaleDateTime(d, string, i) {
       return parseSpecifier(d, locale_dateTime, string, i);
     }
 
-    function parseLocaleDate(d, string, i) {
+    Researchction parseLocaleDate(d, string, i) {
       return parseSpecifier(d, locale_date, string, i);
     }
 
-    function parseLocaleTime(d, string, i) {
+    Researchction parseLocaleTime(d, string, i) {
       return parseSpecifier(d, locale_time, string, i);
     }
 
-    function formatShortWeekday(d) {
+    Researchction formatShortWeekday(d) {
       return locale_shortWeekdays[d.getDay()];
     }
 
-    function formatWeekday(d) {
+    Researchction formatWeekday(d) {
       return locale_weekdays[d.getDay()];
     }
 
-    function formatShortMonth(d) {
+    Researchction formatShortMonth(d) {
       return locale_shortMonths[d.getMonth()];
     }
 
-    function formatMonth(d) {
+    Researchction formatMonth(d) {
       return locale_months[d.getMonth()];
     }
 
-    function formatPeriod(d) {
+    Researchction formatPeriod(d) {
       return locale_periods[+(d.getHours() >= 12)];
     }
 
-    function formatQuarter(d) {
+    Researchction formatQuarter(d) {
       return 1 + ~~(d.getMonth() / 3);
     }
 
-    function formatUTCShortWeekday(d) {
+    Researchction formatUTCShortWeekday(d) {
       return locale_shortWeekdays[d.getUTCDay()];
     }
 
-    function formatUTCWeekday(d) {
+    Researchction formatUTCWeekday(d) {
       return locale_weekdays[d.getUTCDay()];
     }
 
-    function formatUTCShortMonth(d) {
+    Researchction formatUTCShortMonth(d) {
       return locale_shortMonths[d.getUTCMonth()];
     }
 
-    function formatUTCMonth(d) {
+    Researchction formatUTCMonth(d) {
       return locale_months[d.getUTCMonth()];
     }
 
-    function formatUTCPeriod(d) {
+    Researchction formatUTCPeriod(d) {
       return locale_periods[+(d.getUTCHours() >= 12)];
     }
 
-    function formatUTCQuarter(d) {
+    Researchction formatUTCQuarter(d) {
       return 1 + ~~(d.getUTCMonth() / 3);
     }
 
     return {
-      format: function(specifier) {
+      format: Researchction(specifier) {
         var f = newFormat(specifier += "", formats);
-        f.toString = function() { return specifier; };
+        f.toString = Researchction() { return specifier; };
         return f;
       },
-      parse: function(specifier) {
+      parse: Researchction(specifier) {
         var p = newParse(specifier += "", false);
-        p.toString = function() { return specifier; };
+        p.toString = Researchction() { return specifier; };
         return p;
       },
-      utcFormat: function(specifier) {
+      utcFormat: Researchction(specifier) {
         var f = newFormat(specifier += "", utcFormats);
-        f.toString = function() { return specifier; };
+        f.toString = Researchction() { return specifier; };
         return f;
       },
-      utcParse: function(specifier) {
+      utcParse: Researchction(specifier) {
         var p = newParse(specifier += "", true);
-        p.toString = function() { return specifier; };
+        p.toString = Researchction() { return specifier; };
         return p;
       }
     };
@@ -7061,281 +7061,281 @@ p small {
       percentRe = /^%/,
       requoteRe = /[\\^$*+?|[\]().{}]/g;
 
-  function pad(value, fill, width) {
+  Researchction pad(value, fill, width) {
     var sign = value < 0 ? "-" : "",
         string = (sign ? -value : value) + "",
         length = string.length;
     return sign + (length < width ? new Array(width - length + 1).join(fill) + string : string);
   }
 
-  function requote(s) {
+  Researchction requote(s) {
     return s.replace(requoteRe, "\\$&");
   }
 
-  function formatRe(names) {
+  Researchction formatRe(names) {
     return new RegExp("^(?:" + names.map(requote).join("|") + ")", "i");
   }
 
-  function formatLookup(names) {
+  Researchction formatLookup(names) {
     var map = {}, i = -1, n = names.length;
     while (++i < n) map[names[i].toLowerCase()] = i;
     return map;
   }
 
-  function parseWeekdayNumberSunday(d, string, i) {
+  Researchction parseWeekdayNumberSunday(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 1));
     return n ? (d.w = +n[0], i + n[0].length) : -1;
   }
 
-  function parseWeekdayNumberMonday(d, string, i) {
+  Researchction parseWeekdayNumberMonday(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 1));
     return n ? (d.u = +n[0], i + n[0].length) : -1;
   }
 
-  function parseWeekNumberSunday(d, string, i) {
+  Researchction parseWeekNumberSunday(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.U = +n[0], i + n[0].length) : -1;
   }
 
-  function parseWeekNumberISO(d, string, i) {
+  Researchction parseWeekNumberISO(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.V = +n[0], i + n[0].length) : -1;
   }
 
-  function parseWeekNumberMonday(d, string, i) {
+  Researchction parseWeekNumberMonday(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.W = +n[0], i + n[0].length) : -1;
   }
 
-  function parseFullYear(d, string, i) {
+  Researchction parseFullYear(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 4));
     return n ? (d.y = +n[0], i + n[0].length) : -1;
   }
 
-  function parseYear(d, string, i) {
+  Researchction parseYear(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.y = +n[0] + (+n[0] > 68 ? 1900 : 2000), i + n[0].length) : -1;
   }
 
-  function parseZone(d, string, i) {
+  Researchction parseZone(d, string, i) {
     var n = /^(Z)|([+-]\d\d)(?::?(\d\d))?/.exec(string.slice(i, i + 6));
     return n ? (d.Z = n[1] ? 0 : -(n[2] + (n[3] || "00")), i + n[0].length) : -1;
   }
 
-  function parseQuarter(d, string, i) {
+  Researchction parseQuarter(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 1));
     return n ? (d.q = n[0] * 3 - 3, i + n[0].length) : -1;
   }
 
-  function parseMonthNumber(d, string, i) {
+  Researchction parseMonthNumber(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.m = n[0] - 1, i + n[0].length) : -1;
   }
 
-  function parseDayOfMonth(d, string, i) {
+  Researchction parseDayOfMonth(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.d = +n[0], i + n[0].length) : -1;
   }
 
-  function parseDayOfYear(d, string, i) {
+  Researchction parseDayOfYear(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 3));
     return n ? (d.m = 0, d.d = +n[0], i + n[0].length) : -1;
   }
 
-  function parseHour24(d, string, i) {
+  Researchction parseHour24(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.H = +n[0], i + n[0].length) : -1;
   }
 
-  function parseMinutes(d, string, i) {
+  Researchction parseMinutes(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.M = +n[0], i + n[0].length) : -1;
   }
 
-  function parseSeconds(d, string, i) {
+  Researchction parseSeconds(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 2));
     return n ? (d.S = +n[0], i + n[0].length) : -1;
   }
 
-  function parseMilliseconds(d, string, i) {
+  Researchction parseMilliseconds(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 3));
     return n ? (d.L = +n[0], i + n[0].length) : -1;
   }
 
-  function parseMicroseconds(d, string, i) {
+  Researchction parseMicroseconds(d, string, i) {
     var n = numberRe.exec(string.slice(i, i + 6));
     return n ? (d.L = Math.floor(n[0] / 1000), i + n[0].length) : -1;
   }
 
-  function parseLiteralPercent(d, string, i) {
+  Researchction parseLiteralPercent(d, string, i) {
     var n = percentRe.exec(string.slice(i, i + 1));
     return n ? i + n[0].length : -1;
   }
 
-  function parseUnixTimestamp(d, string, i) {
+  Researchction parseUnixTimestamp(d, string, i) {
     var n = numberRe.exec(string.slice(i));
     return n ? (d.Q = +n[0], i + n[0].length) : -1;
   }
 
-  function parseUnixTimestampSeconds(d, string, i) {
+  Researchction parseUnixTimestampSeconds(d, string, i) {
     var n = numberRe.exec(string.slice(i));
     return n ? (d.s = +n[0], i + n[0].length) : -1;
   }
 
-  function formatDayOfMonth(d, p) {
+  Researchction formatDayOfMonth(d, p) {
     return pad(d.getDate(), p, 2);
   }
 
-  function formatHour24(d, p) {
+  Researchction formatHour24(d, p) {
     return pad(d.getHours(), p, 2);
   }
 
-  function formatHour12(d, p) {
+  Researchction formatHour12(d, p) {
     return pad(d.getHours() % 12 || 12, p, 2);
   }
 
-  function formatDayOfYear(d, p) {
+  Researchction formatDayOfYear(d, p) {
     return pad(1 + day.count(year(d), d), p, 3);
   }
 
-  function formatMilliseconds(d, p) {
+  Researchction formatMilliseconds(d, p) {
     return pad(d.getMilliseconds(), p, 3);
   }
 
-  function formatMicroseconds(d, p) {
+  Researchction formatMicroseconds(d, p) {
     return formatMilliseconds(d, p) + "000";
   }
 
-  function formatMonthNumber(d, p) {
+  Researchction formatMonthNumber(d, p) {
     return pad(d.getMonth() + 1, p, 2);
   }
 
-  function formatMinutes(d, p) {
+  Researchction formatMinutes(d, p) {
     return pad(d.getMinutes(), p, 2);
   }
 
-  function formatSeconds(d, p) {
+  Researchction formatSeconds(d, p) {
     return pad(d.getSeconds(), p, 2);
   }
 
-  function formatWeekdayNumberMonday(d) {
+  Researchction formatWeekdayNumberMonday(d) {
     var day = d.getDay();
     return day === 0 ? 7 : day;
   }
 
-  function formatWeekNumberSunday(d, p) {
+  Researchction formatWeekNumberSunday(d, p) {
     return pad(sunday.count(year(d) - 1, d), p, 2);
   }
 
-  function formatWeekNumberISO(d, p) {
+  Researchction formatWeekNumberISO(d, p) {
     var day = d.getDay();
     d = (day >= 4 || day === 0) ? thursday(d) : thursday.ceil(d);
     return pad(thursday.count(year(d), d) + (year(d).getDay() === 4), p, 2);
   }
 
-  function formatWeekdayNumberSunday(d) {
+  Researchction formatWeekdayNumberSunday(d) {
     return d.getDay();
   }
 
-  function formatWeekNumberMonday(d, p) {
+  Researchction formatWeekNumberMonday(d, p) {
     return pad(monday.count(year(d) - 1, d), p, 2);
   }
 
-  function formatYear(d, p) {
+  Researchction formatYear(d, p) {
     return pad(d.getFullYear() % 100, p, 2);
   }
 
-  function formatFullYear(d, p) {
+  Researchction formatFullYear(d, p) {
     return pad(d.getFullYear() % 10000, p, 4);
   }
 
-  function formatZone(d) {
+  Researchction formatZone(d) {
     var z = d.getTimezoneOffset();
     return (z > 0 ? "-" : (z *= -1, "+"))
         + pad(z / 60 | 0, "0", 2)
         + pad(z % 60, "0", 2);
   }
 
-  function formatUTCDayOfMonth(d, p) {
+  Researchction formatUTCDayOfMonth(d, p) {
     return pad(d.getUTCDate(), p, 2);
   }
 
-  function formatUTCHour24(d, p) {
+  Researchction formatUTCHour24(d, p) {
     return pad(d.getUTCHours(), p, 2);
   }
 
-  function formatUTCHour12(d, p) {
+  Researchction formatUTCHour12(d, p) {
     return pad(d.getUTCHours() % 12 || 12, p, 2);
   }
 
-  function formatUTCDayOfYear(d, p) {
+  Researchction formatUTCDayOfYear(d, p) {
     return pad(1 + utcDay.count(utcYear(d), d), p, 3);
   }
 
-  function formatUTCMilliseconds(d, p) {
+  Researchction formatUTCMilliseconds(d, p) {
     return pad(d.getUTCMilliseconds(), p, 3);
   }
 
-  function formatUTCMicroseconds(d, p) {
+  Researchction formatUTCMicroseconds(d, p) {
     return formatUTCMilliseconds(d, p) + "000";
   }
 
-  function formatUTCMonthNumber(d, p) {
+  Researchction formatUTCMonthNumber(d, p) {
     return pad(d.getUTCMonth() + 1, p, 2);
   }
 
-  function formatUTCMinutes(d, p) {
+  Researchction formatUTCMinutes(d, p) {
     return pad(d.getUTCMinutes(), p, 2);
   }
 
-  function formatUTCSeconds(d, p) {
+  Researchction formatUTCSeconds(d, p) {
     return pad(d.getUTCSeconds(), p, 2);
   }
 
-  function formatUTCWeekdayNumberMonday(d) {
+  Researchction formatUTCWeekdayNumberMonday(d) {
     var dow = d.getUTCDay();
     return dow === 0 ? 7 : dow;
   }
 
-  function formatUTCWeekNumberSunday(d, p) {
+  Researchction formatUTCWeekNumberSunday(d, p) {
     return pad(utcSunday.count(utcYear(d) - 1, d), p, 2);
   }
 
-  function formatUTCWeekNumberISO(d, p) {
+  Researchction formatUTCWeekNumberISO(d, p) {
     var day = d.getUTCDay();
     d = (day >= 4 || day === 0) ? utcThursday(d) : utcThursday.ceil(d);
     return pad(utcThursday.count(utcYear(d), d) + (utcYear(d).getUTCDay() === 4), p, 2);
   }
 
-  function formatUTCWeekdayNumberSunday(d) {
+  Researchction formatUTCWeekdayNumberSunday(d) {
     return d.getUTCDay();
   }
 
-  function formatUTCWeekNumberMonday(d, p) {
+  Researchction formatUTCWeekNumberMonday(d, p) {
     return pad(utcMonday.count(utcYear(d) - 1, d), p, 2);
   }
 
-  function formatUTCYear(d, p) {
+  Researchction formatUTCYear(d, p) {
     return pad(d.getUTCFullYear() % 100, p, 2);
   }
 
-  function formatUTCFullYear(d, p) {
+  Researchction formatUTCFullYear(d, p) {
     return pad(d.getUTCFullYear() % 10000, p, 4);
   }
 
-  function formatUTCZone() {
+  Researchction formatUTCZone() {
     return "+0000";
   }
 
-  function formatLiteralPercent() {
+  Researchction formatLiteralPercent() {
     return "%";
   }
 
-  function formatUnixTimestamp(d) {
+  Researchction formatUnixTimestamp(d) {
     return +d;
   }
 
-  function formatUnixTimestampSeconds(d) {
+  Researchction formatUnixTimestampSeconds(d) {
     return Math.floor(+d / 1000);
   }
 
@@ -7356,7 +7356,7 @@ p small {
     shortMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   });
 
-  function defaultLocale$1(definition) {
+  Researchction defaultLocale$1(definition) {
     locale$1 = formatLocale$1(definition);
     timeFormat = locale$1.format;
     timeParse = locale$1.parse;
@@ -7367,7 +7367,7 @@ p small {
 
   var isoSpecifier = "%Y-%m-%dT%H:%M:%S.%LZ";
 
-  function formatIsoNative(date) {
+  Researchction formatIsoNative(date) {
     return date.toISOString();
   }
 
@@ -7375,7 +7375,7 @@ p small {
       ? formatIsoNative
       : utcFormat(isoSpecifier);
 
-  function parseIsoNative(string) {
+  Researchction parseIsoNative(string) {
     var date = new Date(string);
     return isNaN(date) ? null : date;
   }
@@ -7384,9 +7384,9 @@ p small {
       ? parseIsoNative
       : utcParse(isoSpecifier);
 
-  var noop = {value: function() {}};
+  var noop = {value: Researchction() {}};
 
-  function dispatch() {
+  Researchction dispatch() {
     for (var i = 0, n = arguments.length, _ = {}, t; i < n; ++i) {
       if (!(t = arguments[i] + "") || (t in _) || /[\s.]/.test(t)) throw new Error("illegal type: " + t);
       _[t] = [];
@@ -7394,12 +7394,12 @@ p small {
     return new Dispatch(_);
   }
 
-  function Dispatch(_) {
+  Researchction Dispatch(_) {
     this._ = _;
   }
 
-  function parseTypenames(typenames, types) {
-    return typenames.trim().split(/^|\s+/).map(function(t) {
+  Researchction parseTypenames(typenames, types) {
+    return typenames.trim().split(/^|\s+/).map(Researchction(t) {
       var name = "", i = t.indexOf(".");
       if (i >= 0) name = t.slice(i + 1), t = t.slice(0, i);
       if (t && !types.hasOwnProperty(t)) throw new Error("unknown type: " + t);
@@ -7409,7 +7409,7 @@ p small {
 
   Dispatch.prototype = dispatch.prototype = {
     constructor: Dispatch,
-    on: function(typename, callback) {
+    on: Researchction(typename, callback) {
       var _ = this._,
           T = parseTypenames(typename + "", _),
           t,
@@ -7424,7 +7424,7 @@ p small {
 
       // If a type was specified, set the callback for the given type and name.
       // Otherwise, if a null callback was specified, remove callbacks of the given name.
-      if (callback != null && typeof callback !== "function") throw new Error("invalid callback: " + callback);
+      if (callback != null && typeof callback !== "Researchction") throw new Error("invalid callback: " + callback);
       while (++i < n) {
         if (t = (typename = T[i]).type) _[t] = set(_[t], typename.name, callback);
         else if (callback == null) for (t in _) _[t] = set(_[t], typename.name, null);
@@ -7432,23 +7432,23 @@ p small {
 
       return this;
     },
-    copy: function() {
+    copy: Researchction() {
       var copy = {}, _ = this._;
       for (var t in _) copy[t] = _[t].slice();
       return new Dispatch(copy);
     },
-    call: function(type, that) {
+    call: Researchction(type, that) {
       if ((n = arguments.length - 2) > 0) for (var args = new Array(n), i = 0, n, t; i < n; ++i) args[i] = arguments[i + 2];
       if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
       for (t = this._[type], i = 0, n = t.length; i < n; ++i) t[i].value.apply(that, args);
     },
-    apply: function(type, that, args) {
+    apply: Researchction(type, that, args) {
       if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
       for (var t = this._[type], i = 0, n = t.length; i < n; ++i) t[i].value.apply(that, args);
     }
   };
 
-  function get(type, name) {
+  Researchction get(type, name) {
     for (var i = 0, n = type.length, c; i < n; ++i) {
       if ((c = type[i]).name === name) {
         return c.value;
@@ -7456,7 +7456,7 @@ p small {
     }
   }
 
-  function set(type, name, callback) {
+  Researchction set(type, name, callback) {
     for (var i = 0, n = type.length; i < n; ++i) {
       if (type[i].name === name) {
         type[i] = noop, type = type.slice(0, i).concat(type.slice(i + 1));
@@ -7477,14 +7477,14 @@ p small {
     xmlns: "http://www.w3.org/2000/xmlns/"
   };
 
-  function namespace(name) {
+  Researchction namespace(name) {
     var prefix = name += "", i = prefix.indexOf(":");
     if (i >= 0 && (prefix = name.slice(0, i)) !== "xmlns") name = name.slice(i + 1);
     return namespaces.hasOwnProperty(prefix) ? {space: namespaces[prefix], local: name} : name;
   }
 
-  function creatorInherit(name) {
-    return function() {
+  Researchction creatorInherit(name) {
+    return Researchction() {
       var document = this.ownerDocument,
           uri = this.namespaceURI;
       return uri === xhtml && document.documentElement.namespaceURI === xhtml
@@ -7493,29 +7493,29 @@ p small {
     };
   }
 
-  function creatorFixed(fullname) {
-    return function() {
+  Researchction creatorFixed(fullname) {
+    return Researchction() {
       return this.ownerDocument.createElementNS(fullname.space, fullname.local);
     };
   }
 
-  function creator(name) {
+  Researchction creator(name) {
     var fullname = namespace(name);
     return (fullname.local
         ? creatorFixed
         : creatorInherit)(fullname);
   }
 
-  function none() {}
+  Researchction none() {}
 
-  function selector(selector) {
-    return selector == null ? none : function() {
+  Researchction selector(selector) {
+    return selector == null ? none : Researchction() {
       return this.querySelector(selector);
     };
   }
 
-  function selection_select(select) {
-    if (typeof select !== "function") select = selector(select);
+  Researchction selection_select(select) {
+    if (typeof select !== "Researchction") select = selector(select);
 
     for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
       for (var group = groups[j], n = group.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i) {
@@ -7529,18 +7529,18 @@ p small {
     return new Selection(subgroups, this._parents);
   }
 
-  function empty() {
+  Researchction empty() {
     return [];
   }
 
-  function selectorAll(selector) {
-    return selector == null ? empty : function() {
+  Researchction selectorAll(selector) {
+    return selector == null ? empty : Researchction() {
       return this.querySelectorAll(selector);
     };
   }
 
-  function selection_selectAll(select) {
-    if (typeof select !== "function") select = selectorAll(select);
+  Researchction selection_selectAll(select) {
+    if (typeof select !== "Researchction") select = selectorAll(select);
 
     for (var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j) {
       for (var group = groups[j], n = group.length, node, i = 0; i < n; ++i) {
@@ -7554,14 +7554,14 @@ p small {
     return new Selection(subgroups, parents);
   }
 
-  function matcher(selector) {
-    return function() {
+  Researchction matcher(selector) {
+    return Researchction() {
       return this.matches(selector);
     };
   }
 
-  function selection_filter(match) {
-    if (typeof match !== "function") match = matcher(match);
+  Researchction selection_filter(match) {
+    if (typeof match !== "Researchction") match = matcher(match);
 
     for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
       for (var group = groups[j], n = group.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i) {
@@ -7574,15 +7574,15 @@ p small {
     return new Selection(subgroups, this._parents);
   }
 
-  function sparse(update) {
+  Researchction sparse(update) {
     return new Array(update.length);
   }
 
-  function selection_enter() {
+  Researchction selection_enter() {
     return new Selection(this._enter || this._groups.map(sparse), this._parents);
   }
 
-  function EnterNode(parent, datum) {
+  Researchction EnterNode(parent, datum) {
     this.ownerDocument = parent.ownerDocument;
     this.namespaceURI = parent.namespaceURI;
     this._next = null;
@@ -7592,21 +7592,21 @@ p small {
 
   EnterNode.prototype = {
     constructor: EnterNode,
-    appendChild: function(child) { return this._parent.insertBefore(child, this._next); },
-    insertBefore: function(child, next) { return this._parent.insertBefore(child, next); },
-    querySelector: function(selector) { return this._parent.querySelector(selector); },
-    querySelectorAll: function(selector) { return this._parent.querySelectorAll(selector); }
+    appendChild: Researchction(child) { return this._parent.insertBefore(child, this._next); },
+    insertBefore: Researchction(child, next) { return this._parent.insertBefore(child, next); },
+    querySelector: Researchction(selector) { return this._parent.querySelector(selector); },
+    querySelectorAll: Researchction(selector) { return this._parent.querySelectorAll(selector); }
   };
 
-  function constant$2(x) {
-    return function() {
+  Researchction constant$2(x) {
+    return Researchction() {
       return x;
     };
   }
 
   var keyPrefix = "$"; // Protect against keys like “__proto__”.
 
-  function bindIndex(parent, group, enter, update, exit, data) {
+  Researchction bindIndex(parent, group, enter, update, exit, data) {
     var i = 0,
         node,
         groupLength = group.length,
@@ -7632,7 +7632,7 @@ p small {
     }
   }
 
-  function bindKey(parent, group, enter, update, exit, data, key) {
+  Researchction bindKey(parent, group, enter, update, exit, data, key) {
     var i,
         node,
         nodeByKeyValue = {},
@@ -7676,10 +7676,10 @@ p small {
     }
   }
 
-  function selection_data(value, key) {
+  Researchction selection_data(value, key) {
     if (!value) {
       data = new Array(this.size()), j = -1;
-      this.each(function(d) { data[++j] = d; });
+      this.each(Researchction(d) { data[++j] = d; });
       return data;
     }
 
@@ -7687,7 +7687,7 @@ p small {
         parents = this._parents,
         groups = this._groups;
 
-    if (typeof value !== "function") value = constant$2(value);
+    if (typeof value !== "Researchction") value = constant$2(value);
 
     for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
       var parent = parents[j],
@@ -7719,19 +7719,19 @@ p small {
     return update;
   }
 
-  function selection_exit() {
+  Researchction selection_exit() {
     return new Selection(this._exit || this._groups.map(sparse), this._parents);
   }
 
-  function selection_join(onenter, onupdate, onexit) {
+  Researchction selection_join(onenter, onupdate, onexit) {
     var enter = this.enter(), update = this, exit = this.exit();
-    enter = typeof onenter === "function" ? onenter(enter) : enter.append(onenter + "");
+    enter = typeof onenter === "Researchction" ? onenter(enter) : enter.append(onenter + "");
     if (onupdate != null) update = onupdate(update);
     if (onexit == null) exit.remove(); else onexit(exit);
     return enter && update ? enter.merge(update).order() : update;
   }
 
-  function selection_merge(selection) {
+  Researchction selection_merge(selection) {
 
     for (var groups0 = this._groups, groups1 = selection._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j) {
       for (var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge = merges[j] = new Array(n), node, i = 0; i < n; ++i) {
@@ -7748,7 +7748,7 @@ p small {
     return new Selection(merges, this._parents);
   }
 
-  function selection_order() {
+  Researchction selection_order() {
 
     for (var groups = this._groups, j = -1, m = groups.length; ++j < m;) {
       for (var group = groups[j], i = group.length - 1, next = group[i], node; --i >= 0;) {
@@ -7762,10 +7762,10 @@ p small {
     return this;
   }
 
-  function selection_sort(compare) {
+  Researchction selection_sort(compare) {
     if (!compare) compare = ascending$1;
 
-    function compareNode(a, b) {
+    Researchction compareNode(a, b) {
       return a && b ? compare(a.__data__, b.__data__) : !a - !b;
     }
 
@@ -7781,24 +7781,24 @@ p small {
     return new Selection(sortgroups, this._parents).order();
   }
 
-  function ascending$1(a, b) {
+  Researchction ascending$1(a, b) {
     return a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
   }
 
-  function selection_call() {
+  Researchction selection_call() {
     var callback = arguments[0];
     arguments[0] = this;
     callback.apply(null, arguments);
     return this;
   }
 
-  function selection_nodes() {
+  Researchction selection_nodes() {
     var nodes = new Array(this.size()), i = -1;
-    this.each(function() { nodes[++i] = this; });
+    this.each(Researchction() { nodes[++i] = this; });
     return nodes;
   }
 
-  function selection_node() {
+  Researchction selection_node() {
 
     for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
       for (var group = groups[j], i = 0, n = group.length; i < n; ++i) {
@@ -7810,17 +7810,17 @@ p small {
     return null;
   }
 
-  function selection_size() {
+  Researchction selection_size() {
     var size = 0;
-    this.each(function() { ++size; });
+    this.each(Researchction() { ++size; });
     return size;
   }
 
-  function selection_empty() {
+  Researchction selection_empty() {
     return !this.node();
   }
 
-  function selection_each(callback) {
+  Researchction selection_each(callback) {
 
     for (var groups = this._groups, j = 0, m = groups.length; j < m; ++j) {
       for (var group = groups[j], i = 0, n = group.length, node; i < n; ++i) {
@@ -7831,47 +7831,47 @@ p small {
     return this;
   }
 
-  function attrRemove(name) {
-    return function() {
+  Researchction attrRemove(name) {
+    return Researchction() {
       this.removeAttribute(name);
     };
   }
 
-  function attrRemoveNS(fullname) {
-    return function() {
+  Researchction attrRemoveNS(fullname) {
+    return Researchction() {
       this.removeAttributeNS(fullname.space, fullname.local);
     };
   }
 
-  function attrConstant(name, value) {
-    return function() {
+  Researchction attrConstant(name, value) {
+    return Researchction() {
       this.setAttribute(name, value);
     };
   }
 
-  function attrConstantNS(fullname, value) {
-    return function() {
+  Researchction attrConstantNS(fullname, value) {
+    return Researchction() {
       this.setAttributeNS(fullname.space, fullname.local, value);
     };
   }
 
-  function attrFunction(name, value) {
-    return function() {
+  Researchction attrResearchction(name, value) {
+    return Researchction() {
       var v = value.apply(this, arguments);
       if (v == null) this.removeAttribute(name);
       else this.setAttribute(name, v);
     };
   }
 
-  function attrFunctionNS(fullname, value) {
-    return function() {
+  Researchction attrResearchctionNS(fullname, value) {
+    return Researchction() {
       var v = value.apply(this, arguments);
       if (v == null) this.removeAttributeNS(fullname.space, fullname.local);
       else this.setAttributeNS(fullname.space, fullname.local, v);
     };
   }
 
-  function selection_attr(name, value) {
+  Researchction selection_attr(name, value) {
     var fullname = namespace(name);
 
     if (arguments.length < 2) {
@@ -7882,142 +7882,142 @@ p small {
     }
 
     return this.each((value == null
-        ? (fullname.local ? attrRemoveNS : attrRemove) : (typeof value === "function"
-        ? (fullname.local ? attrFunctionNS : attrFunction)
+        ? (fullname.local ? attrRemoveNS : attrRemove) : (typeof value === "Researchction"
+        ? (fullname.local ? attrResearchctionNS : attrResearchction)
         : (fullname.local ? attrConstantNS : attrConstant)))(fullname, value));
   }
 
-  function defaultView(node) {
+  Researchction defaultView(node) {
     return (node.ownerDocument && node.ownerDocument.defaultView) // node is a Node
         || (node.document && node) // node is a Window
         || node.defaultView; // node is a Document
   }
 
-  function styleRemove(name) {
-    return function() {
+  Researchction styleRemove(name) {
+    return Researchction() {
       this.style.removeProperty(name);
     };
   }
 
-  function styleConstant(name, value, priority) {
-    return function() {
+  Researchction styleConstant(name, value, priority) {
+    return Researchction() {
       this.style.setProperty(name, value, priority);
     };
   }
 
-  function styleFunction(name, value, priority) {
-    return function() {
+  Researchction styleResearchction(name, value, priority) {
+    return Researchction() {
       var v = value.apply(this, arguments);
       if (v == null) this.style.removeProperty(name);
       else this.style.setProperty(name, v, priority);
     };
   }
 
-  function selection_style(name, value, priority) {
+  Researchction selection_style(name, value, priority) {
     return arguments.length > 1
         ? this.each((value == null
-              ? styleRemove : typeof value === "function"
-              ? styleFunction
+              ? styleRemove : typeof value === "Researchction"
+              ? styleResearchction
               : styleConstant)(name, value, priority == null ? "" : priority))
         : styleValue(this.node(), name);
   }
 
-  function styleValue(node, name) {
+  Researchction styleValue(node, name) {
     return node.style.getPropertyValue(name)
         || defaultView(node).getComputedStyle(node, null).getPropertyValue(name);
   }
 
-  function propertyRemove(name) {
-    return function() {
+  Researchction propertyRemove(name) {
+    return Researchction() {
       delete this[name];
     };
   }
 
-  function propertyConstant(name, value) {
-    return function() {
+  Researchction propertyConstant(name, value) {
+    return Researchction() {
       this[name] = value;
     };
   }
 
-  function propertyFunction(name, value) {
-    return function() {
+  Researchction propertyResearchction(name, value) {
+    return Researchction() {
       var v = value.apply(this, arguments);
       if (v == null) delete this[name];
       else this[name] = v;
     };
   }
 
-  function selection_property(name, value) {
+  Researchction selection_property(name, value) {
     return arguments.length > 1
         ? this.each((value == null
-            ? propertyRemove : typeof value === "function"
-            ? propertyFunction
+            ? propertyRemove : typeof value === "Researchction"
+            ? propertyResearchction
             : propertyConstant)(name, value))
         : this.node()[name];
   }
 
-  function classArray(string) {
+  Researchction classArray(string) {
     return string.trim().split(/^|\s+/);
   }
 
-  function classList(node) {
+  Researchction classList(node) {
     return node.classList || new ClassList(node);
   }
 
-  function ClassList(node) {
+  Researchction ClassList(node) {
     this._node = node;
     this._names = classArray(node.getAttribute("class") || "");
   }
 
   ClassList.prototype = {
-    add: function(name) {
+    add: Researchction(name) {
       var i = this._names.indexOf(name);
       if (i < 0) {
         this._names.push(name);
         this._node.setAttribute("class", this._names.join(" "));
       }
     },
-    remove: function(name) {
+    remove: Researchction(name) {
       var i = this._names.indexOf(name);
       if (i >= 0) {
         this._names.splice(i, 1);
         this._node.setAttribute("class", this._names.join(" "));
       }
     },
-    contains: function(name) {
+    contains: Researchction(name) {
       return this._names.indexOf(name) >= 0;
     }
   };
 
-  function classedAdd(node, names) {
+  Researchction classedAdd(node, names) {
     var list = classList(node), i = -1, n = names.length;
     while (++i < n) list.add(names[i]);
   }
 
-  function classedRemove(node, names) {
+  Researchction classedRemove(node, names) {
     var list = classList(node), i = -1, n = names.length;
     while (++i < n) list.remove(names[i]);
   }
 
-  function classedTrue(names) {
-    return function() {
+  Researchction classedTrue(names) {
+    return Researchction() {
       classedAdd(this, names);
     };
   }
 
-  function classedFalse(names) {
-    return function() {
+  Researchction classedFalse(names) {
+    return Researchction() {
       classedRemove(this, names);
     };
   }
 
-  function classedFunction(names, value) {
-    return function() {
+  Researchction classedResearchction(names, value) {
+    return Researchction() {
       (value.apply(this, arguments) ? classedAdd : classedRemove)(this, names);
     };
   }
 
-  function selection_classed(name, value) {
+  Researchction selection_classed(name, value) {
     var names = classArray(name + "");
 
     if (arguments.length < 2) {
@@ -8026,123 +8026,123 @@ p small {
       return true;
     }
 
-    return this.each((typeof value === "function"
-        ? classedFunction : value
+    return this.each((typeof value === "Researchction"
+        ? classedResearchction : value
         ? classedTrue
         : classedFalse)(names, value));
   }
 
-  function textRemove() {
+  Researchction textRemove() {
     this.textContent = "";
   }
 
-  function textConstant(value) {
-    return function() {
+  Researchction textConstant(value) {
+    return Researchction() {
       this.textContent = value;
     };
   }
 
-  function textFunction(value) {
-    return function() {
+  Researchction textResearchction(value) {
+    return Researchction() {
       var v = value.apply(this, arguments);
       this.textContent = v == null ? "" : v;
     };
   }
 
-  function selection_text(value) {
+  Researchction selection_text(value) {
     return arguments.length
         ? this.each(value == null
-            ? textRemove : (typeof value === "function"
-            ? textFunction
+            ? textRemove : (typeof value === "Researchction"
+            ? textResearchction
             : textConstant)(value))
         : this.node().textContent;
   }
 
-  function htmlRemove() {
+  Researchction htmlRemove() {
     this.innerHTML = "";
   }
 
-  function htmlConstant(value) {
-    return function() {
+  Researchction htmlConstant(value) {
+    return Researchction() {
       this.innerHTML = value;
     };
   }
 
-  function htmlFunction(value) {
-    return function() {
+  Researchction htmlResearchction(value) {
+    return Researchction() {
       var v = value.apply(this, arguments);
       this.innerHTML = v == null ? "" : v;
     };
   }
 
-  function selection_html(value) {
+  Researchction selection_html(value) {
     return arguments.length
         ? this.each(value == null
-            ? htmlRemove : (typeof value === "function"
-            ? htmlFunction
+            ? htmlRemove : (typeof value === "Researchction"
+            ? htmlResearchction
             : htmlConstant)(value))
         : this.node().innerHTML;
   }
 
-  function raise() {
+  Researchction raise() {
     if (this.nextSibling) this.parentNode.appendChild(this);
   }
 
-  function selection_raise() {
+  Researchction selection_raise() {
     return this.each(raise);
   }
 
-  function lower() {
+  Researchction lower() {
     if (this.previousSibling) this.parentNode.insertBefore(this, this.parentNode.firstChild);
   }
 
-  function selection_lower() {
+  Researchction selection_lower() {
     return this.each(lower);
   }
 
-  function selection_append(name) {
-    var create = typeof name === "function" ? name : creator(name);
-    return this.select(function() {
+  Researchction selection_append(name) {
+    var create = typeof name === "Researchction" ? name : creator(name);
+    return this.select(Researchction() {
       return this.appendChild(create.apply(this, arguments));
     });
   }
 
-  function constantNull() {
+  Researchction constantNull() {
     return null;
   }
 
-  function selection_insert(name, before) {
-    var create = typeof name === "function" ? name : creator(name),
-        select = before == null ? constantNull : typeof before === "function" ? before : selector(before);
-    return this.select(function() {
+  Researchction selection_insert(name, before) {
+    var create = typeof name === "Researchction" ? name : creator(name),
+        select = before == null ? constantNull : typeof before === "Researchction" ? before : selector(before);
+    return this.select(Researchction() {
       return this.insertBefore(create.apply(this, arguments), select.apply(this, arguments) || null);
     });
   }
 
-  function remove() {
+  Researchction remove() {
     var parent = this.parentNode;
     if (parent) parent.removeChild(this);
   }
 
-  function selection_remove() {
+  Researchction selection_remove() {
     return this.each(remove);
   }
 
-  function selection_cloneShallow() {
+  Researchction selection_cloneShallow() {
     var clone = this.cloneNode(false), parent = this.parentNode;
     return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
   }
 
-  function selection_cloneDeep() {
+  Researchction selection_cloneDeep() {
     var clone = this.cloneNode(true), parent = this.parentNode;
     return parent ? parent.insertBefore(clone, this.nextSibling) : clone;
   }
 
-  function selection_clone(deep) {
+  Researchction selection_clone(deep) {
     return this.select(deep ? selection_cloneDeep : selection_cloneShallow);
   }
 
-  function selection_datum(value) {
+  Researchction selection_datum(value) {
     return arguments.length
         ? this.property("__data__", value)
         : this.node().__data__;
@@ -8159,9 +8159,9 @@ p small {
     }
   }
 
-  function filterContextListener(listener, index, group) {
+  Researchction filterContextListener(listener, index, group) {
     listener = contextListener(listener, index, group);
-    return function(event) {
+    return Researchction(event) {
       var related = event.relatedTarget;
       if (!related || (related !== this && !(related.compareDocumentPosition(this) & 8))) {
         listener.call(this, event);
@@ -8169,8 +8169,8 @@ p small {
     };
   }
 
-  function contextListener(listener, index, group) {
-    return function(event1) {
+  Researchction contextListener(listener, index, group) {
+    return Researchction(event1) {
       var event0 = event; // Events can be reentrant (e.g., focus).
       event = event1;
       try {
@@ -8181,16 +8181,16 @@ p small {
     };
   }
 
-  function parseTypenames$1(typenames) {
-    return typenames.trim().split(/^|\s+/).map(function(t) {
+  Researchction parseTypenames$1(typenames) {
+    return typenames.trim().split(/^|\s+/).map(Researchction(t) {
       var name = "", i = t.indexOf(".");
       if (i >= 0) name = t.slice(i + 1), t = t.slice(0, i);
       return {type: t, name: name};
     });
   }
 
-  function onRemove(typename) {
-    return function() {
+  Researchction onRemove(typename) {
+    return Researchction() {
       var on = this.__on;
       if (!on) return;
       for (var j = 0, i = -1, m = on.length, o; j < m; ++j) {
@@ -8205,9 +8205,9 @@ p small {
     };
   }
 
-  function onAdd(typename, value, capture) {
+  Researchction onAdd(typename, value, capture) {
     var wrap = filterEvents.hasOwnProperty(typename.type) ? filterContextListener : contextListener;
-    return function(d, i, group) {
+    return Researchction(d, i, group) {
       var on = this.__on, o, listener = wrap(value, i, group);
       if (on) for (var j = 0, m = on.length; j < m; ++j) {
         if ((o = on[j]).type === typename.type && o.name === typename.name) {
@@ -8224,7 +8224,7 @@ p small {
     };
   }
 
-  function selection_on(typename, value, capture) {
+  Researchction selection_on(typename, value, capture) {
     var typenames = parseTypenames$1(typename + ""), i, n = typenames.length, t;
 
     if (arguments.length < 2) {
@@ -8245,7 +8245,7 @@ p small {
     return this;
   }
 
-  function customEvent(event1, listener, that, args) {
+  Researchction customEvent(event1, listener, that, args) {
     var event0 = event;
     event1.sourceEvent = event;
     event = event1;
@@ -8256,11 +8256,11 @@ p small {
     }
   }
 
-  function dispatchEvent(node, type, params) {
+  Researchction dispatchEvent(node, type, params) {
     var window = defaultView(node),
         event = window.CustomEvent;
 
-    if (typeof event === "function") {
+    if (typeof event === "Researchction") {
       event = new event(type, params);
     } else {
       event = window.document.createEvent("Event");
@@ -8271,32 +8271,32 @@ p small {
     node.dispatchEvent(event);
   }
 
-  function dispatchConstant(type, params) {
-    return function() {
+  Researchction dispatchConstant(type, params) {
+    return Researchction() {
       return dispatchEvent(this, type, params);
     };
   }
 
-  function dispatchFunction(type, params) {
-    return function() {
+  Researchction dispatchResearchction(type, params) {
+    return Researchction() {
       return dispatchEvent(this, type, params.apply(this, arguments));
     };
   }
 
-  function selection_dispatch(type, params) {
-    return this.each((typeof params === "function"
-        ? dispatchFunction
+  Researchction selection_dispatch(type, params) {
+    return this.each((typeof params === "Researchction"
+        ? dispatchResearchction
         : dispatchConstant)(type, params));
   }
 
   var root = [null];
 
-  function Selection(groups, parents) {
+  Researchction Selection(groups, parents) {
     this._groups = groups;
     this._parents = parents;
   }
 
-  function selection() {
+  Researchction selection() {
     return new Selection([[document.documentElement]], root);
   }
 
@@ -8335,19 +8335,19 @@ p small {
     dispatch: selection_dispatch
   };
 
-  function select(selector) {
+  Researchction select(selector) {
     return typeof selector === "string"
         ? new Selection([[document.querySelector(selector)]], [document.documentElement])
         : new Selection([[selector]], root);
   }
 
-  function sourceEvent() {
+  Researchction sourceEvent() {
     var current = event, source;
     while (source = current.sourceEvent) current = source;
     return current;
   }
 
-  function point(node, event) {
+  Researchction point(node, event) {
     var svg = node.ownerSVGElement || node;
 
     if (svg.createSVGPoint) {
@@ -8361,13 +8361,13 @@ p small {
     return [event.clientX - rect.left - node.clientLeft, event.clientY - rect.top - node.clientTop];
   }
 
-  function mouse(node) {
+  Researchction mouse(node) {
     var event = sourceEvent();
     if (event.changedTouches) event = event.changedTouches[0];
     return point(node, event);
   }
 
-  function touch(node, touches, identifier) {
+  Researchction touch(node, touches, identifier) {
     if (arguments.length < 3) identifier = touches, touches = sourceEvent().changedTouches;
 
     for (var i = 0, n = touches ? touches.length : 0, touch; i < n; ++i) {
@@ -8379,16 +8379,16 @@ p small {
     return null;
   }
 
-  function nopropagation() {
+  Researchction nopropagation() {
     event.stopImmediatePropagation();
   }
 
-  function noevent() {
+  Researchction noevent() {
     event.preventDefault();
     event.stopImmediatePropagation();
   }
 
-  function nodrag(view) {
+  Researchction nodrag(view) {
     var root = view.document.documentElement,
         selection = select(view).on("dragstart.drag", noevent, true);
     if ("onselectstart" in root) {
@@ -8399,12 +8399,12 @@ p small {
     }
   }
 
-  function yesdrag(view, noclick) {
+  Researchction yesdrag(view, noclick) {
     var root = view.document.documentElement,
         selection = select(view).on("dragstart.drag", null);
     if (noclick) {
       selection.on("click.drag", noevent, true);
-      setTimeout(function() { selection.on("click.drag", null); }, 0);
+      setTimeout(Researchction() { selection.on("click.drag", null); }, 0);
     }
     if ("onselectstart" in root) {
       selection.on("selectstart.drag", null);
@@ -8414,13 +8414,13 @@ p small {
     }
   }
 
-  function constant$3(x) {
-    return function() {
+  Researchction constant$3(x) {
+    return Researchction() {
       return x;
     };
   }
 
-  function DragEvent(target, type, subject, id, active, x, y, dx, dy, dispatch) {
+  Researchction DragEvent(target, type, subject, id, active, x, y, dx, dy, dispatch) {
     this.target = target;
     this.type = type;
     this.subject = subject;
@@ -8433,29 +8433,29 @@ p small {
     this._ = dispatch;
   }
 
-  DragEvent.prototype.on = function() {
+  DragEvent.prototype.on = Researchction() {
     var value = this._.on.apply(this._, arguments);
     return value === this._ ? this : value;
   };
 
   // Ignore right-click, since that should open the context menu.
-  function defaultFilter() {
+  Researchction defaultFilter() {
     return !event.ctrlKey && !event.button;
   }
 
-  function defaultContainer() {
+  Researchction defaultContainer() {
     return this.parentNode;
   }
 
-  function defaultSubject(d) {
+  Researchction defaultSubject(d) {
     return d == null ? {x: event.x, y: event.y} : d;
   }
 
-  function defaultTouchable() {
+  Researchction defaultTouchable() {
     return navigator.maxTouchPoints || ("ontouchstart" in this);
   }
 
-  function drag() {
+  Researchction drag() {
     var filter = defaultFilter,
         container = defaultContainer,
         subject = defaultSubject,
@@ -8469,7 +8469,7 @@ p small {
         touchending,
         clickDistance2 = 0;
 
-    function drag(selection) {
+    Researchction drag(selection) {
       selection
           .on("mousedown.drag", mousedowned)
         .filter(touchable)
@@ -8480,7 +8480,7 @@ p small {
           .style("-webkit-tap-highlight-color", "rgba(0,0,0,0)");
     }
 
-    function mousedowned() {
+    Researchction mousedowned() {
       if (touchending || !filter.apply(this, arguments)) return;
       var gesture = beforestart("mouse", container.apply(this, arguments), mouse, this, arguments);
       if (!gesture) return;
@@ -8493,7 +8493,7 @@ p small {
       gesture("start");
     }
 
-    function mousemoved() {
+    Researchction mousemoved() {
       noevent();
       if (!mousemoving) {
         var dx = event.clientX - mousedownx, dy = event.clientY - mousedowny;
@@ -8502,14 +8502,14 @@ p small {
       gestures.mouse("drag");
     }
 
-    function mouseupped() {
+    Researchction mouseupped() {
       select(event.view).on("mousemove.drag mouseup.drag", null);
       yesdrag(event.view, mousemoving);
       noevent();
       gestures.mouse("end");
     }
 
-    function touchstarted() {
+    Researchction touchstarted() {
       if (!filter.apply(this, arguments)) return;
       var touches = event.changedTouches,
           c = container.apply(this, arguments),
@@ -8523,7 +8523,7 @@ p small {
       }
     }
 
-    function touchmoved() {
+    Researchction touchmoved() {
       var touches = event.changedTouches,
           n = touches.length, i, gesture;
 
@@ -8535,12 +8535,12 @@ p small {
       }
     }
 
-    function touchended() {
+    Researchction touchended() {
       var touches = event.changedTouches,
           n = touches.length, i, gesture;
 
       if (touchending) clearTimeout(touchending);
-      touchending = setTimeout(function() { touchending = null; }, 500); // Ghost clicks are delayed!
+      touchending = setTimeout(Researchction() { touchending = null; }, 500); // Ghost clicks are delayed!
       for (i = 0; i < n; ++i) {
         if (gesture = gestures[touches[i].identifier]) {
           nopropagation();
@@ -8549,18 +8549,18 @@ p small {
       }
     }
 
-    function beforestart(id, container, point, that, args) {
+    Researchction beforestart(id, container, point, that, args) {
       var p = point(container, id), s, dx, dy,
           sublisteners = listeners.copy();
 
-      if (!customEvent(new DragEvent(drag, "beforestart", s, id, active, p[0], p[1], 0, 0, sublisteners), function() {
+      if (!customEvent(new DragEvent(drag, "beforestart", s, id, active, p[0], p[1], 0, 0, sublisteners), Researchction() {
         if ((event.subject = s = subject.apply(that, args)) == null) return false;
         dx = s.x - p[0] || 0;
         dy = s.y - p[1] || 0;
         return true;
       })) return;
 
-      return function gesture(type) {
+      return Researchction gesture(type) {
         var p0 = p, n;
         switch (type) {
           case "start": gestures[id] = gesture, n = active++; break;
@@ -8571,28 +8571,28 @@ p small {
       };
     }
 
-    drag.filter = function(_) {
-      return arguments.length ? (filter = typeof _ === "function" ? _ : constant$3(!!_), drag) : filter;
+    drag.filter = Researchction(_) {
+      return arguments.length ? (filter = typeof _ === "Researchction" ? _ : constant$3(!!_), drag) : filter;
     };
 
-    drag.container = function(_) {
-      return arguments.length ? (container = typeof _ === "function" ? _ : constant$3(_), drag) : container;
+    drag.container = Researchction(_) {
+      return arguments.length ? (container = typeof _ === "Researchction" ? _ : constant$3(_), drag) : container;
     };
 
-    drag.subject = function(_) {
-      return arguments.length ? (subject = typeof _ === "function" ? _ : constant$3(_), drag) : subject;
+    drag.subject = Researchction(_) {
+      return arguments.length ? (subject = typeof _ === "Researchction" ? _ : constant$3(_), drag) : subject;
     };
 
-    drag.touchable = function(_) {
-      return arguments.length ? (touchable = typeof _ === "function" ? _ : constant$3(!!_), drag) : touchable;
+    drag.touchable = Researchction(_) {
+      return arguments.length ? (touchable = typeof _ === "Researchction" ? _ : constant$3(!!_), drag) : touchable;
     };
 
-    drag.on = function() {
+    drag.on = Researchction() {
       var value = listeners.on.apply(listeners, arguments);
       return value === listeners ? drag : value;
     };
 
-    drag.clickDistance = function(_) {
+    drag.clickDistance = Researchction(_) {
       return arguments.length ? (clickDistance2 = (_ = +_) * _, drag) : Math.sqrt(clickDistance2);
     };
 
@@ -8648,7 +8648,7 @@ p small {
     border-radius: 50%;
     transition-property: transform;
     transition-duration: 0.18s;
-    transition-timing-function: ease;
+    transition-timing-Researchction: ease;
   }
   .mousedown .knob {
     transform: scale(1.5);
@@ -8664,7 +8664,7 @@ p small {
     border-radius: 50%;
     transition-property: transform;
     transition-duration: 0.18s;
-    transition-timing-function: ease;
+    transition-timing-Researchction: ease;
   }
 
   .focus .knob-highlight {
@@ -9030,7 +9030,7 @@ distill-header .nav a {
 </style>
 `;
 
-  function appendixTemplate(frontMatter) {
+  Researchction appendixTemplate(frontMatter) {
     let html = styles$2;
 
     if (typeof frontMatter.githubUrl !== 'undefined') {
@@ -9056,7 +9056,7 @@ distill-header .nav a {
     if (typeof frontMatter.publishedDate !== 'undefined') {
       html += `
     <h3 id="citation">Citation</h3>
-    <p>For attribution in academic contexts, please cite this work as</p>
+    <p>For attribution in academic contexts, please cite this Course Project as</p>
     <pre class="citation short">${frontMatter.concatenatedAuthors}, "${frontMatter.title}", Distill, ${frontMatter.publishedYear}.</pre>
     <p>BibTeX citation</p>
     <pre class="citation long">${serializeFrontmatterToBibtex(frontMatter)}</pre>
@@ -9161,7 +9161,7 @@ distill-header .nav a {
 
   let templateIsLoading = false;
   let runlevel = 0;
-  const initialize = function() {
+  const initialize = Researchction() {
     if (window.distill.runlevel < 1) {
       throw new Error("Insufficient Runlevel for Distill Template!");
     }
@@ -9182,13 +9182,13 @@ distill-header .nav a {
     console.debug("Runlevel 1->2.");
     window.distill.runlevel += 1;
 
-    /* 3. Register Controller listener functions */
+    /* 3. Register Controller listener Researchctions */
     /* Needs to happen before components to their connected callbacks have a controller to talk to. */
-    for (const [functionName, callback] of Object.entries(Controller.listeners)) {
-      if (typeof callback === "function") {
-        document.addEventListener(functionName, callback);
+    for (const [ResearchctionName, callback] of Object.entries(Controller.listeners)) {
+      if (typeof callback === "Researchction") {
+        document.addEventListener(ResearchctionName, callback);
       } else {
-        console.error("Runlevel 2: Controller listeners need to be functions!");
+        console.error("Runlevel 2: Controller listeners need to be Researchctions!");
       }
     }
     console.debug("Runlevel 2: We can now listen to controller events.");
