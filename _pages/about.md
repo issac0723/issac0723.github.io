@@ -11,7 +11,7 @@ profile:
   address: >
     <a href='https://docs.google.com/document/d/12DppdZr1bza1_9fE35IVtk3m3LTnYSHs/edit?usp=sharing&ouid=100460228826122731942&rtpof=true&sd=true'>CV</a>
     <p>M.S student</p>
-    <p>Informatics @UC Irvin</p>
+    <p>Informatics @UC Irvine</p>
     <p>She/Her</p>
     <p>junz22 at uci dot edu</p>
 
