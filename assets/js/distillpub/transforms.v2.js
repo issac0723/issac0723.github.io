@@ -1,8 +1,8 @@
-(Researchction (global, factory) {
+(function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('fs')) :
-  typeof define === 'Researchction' && define.amd ? define(['exports', 'fs'], factory) :
+  typeof define === 'function' && define.amd ? define(['exports', 'fs'], factory) :
   (global = global || self, factory(global.dl = {}, global.fs));
-}(this, (Researchction (exports, fs) { 'use strict';
+}(this, (function (exports, fs) { 'use strict';
 
   fs = fs && Object.prototype.hasOwnProperty.call(fs, 'default') ? fs['default'] : fs;
 
@@ -24,7 +24,7 @@
   const months = ['Jan.', 'Feb.', 'March', 'April', 'May', 'June', 'July', 'Aug.', 'Sept.', 'Oct.', 'Nov.', 'Dec.'];
   const zeroPad = n => n < 10 ? '0' + n : n;
 
-  const RFC = Researchction(date) {
+  const RFC = function(date) {
     const day = days[date.getDay()].substring(0, 3);
     const paddedDate = zeroPad(date.getDate());
     const month = months[date.getMonth()].substring(0,3);
@@ -35,14 +35,14 @@
     return `${day}, ${paddedDate} ${month} ${year} ${hours}:${minutes}:${seconds} Z`;
   };
 
-  const objectFromMap = Researchction(map) {
+  const objectFromMap = function(map) {
     const object = Array.from(map).reduce((object, [key, value]) => (
       Object.assign(object, { [key]: value }) // Be careful! Maps can have non-String keys; object literals can't.
     ), {});
     return object;
   };
 
-  const mapFromObject = Researchction(object) {
+  const mapFromObject = function(object) {
     const map = new Map();
     for (var property in object) {
       if (object.hasOwnProperty(property)) {
@@ -82,7 +82,7 @@
     }
   }
 
-  Researchction mergeFromYMLFrontmatter(target, source) {
+  function mergeFromYMLFrontmatter(target, source) {
     target.title = source.title;
     if (source.published) {
       if (source.published instanceof Date) {
@@ -111,7 +111,7 @@
 
   class FrontMatter {
     constructor() {
-      this.title = 'unnamed article'; // 'Attention and Augmented Recurrent Neural NetCourse Projects'
+      this.title = 'unnamed article'; // 'Attention and Augmented Recurrent Neural Networks'
       this.description = ''; // 'A visual overview of neural attention...'
       this.authors = []; // Array of Author(s)
 
@@ -119,7 +119,7 @@
       this.bibliographyParsed = false;
       //  {
       //    'gregor2015draw': {
-      //      'title': 'DRAW: A recurrent neural netCourse Project for image generation',
+      //      'title': 'DRAW: A recurrent neural network for image generation',
       //      'author': 'Gregor, Karol and Danihelka, Ivo and Graves, Alex and Rezende, Danilo Jimenez and Wierstra, Daan',
       //      'journal': 'arXiv preprint arXiv:1502.04623',
       //      'year': '2015',
@@ -153,7 +153,7 @@
       //    'abbrev_title': 'Distill',
       //    'url': 'http://distill.pub',
       //    'doi': '10.23915/distill',
-      //    'publisherName': 'Distill Course Projecting Group',
+      //    'publisherName': 'Distill Working Group',
       //    'publisherEmail': 'admin@distill.pub',
       //    'issn': '2476-0757',
       //    'editors': [...],
@@ -176,7 +176,7 @@
     }
 
     // Example:
-    // title: Demo Title Attention and Augmented Recurrent Neural NetCourse Projects
+    // title: Demo Title Attention and Augmented Recurrent Neural Networks
     // published: Jan 10, 2017
     // authors:
     // - Chris Olah:
@@ -367,7 +367,7 @@
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-  Researchction _moveLegacyAffiliationFormatIntoArray(frontMatter) {
+  function _moveLegacyAffiliationFormatIntoArray(frontMatter) {
     // authors used to have propoerties "affiliation" and "affiliationURL".
     // We now encourage using an array for affiliations containing objects with
     // properties "name" and "url".
@@ -388,7 +388,7 @@
     return frontMatter
   }
 
-  Researchction parseFrontmatter(element) {
+  function parseFrontmatter(element) {
     const scriptTag = element.firstElementChild;
     if (scriptTag) {
       const type = scriptTag.getAttribute('type');
@@ -407,7 +407,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction ExtractFrontmatter(dom, data) {
+  function ExtractFrontmatter(dom, data) {
     const frontMatterTag = dom.querySelector('d-front-matter');
     if (!frontMatterTag) {
       console.warn('No front matter tag found!');
@@ -417,22 +417,22 @@
     mergeFromYMLFrontmatter(data, extractedData);
   }
 
-  Researchction commonjsRequire () {
+  function commonjsRequire () {
   	throw new Error('Dynamic requires are not currently supported by rollup-plugin-commonjs');
   }
 
-  Researchction unwrapExports (x) {
+  function unwrapExports (x) {
   	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
   }
 
-  Researchction createCommonjsModule(fn, module) {
+  function createCommonjsModule(fn, module) {
   	return module = { exports: {} }, fn(module, module.exports), module.exports;
   }
 
-  var bibtexParse = createCommonjsModule(Researchction (module, exports) {
+  var bibtexParse = createCommonjsModule(function (module, exports) {
   /* start bibtexParse 0.0.22 */
 
-  //Original Course Project by Henrik Muehe (c) 2010
+  //Original work by Henrik Muehe (c) 2010
   //
   //CommonJS port by Mikola Lysenko 2013
   //
@@ -453,9 +453,9 @@
   //value -> value_quotes | value_braces | key;
   //value_quotes -> '"' .*? '"'; // not quite
   //value_braces -> '{' .*? '"'; // not quite
-  (Researchction(exports) {
+  (function(exports) {
 
-      Researchction BibtexParser() {
+      function BibtexParser() {
           
           this.months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
           this.notKey = [',','{','}',' ','='];
@@ -465,19 +465,19 @@
 
           this.currentEntry = "";
 
-          this.setInput = Researchction(t) {
+          this.setInput = function(t) {
               this.input = t;
           };
 
-          this.getEntries = Researchction() {
+          this.getEntries = function() {
               return this.entries;
           };
 
-          this.isWhitespace = Researchction(s) {
+          this.isWhitespace = function(s) {
               return (s == ' ' || s == '\r' || s == '\t' || s == '\n');
           };
 
-          this.match = Researchction(s, canCommentOut) {
+          this.match = function(s, canCommentOut) {
               if (canCommentOut == undefined || canCommentOut == null)
                   canCommentOut = true;
               this.skipWhitespace(canCommentOut);
@@ -489,7 +489,7 @@
               }            this.skipWhitespace(canCommentOut);
           };
 
-          this.tryMatch = Researchction(s, canCommentOut) {
+          this.tryMatch = function(s, canCommentOut) {
               if (canCommentOut == undefined || canCommentOut == null)
                   canCommentOut = true;
               this.skipWhitespace(canCommentOut);
@@ -500,7 +500,7 @@
               }        };
 
           /* when search for a match all text can be ignored, not just white space */
-          this.matchAt = Researchction() {
+          this.matchAt = function() {
               while (this.input.length > this.pos && this.input[this.pos] != '@') {
                   this.pos++;
               }
@@ -509,7 +509,7 @@
               }            return false;
           };
 
-          this.skipWhitespace = Researchction(canCommentOut) {
+          this.skipWhitespace = function(canCommentOut) {
               while (this.isWhitespace(this.input[this.pos])) {
                   this.pos++;
               }            if (this.input[this.pos] == "%" && canCommentOut == true) {
@@ -518,7 +518,7 @@
                   }                this.skipWhitespace(canCommentOut);
               }        };
 
-          this.value_braces = Researchction() {
+          this.value_braces = function() {
               var bracecount = 0;
               this.match("{", false);
               var start = this.pos;
@@ -543,7 +543,7 @@
                   this.pos++;
               }        };
 
-          this.value_comment = Researchction() {
+          this.value_comment = function() {
               var str = '';
               var brcktCnt = 0;
               while (!(this.tryMatch("}", false) && brcktCnt == 0)) {
@@ -558,7 +558,7 @@
               }            return str;
           };
 
-          this.value_quotes = Researchction() {
+          this.value_quotes = function() {
               this.match('"', false);
               var start = this.pos;
               var escaped = false;
@@ -578,7 +578,7 @@
                   this.pos++;
               }        };
 
-          this.single_value = Researchction() {
+          this.single_value = function() {
               var start = this.pos;
               if (this.tryMatch("{")) {
                   return this.value_braces();
@@ -595,7 +595,7 @@
               
               }        };
 
-          this.value = Researchction() {
+          this.value = function() {
               var values = [];
               values.push(this.single_value());
               while (this.tryMatch("#")) {
@@ -604,7 +604,7 @@
               }            return values.join("");
           };
 
-          this.key = Researchction() {
+          this.key = function() {
               var start = this.pos;
               while (true) {
                   if (this.pos >= this.input.length) {
@@ -618,7 +618,7 @@
                       
                   }            }        };
 
-          this.key_equals_value = Researchction() {
+          this.key_equals_value = function() {
               var key = this.key();
               if (this.tryMatch("=")) {
                   this.match("=");
@@ -629,7 +629,7 @@
                           + this.input.substring(this.pos);
               }        };
 
-          this.key_value_list = Researchction() {
+          this.key_value_list = function() {
               var kv = this.key_equals_value();
               this.currentEntry['entryTags'] = {};
               this.currentEntry['entryTags'][kv[0]] = kv[1];
@@ -643,7 +643,7 @@
                   this.currentEntry['entryTags'][kv[0]] = kv[1];
               }        };
 
-          this.entry_body = Researchction(d) {
+          this.entry_body = function(d) {
               this.currentEntry = {};
               this.currentEntry['citationKey'] = this.key();
               this.currentEntry['entryType'] = d.substring(1);
@@ -652,30 +652,30 @@
               this.entries.push(this.currentEntry);
           };
 
-          this.directive = Researchction() {
+          this.directive = function() {
               this.match("@");
               return "@" + this.key();
           };
 
-          this.preamble = Researchction() {
+          this.preamble = function() {
               this.currentEntry = {};
               this.currentEntry['entryType'] = 'PREAMBLE';
               this.currentEntry['entry'] = this.value_comment();
               this.entries.push(this.currentEntry);
           };
 
-          this.comment = Researchction() {
+          this.comment = function() {
               this.currentEntry = {};
               this.currentEntry['entryType'] = 'COMMENT';
               this.currentEntry['entry'] = this.value_comment();
               this.entries.push(this.currentEntry);
           };
 
-          this.entry = Researchction(d) {
+          this.entry = function(d) {
               this.entry_body(d);
           };
 
-          this.bibtex = Researchction() {
+          this.bibtex = function() {
               while (this.matchAt()) {
                   var d = this.directive();
                   this.match("{");
@@ -691,7 +691,7 @@
                   this.match("}");
               }        };
       }    
-      exports.toJSON = Researchction(bibtex) {
+      exports.toJSON = function(bibtex) {
           var b = new BibtexParser();
           b.setInput(bibtex);
           b.bibtex();
@@ -699,7 +699,7 @@
       };
 
       /* added during hackathon don't hate on me */
-      exports.toBibtex = Researchction(json) {
+      exports.toBibtex = function(json) {
           var out = '';
           for ( var i in json) {
               out += "@" + json[i].entryType;
@@ -730,14 +730,14 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction normalizeTag(string) {
+  function normalizeTag(string) {
     return string
       .replace(/[\t\n ]+/g, ' ')
       .replace(/{\\["^`.'acu~Hvs]( )?([a-zA-Z])}/g, (full, x, char) => char)
       .replace(/{\\([a-zA-Z])}/g, (full, char) => char);
   }
 
-  Researchction parseBibtex(bibtex) {
+  function parseBibtex(bibtex) {
     const bibliography = new Map();
     const parsedEntries = bibtexParse.toJSON(bibtex);
     for (const entry of parsedEntries) {
@@ -752,7 +752,7 @@
     return bibliography;
   }
 
-  Researchction serializeFrontmatterToBibtex(frontMatter) {
+  function serializeFrontmatterToBibtex(frontMatter) {
     return `@article{${frontMatter.slug},
   author = {${frontMatter.bibtexAuthors}},
   title = {${frontMatter.title}},
@@ -765,7 +765,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction parseBibliography(element) {
+  function parseBibliography(element) {
     const scriptTag = element.firstElementChild;
     if (scriptTag && scriptTag.tagName === 'SCRIPT') {
       if (scriptTag.type == 'text/bibtex') {
@@ -783,7 +783,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction ExtractBibliography(dom, data) {
+  function ExtractBibliography(dom, data) {
     const bibliographyTag = dom.querySelector('d-bibliography');
     if (!bibliographyTag) {
       console.warn('No bibliography tag found!');
@@ -819,7 +819,7 @@
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-  Researchction collect_citations(dom = document) {
+  function collect_citations(dom = document) {
     const citations = new Set();
     const citeTags = dom.querySelectorAll("d-cite");
     for (const tag of citeTags) {
@@ -832,7 +832,7 @@
     return [...citations];
   }
 
-  Researchction author_string(ent, template, sep, finalSep) {
+  function author_string(ent, template, sep, finalSep) {
     if (ent.author == null) {
       return "";
     }
@@ -877,7 +877,7 @@
     }
   }
 
-  Researchction venue_string(ent) {
+  function venue_string(ent) {
     var cite = ent.journal || ent.booktitle || "";
     if ("volume" in ent) {
       var issue = ent.issue || ent.number;
@@ -895,7 +895,7 @@
     return cite;
   }
 
-  Researchction link_string(ent) {
+  function link_string(ent) {
     if ("url" in ent) {
       var url = ent.url;
       var arxiv_match = /arxiv\.org\/abs\/([0-9\.]*)/.exec(url);
@@ -915,7 +915,7 @@
       return "";
     }
   }
-  Researchction doi_string(ent, new_line) {
+  function doi_string(ent, new_line) {
     if ("doi" in ent) {
       return `${new_line ? "<br>" : ""} <a href="https://doi.org/${
       ent.doi
@@ -925,11 +925,11 @@
     }
   }
 
-  Researchction title_string(ent) {
+  function title_string(ent) {
     return '<span class="title">' + ent.title + "</span> ";
   }
 
-  Researchction bibliography_cite(ent, fancy) {
+  function bibliography_cite(ent, fancy) {
     if (ent) {
       var cite = title_string(ent);
       cite += link_string(ent) + "<br>";
@@ -965,7 +965,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction ExtractCitations(dom, data) {
+  function ExtractCitations(dom, data) {
     const citations = new Set(data.citations);
     const newCitations = collect_citations(dom);
     for (const citation of newCitations) {
@@ -988,7 +988,7 @@
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-  Researchction HTML(dom) {
+  function HTML(dom) {
 
     const head = dom.querySelector('head');
 
@@ -1029,7 +1029,7 @@
 
   // import style from '../styles/d-byline.css';
 
-  Researchction bylineTemplate(frontMatter) {
+  function bylineTemplate(frontMatter) {
     return `
   <div class="byline grid">
     <div class="authors-affiliations grid">
@@ -1060,7 +1060,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction Byline(dom, data) {
+  function Byline(dom, data) {
     const byline = dom.querySelector('d-byline');
     if (byline) {
       byline.innerHTML = bylineTemplate(data);
@@ -1090,7 +1090,7 @@
 
   // if authors, no byline -> add byline
 
-  Researchction OptionalComponents(dom, data) {
+  function OptionalComponents(dom, data) {
     const body = dom.body;
     const article = body.querySelector('d-article');
 
@@ -1157,8 +1157,8 @@
 
   }
 
-  var katex$1 = createCommonjsModule(Researchction (module, exports) {
-  (Researchction(f){{module.exports=f();}})(Researchction(){return (Researchction e(t,n,r){Researchction s(o,u){if(!n[o]){if(!t[o]){var a=typeof commonjsRequire=="Researchction"&&commonjsRequire;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,Researchction(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r);}return n[o].exports}var i=typeof commonjsRequire=="Researchction"&&commonjsRequire;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[Researchction(require,module,exports){
+  var katex$1 = createCommonjsModule(function (module, exports) {
+  (function(f){{module.exports=f();}})(function(){return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof commonjsRequire=="function"&&commonjsRequire;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r);}return n[o].exports}var i=typeof commonjsRequire=="function"&&commonjsRequire;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
   var _ParseError = require("./src/ParseError");
 
@@ -1180,13 +1180,13 @@
 
   var _utils2 = _interopRequireDefault(_utils);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * Parse and build an expression, and place that expression in the DOM node
    * given.
    */
-  var render = Researchction render(expression, baseNode, options) {
+  var render = function render(expression, baseNode, options) {
       _utils2.default.clearNode(baseNode);
 
       var settings = new _Settings2.default(options);
@@ -1197,11 +1197,11 @@
       baseNode.appendChild(node);
   };
 
-  // KaTeX's styles don't Course Project properly in quirks mode. Print out an error, and
+  // KaTeX's styles don't work properly in quirks mode. Print out an error, and
   // disable rendering.
   /* eslint no-console:0 */
   /**
-   * This is the main entry point for KaTeX. Here, we expose Researchctions for
+   * This is the main entry point for KaTeX. Here, we expose functions for
    * rendering expressions either to DOM nodes or to markup strings.
    *
    * We also expose the ParseError class to check if errors thrown from KaTeX are
@@ -1210,10 +1210,10 @@
 
   if (typeof document !== "undefined") {
       if (document.compatMode !== "CSS1Compat") {
-          typeof console !== "undefined" && console.warn("Warning: KaTeX doesn't Course Project in quirks mode. Make sure your " + "website has a suitable doctype.");
+          typeof console !== "undefined" && console.warn("Warning: KaTeX doesn't work in quirks mode. Make sure your " + "website has a suitable doctype.");
 
-          render = Researchction render() {
-              throw new _ParseError2.default("KaTeX doesn't Course Project in quirks mode.");
+          render = function render() {
+              throw new _ParseError2.default("KaTeX doesn't work in quirks mode.");
           };
       }
   }
@@ -1221,7 +1221,7 @@
   /**
    * Parse and build an expression, and return the markup for that.
    */
-  var renderToString = Researchction renderToString(expression, options) {
+  var renderToString = function renderToString(expression, options) {
       var settings = new _Settings2.default(options);
 
       var tree = (0, _parseTree2.default)(expression, settings);
@@ -1231,7 +1231,7 @@
   /**
    * Parse an expression and return the parse tree.
    */
-  var generateParseTree = Researchction generateParseTree(expression, options) {
+  var generateParseTree = function generateParseTree(expression, options) {
       var settings = new _Settings2.default(options);
       return (0, _parseTree2.default)(expression, settings);
   };
@@ -1248,20 +1248,20 @@
       ParseError: _ParseError2.default
   };
 
-  },{"./src/ParseError":29,"./src/Settings":32,"./src/buildTree":37,"./src/parseTree":46,"./src/utils":51}],2:[Researchction(require,module,exports){
+  },{"./src/ParseError":29,"./src/Settings":32,"./src/buildTree":37,"./src/parseTree":46,"./src/utils":51}],2:[function(require,module,exports){
   module.exports = { "default": require("core-js/library/fn/json/stringify"), __esModule: true };
-  },{"core-js/library/fn/json/stringify":6}],3:[Researchction(require,module,exports){
+  },{"core-js/library/fn/json/stringify":6}],3:[function(require,module,exports){
   module.exports = { "default": require("core-js/library/fn/object/define-property"), __esModule: true };
-  },{"core-js/library/fn/object/define-property":7}],4:[Researchction(require,module,exports){
+  },{"core-js/library/fn/object/define-property":7}],4:[function(require,module,exports){
 
   exports.__esModule = true;
 
-  exports.default = Researchction (instance, Constructor) {
+  exports.default = function (instance, Constructor) {
     if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a Researchction");
+      throw new TypeError("Cannot call a class as a function");
     }
   };
-  },{}],5:[Researchction(require,module,exports){
+  },{}],5:[function(require,module,exports){
 
   exports.__esModule = true;
 
@@ -1269,10 +1269,10 @@
 
   var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  exports.default = Researchction () {
-    Researchction defineProperties(target, props) {
+  exports.default = function () {
+    function defineProperties(target, props) {
       for (var i = 0; i < props.length; i++) {
         var descriptor = props[i];
         descriptor.enumerable = descriptor.enumerable || false;
@@ -1282,80 +1282,80 @@
       }
     }
 
-    return Researchction (Constructor, protoProps, staticProps) {
+    return function (Constructor, protoProps, staticProps) {
       if (protoProps) defineProperties(Constructor.prototype, protoProps);
       if (staticProps) defineProperties(Constructor, staticProps);
       return Constructor;
     };
   }();
-  },{"../core-js/object/define-property":3}],6:[Researchction(require,module,exports){
+  },{"../core-js/object/define-property":3}],6:[function(require,module,exports){
   var core  = require('../../modules/_core')
     , $JSON = core.JSON || (core.JSON = {stringify: JSON.stringify});
-  module.exports = Researchction stringify(it){ // eslint-disable-line no-unused-vars
+  module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
     return $JSON.stringify.apply($JSON, arguments);
   };
-  },{"../../modules/_core":10}],7:[Researchction(require,module,exports){
+  },{"../../modules/_core":10}],7:[function(require,module,exports){
   require('../../modules/es6.object.define-property');
   var $Object = require('../../modules/_core').Object;
-  module.exports = Researchction defineProperty(it, key, desc){
+  module.exports = function defineProperty(it, key, desc){
     return $Object.defineProperty(it, key, desc);
   };
-  },{"../../modules/_core":10,"../../modules/es6.object.define-property":23}],8:[Researchction(require,module,exports){
-  module.exports = Researchction(it){
-    if(typeof it != 'Researchction')throw TypeError(it + ' is not a Researchction!');
+  },{"../../modules/_core":10,"../../modules/es6.object.define-property":23}],8:[function(require,module,exports){
+  module.exports = function(it){
+    if(typeof it != 'function')throw TypeError(it + ' is not a function!');
     return it;
   };
-  },{}],9:[Researchction(require,module,exports){
+  },{}],9:[function(require,module,exports){
   var isObject = require('./_is-object');
-  module.exports = Researchction(it){
+  module.exports = function(it){
     if(!isObject(it))throw TypeError(it + ' is not an object!');
     return it;
   };
-  },{"./_is-object":19}],10:[Researchction(require,module,exports){
+  },{"./_is-object":19}],10:[function(require,module,exports){
   var core = module.exports = {version: '2.4.0'};
   if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-  },{}],11:[Researchction(require,module,exports){
+  },{}],11:[function(require,module,exports){
   // optional / simple context binding
-  var aResearchction = require('./_a-Researchction');
-  module.exports = Researchction(fn, that, length){
-    aResearchction(fn);
+  var aFunction = require('./_a-function');
+  module.exports = function(fn, that, length){
+    aFunction(fn);
     if(that === undefined)return fn;
     switch(length){
-      case 1: return Researchction(a){
+      case 1: return function(a){
         return fn.call(that, a);
       };
-      case 2: return Researchction(a, b){
+      case 2: return function(a, b){
         return fn.call(that, a, b);
       };
-      case 3: return Researchction(a, b, c){
+      case 3: return function(a, b, c){
         return fn.call(that, a, b, c);
       };
     }
-    return Researchction(/* ...args */){
+    return function(/* ...args */){
       return fn.apply(that, arguments);
     };
   };
-  },{"./_a-Researchction":8}],12:[Researchction(require,module,exports){
-  // Thank's IE8 for his Researchny defineProperty
-  module.exports = !require('./_fails')(Researchction(){
-    return Object.defineProperty({}, 'a', {get: Researchction(){ return 7; }}).a != 7;
+  },{"./_a-function":8}],12:[function(require,module,exports){
+  // Thank's IE8 for his funny defineProperty
+  module.exports = !require('./_fails')(function(){
+    return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
   });
-  },{"./_fails":15}],13:[Researchction(require,module,exports){
+  },{"./_fails":15}],13:[function(require,module,exports){
   var isObject = require('./_is-object')
     , document = require('./_global').document
     // in old IE typeof document.createElement is 'object'
     , is = isObject(document) && isObject(document.createElement);
-  module.exports = Researchction(it){
+  module.exports = function(it){
     return is ? document.createElement(it) : {};
   };
-  },{"./_global":16,"./_is-object":19}],14:[Researchction(require,module,exports){
+  },{"./_global":16,"./_is-object":19}],14:[function(require,module,exports){
   var global    = require('./_global')
     , core      = require('./_core')
     , ctx       = require('./_ctx')
     , hide      = require('./_hide')
     , PROTOTYPE = 'prototype';
 
-  var $export = Researchction(type, name, source){
+  var $export = function(type, name, source){
     var IS_FORCED = type & $export.F
       , IS_GLOBAL = type & $export.G
       , IS_STATIC = type & $export.S
@@ -1374,12 +1374,12 @@
       // export native or passed
       out = own ? target[key] : source[key];
       // prevent global pollution for namespaces
-      exports[key] = IS_GLOBAL && typeof target[key] != 'Researchction' ? source[key]
+      exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
       // bind timers to global for call from export context
       : IS_BIND && own ? ctx(out, global)
       // wrap global constructors for prevent change them in library
-      : IS_WRAP && target[key] == out ? (Researchction(C){
-        var F = Researchction(a, b, c){
+      : IS_WRAP && target[key] == out ? (function(C){
+        var F = function(a, b, c){
           if(this instanceof C){
             switch(arguments.length){
               case 0: return new C;
@@ -1391,7 +1391,7 @@
         F[PROTOTYPE] = C[PROTOTYPE];
         return F;
       // make static versions for prototype methods
-      })(out) : IS_PROTO && typeof out == 'Researchction' ? ctx(Researchction.call, out) : out;
+      })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
       // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
       if(IS_PROTO){
         (exports.virtual || (exports.virtual = {}))[key] = out;
@@ -1410,43 +1410,43 @@
   $export.U = 64;  // safe
   $export.R = 128; // real proto method for `library` 
   module.exports = $export;
-  },{"./_core":10,"./_ctx":11,"./_global":16,"./_hide":17}],15:[Researchction(require,module,exports){
-  module.exports = Researchction(exec){
+  },{"./_core":10,"./_ctx":11,"./_global":16,"./_hide":17}],15:[function(require,module,exports){
+  module.exports = function(exec){
     try {
       return !!exec();
     } catch(e){
       return true;
     }
   };
-  },{}],16:[Researchction(require,module,exports){
+  },{}],16:[function(require,module,exports){
   // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
   var global = module.exports = typeof window != 'undefined' && window.Math == Math
-    ? window : typeof self != 'undefined' && self.Math == Math ? self : Researchction('return this')();
+    ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
   if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-  },{}],17:[Researchction(require,module,exports){
+  },{}],17:[function(require,module,exports){
   var dP         = require('./_object-dp')
     , createDesc = require('./_property-desc');
-  module.exports = require('./_descriptors') ? Researchction(object, key, value){
+  module.exports = require('./_descriptors') ? function(object, key, value){
     return dP.f(object, key, createDesc(1, value));
-  } : Researchction(object, key, value){
+  } : function(object, key, value){
     object[key] = value;
     return object;
   };
-  },{"./_descriptors":12,"./_object-dp":20,"./_property-desc":21}],18:[Researchction(require,module,exports){
-  module.exports = !require('./_descriptors') && !require('./_fails')(Researchction(){
-    return Object.defineProperty(require('./_dom-create')('div'), 'a', {get: Researchction(){ return 7; }}).a != 7;
+  },{"./_descriptors":12,"./_object-dp":20,"./_property-desc":21}],18:[function(require,module,exports){
+  module.exports = !require('./_descriptors') && !require('./_fails')(function(){
+    return Object.defineProperty(require('./_dom-create')('div'), 'a', {get: function(){ return 7; }}).a != 7;
   });
-  },{"./_descriptors":12,"./_dom-create":13,"./_fails":15}],19:[Researchction(require,module,exports){
-  module.exports = Researchction(it){
-    return typeof it === 'object' ? it !== null : typeof it === 'Researchction';
+  },{"./_descriptors":12,"./_dom-create":13,"./_fails":15}],19:[function(require,module,exports){
+  module.exports = function(it){
+    return typeof it === 'object' ? it !== null : typeof it === 'function';
   };
-  },{}],20:[Researchction(require,module,exports){
+  },{}],20:[function(require,module,exports){
   var anObject       = require('./_an-object')
     , IE8_DOM_DEFINE = require('./_ie8-dom-define')
     , toPrimitive    = require('./_to-primitive')
     , dP             = Object.defineProperty;
 
-  exports.f = require('./_descriptors') ? Object.defineProperty : Researchction defineProperty(O, P, Attributes){
+  exports.f = require('./_descriptors') ? Object.defineProperty : function defineProperty(O, P, Attributes){
     anObject(O);
     P = toPrimitive(P, true);
     anObject(Attributes);
@@ -1457,8 +1457,8 @@
     if('value' in Attributes)O[P] = Attributes.value;
     return O;
   };
-  },{"./_an-object":9,"./_descriptors":12,"./_ie8-dom-define":18,"./_to-primitive":22}],21:[Researchction(require,module,exports){
-  module.exports = Researchction(bitmap, value){
+  },{"./_an-object":9,"./_descriptors":12,"./_ie8-dom-define":18,"./_to-primitive":22}],21:[function(require,module,exports){
+  module.exports = function(bitmap, value){
     return {
       enumerable  : !(bitmap & 1),
       configurable: !(bitmap & 2),
@@ -1466,26 +1466,26 @@
       value       : value
     };
   };
-  },{}],22:[Researchction(require,module,exports){
+  },{}],22:[function(require,module,exports){
   // 7.1.1 ToPrimitive(input [, PreferredType])
   var isObject = require('./_is-object');
   // instead of the ES6 spec version, we didn't implement @@toPrimitive case
   // and the second argument - flag - preferred type is a string
-  module.exports = Researchction(it, S){
+  module.exports = function(it, S){
     if(!isObject(it))return it;
     var fn, val;
-    if(S && typeof (fn = it.toString) == 'Researchction' && !isObject(val = fn.call(it)))return val;
-    if(typeof (fn = it.valueOf) == 'Researchction' && !isObject(val = fn.call(it)))return val;
-    if(!S && typeof (fn = it.toString) == 'Researchction' && !isObject(val = fn.call(it)))return val;
+    if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+    if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+    if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
     throw TypeError("Can't convert object to primitive value");
   };
-  },{"./_is-object":19}],23:[Researchction(require,module,exports){
+  },{"./_is-object":19}],23:[function(require,module,exports){
   var $export = require('./_export');
   // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
   $export($export.S + $export.F * !require('./_descriptors'), 'Object', {defineProperty: require('./_object-dp').f});
-  },{"./_descriptors":12,"./_export":14,"./_object-dp":20}],24:[Researchction(require,module,exports){
+  },{"./_descriptors":12,"./_export":14,"./_object-dp":20}],24:[function(require,module,exports){
 
-  Researchction getRelocatable(re) {
+  function getRelocatable(re) {
     // In the future, this could use a WeakMap instead of an expando.
     if (!re.__matchAtRelocatable) {
       // Disjunctions are the lowest-precedence operator, so we can make any
@@ -1504,7 +1504,7 @@
     return re.__matchAtRelocatable;
   }
 
-  Researchction matchAt(re, str, pos) {
+  function matchAt(re, str, pos) {
     if (re.global || re.sticky) {
       throw new Error("matchAt(...): Only non-global regexes are supported");
     }
@@ -1523,12 +1523,12 @@
   }
 
   module.exports = matchAt;
-  },{}],25:[Researchction(require,module,exports){
+  },{}],25:[function(require,module,exports){
   /* eslint-disable no-unused-vars */
   var hasOwnProperty = Object.prototype.hasOwnProperty;
   var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
-  Researchction toObject(val) {
+  function toObject(val) {
   	if (val === null || val === undefined) {
   		throw new TypeError('Object.assign cannot be called with null or undefined');
   	}
@@ -1536,7 +1536,7 @@
   	return Object(val);
   }
 
-  Researchction shouldUseNative() {
+  function shouldUseNative() {
   	try {
   		if (!Object.assign) {
   			return false;
@@ -1556,7 +1556,7 @@
   		for (var i = 0; i < 10; i++) {
   			test2['_' + String.fromCharCode(i)] = i;
   		}
-  		var order2 = Object.getOwnPropertyNames(test2).map(Researchction (n) {
+  		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
   			return test2[n];
   		});
   		if (order2.join('') !== '0123456789') {
@@ -1565,7 +1565,7 @@
 
   		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
   		var test3 = {};
-  		'abcdefghijklmnopqrst'.split('').forEach(Researchction (letter) {
+  		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
   			test3[letter] = letter;
   		});
   		if (Object.keys(Object.assign({}, test3)).join('') !==
@@ -1580,7 +1580,7 @@
   	}
   }
 
-  module.exports = shouldUseNative() ? Object.assign : Researchction (target, source) {
+  module.exports = shouldUseNative() ? Object.assign : function (target, source) {
   	var from;
   	var to = toObject(target);
   	var symbols;
@@ -1607,7 +1607,7 @@
   	return to;
   };
 
-  },{}],26:[Researchction(require,module,exports){
+  },{}],26:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -1625,7 +1625,7 @@
 
   var _ParseError2 = _interopRequireDefault(_ParseError);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * The resulting token returned from `lex`.
@@ -1651,16 +1651,16 @@
    * parser expects us to be able to backtrack, the lexer allows lexing from any
    * given starting point.
    *
-   * Its main exposed Researchction is the `lex` Researchction, which takes a position to
+   * Its main exposed function is the `lex` function, which takes a position to
    * lex from and a type of token to lex. It defers to the appropriate `_innerLex`
-   * Researchction.
+   * function.
    *
-   * The various `_innerLex` Researchctions perform the actual lexing of different
+   * The various `_innerLex` functions perform the actual lexing of different
    * kinds.
    */
 
-  var Token = Researchction () {
-      Researchction Token(text, start, end, lexer) {
+  var Token = function () {
+      function Token(text, start, end, lexer) {
           (0, _classCallCheck3.default)(this, Token);
 
           this.text = text;
@@ -1680,7 +1680,7 @@
 
       (0, _createClass3.default)(Token, [{
           key: "range",
-          value: Researchction range(endToken, text) {
+          value: function range(endToken, text) {
               if (endToken.lexer !== this.lexer) {
                   return new Token(text); // sorry, no position information available
               }
@@ -1702,7 +1702,7 @@
    * - matches a backslash followed by one or more letters
    * - matches a backslash followed by any BMP character, including newline
    * Just because the Lexer matches something doesn't mean it's valid input:
-   * If there is no matching Researchction or symbol definition, the Parser will
+   * If there is no matching function or symbol definition, the Parser will
    * still reject the input.
    */
 
@@ -1710,15 +1710,15 @@
   var tokenRegex = new RegExp("([ \r\n\t]+)|" + // whitespace
   "([!-\\[\\]-\u2027\u202A-\uD7FF\uF900-\uFFFF]" + // single codepoint
   "|[\uD800-\uDBFF][\uDC00-\uDFFF]" + // surrogate pair
-  "|\\\\(?:[a-zA-Z]+|[^\uD800-\uDFFF])" + // Researchction name
+  "|\\\\(?:[a-zA-Z]+|[^\uD800-\uDFFF])" + // function name
   ")");
 
   /*
    * Main Lexer class
    */
 
-  var Lexer = Researchction () {
-      Researchction Lexer(input) {
+  var Lexer = function () {
+      function Lexer(input) {
           (0, _classCallCheck3.default)(this, Lexer);
 
           this.input = input;
@@ -1726,13 +1726,13 @@
       }
 
       /**
-       * This Researchction lexes a single token.
+       * This function lexes a single token.
        */
 
 
       (0, _createClass3.default)(Lexer, [{
           key: "lex",
-          value: Researchction lex() {
+          value: function lex() {
               var input = this.input;
               var pos = this.pos;
               if (pos === input.length) {
@@ -1754,7 +1754,7 @@
 
   module.exports = Lexer;
 
-  },{"./ParseError":29,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5,"match-at":24}],27:[Researchction(require,module,exports){
+  },{"./ParseError":29,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5,"match-at":24}],27:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -1780,15 +1780,15 @@
 
   var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * This file contains the “gullet” where macros are expanded
    * until only non-macro tokens remain.
    */
 
-  var MacroExpander = Researchction () {
-      Researchction MacroExpander(input, macros) {
+  var MacroExpander = function () {
+      function MacroExpander(input, macros) {
           (0, _classCallCheck3.default)(this, MacroExpander);
 
           this.lexer = new _Lexer2.default(input);
@@ -1808,7 +1808,7 @@
 
       (0, _createClass3.default)(MacroExpander, [{
           key: "nextToken",
-          value: Researchction nextToken() {
+          value: function nextToken() {
               for (;;) {
                   if (this.stack.length === 0) {
                       this.stack.push(this.lexer.lex());
@@ -1896,7 +1896,7 @@
           }
       }, {
           key: "get",
-          value: Researchction get(ignoreSpace) {
+          value: function get(ignoreSpace) {
               this.discardedWhiteSpace = [];
               var token = this.nextToken();
               if (ignoreSpace) {
@@ -1918,7 +1918,7 @@
 
       }, {
           key: "unget",
-          value: Researchction unget(token) {
+          value: function unget(token) {
               this.stack.push(token);
               while (this.discardedWhiteSpace.length !== 0) {
                   this.stack.push(this.discardedWhiteSpace.pop());
@@ -1930,7 +1930,7 @@
 
   module.exports = MacroExpander;
 
-  },{"./Lexer":26,"./ParseError":29,"./macros":44,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5,"object-assign":25}],28:[Researchction(require,module,exports){
+  },{"./Lexer":26,"./ParseError":29,"./macros":44,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5,"object-assign":25}],28:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -1944,13 +1944,13 @@
 
   var _fontMetrics3 = _interopRequireDefault(_fontMetrics2);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   var BASESIZE = 6; /**
                      * This file contains information about the options that the Parser carries
                      * around with it while parsing. Data is held in an `Options` object, and when
                      * recursing, a new `Options` object can be created with the `.with*` and
-                     * `.reset` Researchctions.
+                     * `.reset` functions.
                      */
 
   var sizeStyleMap = [
@@ -1970,10 +1970,10 @@
 
   var sizeMultipliers = [
   // fontMetrics.js:getFontMetrics also uses size indexes, so if
-  // you change size indexes, change that Researchction.
+  // you change size indexes, change that function.
   0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.44, 1.728, 2.074, 2.488];
 
-  var sizeAtStyle = Researchction sizeAtStyle(size, style) {
+  var sizeAtStyle = function sizeAtStyle(size, style) {
       return style.size < 2 ? size : sizeStyleMap[size - 1][style.size - 1];
   };
 
@@ -1985,8 +1985,8 @@
    * different properties, call a `.having*` method.
    */
 
-  var Options = Researchction () {
-      Researchction Options(data) {
+  var Options = function () {
+      function Options(data) {
           (0, _classCallCheck3.default)(this, Options);
 
           this.style = data.style;
@@ -2007,7 +2007,7 @@
 
       (0, _createClass3.default)(Options, [{
           key: "extend",
-          value: Researchction extend(extension) {
+          value: function extend(extension) {
               var data = {
                   style: this.style,
                   size: this.size,
@@ -2033,7 +2033,7 @@
 
       }, {
           key: "havingStyle",
-          value: Researchction havingStyle(style) {
+          value: function havingStyle(style) {
               if (this.style === style) {
                   return this;
               } else {
@@ -2051,7 +2051,7 @@
 
       }, {
           key: "havingCrampedStyle",
-          value: Researchction havingCrampedStyle() {
+          value: function havingCrampedStyle() {
               return this.havingStyle(this.style.cramp());
           }
 
@@ -2062,7 +2062,7 @@
 
       }, {
           key: "havingSize",
-          value: Researchction havingSize(size) {
+          value: function havingSize(size) {
               if (this.size === size && this.textSize === size) {
                   return this;
               } else {
@@ -2081,7 +2081,7 @@
 
       }, {
           key: "havingBaseStyle",
-          value: Researchction havingBaseStyle(style) {
+          value: function havingBaseStyle(style) {
               style = style || this.style.text();
               var wantSize = sizeAtStyle(BASESIZE, style);
               if (this.size === wantSize && this.textSize === BASESIZE && this.style === style) {
@@ -2101,7 +2101,7 @@
 
       }, {
           key: "withColor",
-          value: Researchction withColor(color) {
+          value: function withColor(color) {
               return this.extend({
                   color: color
               });
@@ -2113,7 +2113,7 @@
 
       }, {
           key: "withPhantom",
-          value: Researchction withPhantom() {
+          value: function withPhantom() {
               return this.extend({
                   phantom: true
               });
@@ -2125,7 +2125,7 @@
 
       }, {
           key: "withFont",
-          value: Researchction withFont(font) {
+          value: function withFont(font) {
               return this.extend({
                   font: font || this.font
               });
@@ -2138,7 +2138,7 @@
 
       }, {
           key: "sizingClasses",
-          value: Researchction sizingClasses(oldOptions) {
+          value: function sizingClasses(oldOptions) {
               if (oldOptions.size !== this.size) {
                   return ["sizing", "reset-size" + oldOptions.size, "size" + this.size];
               } else {
@@ -2153,7 +2153,7 @@
 
       }, {
           key: "baseSizingClasses",
-          value: Researchction baseSizingClasses() {
+          value: function baseSizingClasses() {
               if (this.size !== BASESIZE) {
                   return ["sizing", "reset-size" + this.size, "size" + BASESIZE];
               } else {
@@ -2167,7 +2167,7 @@
 
       }, {
           key: "fontMetrics",
-          value: Researchction fontMetrics() {
+          value: function fontMetrics() {
               if (!this._fontMetrics) {
                   this._fontMetrics = _fontMetrics3.default.getFontMetrics(this.size);
               }
@@ -2187,7 +2187,7 @@
            * Gets the CSS color of the current options object, accounting for the
            * `colorMap`.
            */
-          value: Researchction getColor() {
+          value: function getColor() {
               if (this.phantom) {
                   return "transparent";
               } else {
@@ -2265,17 +2265,17 @@
 
   module.exports = Options;
 
-  },{"./fontMetrics":41,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],29:[Researchction(require,module,exports){
+  },{"./fontMetrics":41,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],29:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * This is the ParseError class, which is the main error thrown by KaTeX
-   * Researchctions when something has gone wrong. This is used to distinguish internal
+   * functions when something has gone wrong. This is used to distinguish internal
    * errors from errors in the expression that the user provided.
    *
    * If possible, a caller should provide a Token or ParseNode with information
@@ -2284,7 +2284,7 @@
    * @param {string} message  The error message
    * @param {(Token|ParseNode)=} token  An object providing position information
    */
-  var ParseError = Researchction ParseError(message, token) {
+  var ParseError = function ParseError(message, token) {
       (0, _classCallCheck3.default)(this, ParseError);
 
       var error = "KaTeX parse error: " + message;
@@ -2342,7 +2342,7 @@
 
   module.exports = ParseError;
 
-  },{"babel-runtime/helpers/classCallCheck":4}],30:[Researchction(require,module,exports){
+  },{"babel-runtime/helpers/classCallCheck":4}],30:[function(require,module,exports){
 
   Object.defineProperty(exports, "__esModule", {
       value: true
@@ -2352,7 +2352,7 @@
 
   var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * The resulting parse tree nodes of the parse tree.
@@ -2371,7 +2371,7 @@
    * @param {Token=} lastToken   last token of the input for this node,
    *                             will default to firstToken if unset
    */
-  var ParseNode = Researchction ParseNode(type, value, mode, firstToken, lastToken) {
+  var ParseNode = function ParseNode(type, value, mode, firstToken, lastToken) {
       (0, _classCallCheck3.default)(this, ParseNode);
 
       this.type = type;
@@ -2386,7 +2386,7 @@
 
   exports.default = ParseNode;
 
-  },{"babel-runtime/helpers/classCallCheck":4}],31:[Researchction(require,module,exports){
+  },{"babel-runtime/helpers/classCallCheck":4}],31:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -2396,9 +2396,9 @@
 
   var _createClass3 = _interopRequireDefault(_createClass2);
 
-  var _Researchctions = require("./Researchctions");
+  var _functions = require("./functions");
 
-  var _Researchctions2 = _interopRequireDefault(_Researchctions);
+  var _functions2 = _interopRequireDefault(_functions);
 
   var _environments = require("./environments");
 
@@ -2430,16 +2430,16 @@
 
   var _ParseError2 = _interopRequireDefault(_ParseError);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * This file contains the parser used to parse out a TeX expression from the
-   * input. Since TeX isn't context-free, standard parsers don't Course Project particularly
+   * input. Since TeX isn't context-free, standard parsers don't work particularly
    * well.
    *
    * The strategy of this parser is as such:
    *
-   * The main Researchctions (the `.parse...` ones) take a position in the current
+   * The main functions (the `.parse...` ones) take a position in the current
    * parse string to parse tokens from. The lexer (found in Lexer.js, stored at
    * this.lexer) also supports pulling out tokens at arbitrary places. When
    * individual tokens are needed at a position, the lexer is called to pull out a
@@ -2449,36 +2449,36 @@
    * the parser is currently in. Currently it has to be one of "math" or
    * "text", which denotes whether the current environment is a math-y
    * one or a text-y one (e.g. inside \text). Currently, this serves to
-   * limit the Researchctions which can be used in text mode.
+   * limit the functions which can be used in text mode.
    *
-   * The main Researchctions then return an object which contains the useful data that
+   * The main functions then return an object which contains the useful data that
    * was parsed at its given point, and a new position at the end of the parsed
-   * data. The main Researchctions can call each other and continue the parsing by
+   * data. The main functions can call each other and continue the parsing by
    * using the returned position as a new starting point.
    *
-   * There are also extra `.handle...` Researchctions, which pull out some reused
-   * Researchctionality into self-contained Researchctions.
+   * There are also extra `.handle...` functions, which pull out some reused
+   * functionality into self-contained functions.
    *
-   * The earlier Researchctions return ParseNodes.
-   * The later Researchctions (which are called deeper in the parse) sometimes return
-   * ParseResearchcOrArgument, which contain a ParseNode as well as some data about
-   * whether the parsed object is a Researchction which is missing some arguments, or a
-   * standalone object which can be used as an argument to another Researchction.
+   * The earlier functions return ParseNodes.
+   * The later functions (which are called deeper in the parse) sometimes return
+   * ParseFuncOrArgument, which contain a ParseNode as well as some data about
+   * whether the parsed object is a function which is missing some arguments, or a
+   * standalone object which can be used as an argument to another function.
    */
 
   /**
-   * An initial Researchction (without its arguments), or an argument to a Researchction.
+   * An initial function (without its arguments), or an argument to a function.
    * The `result` argument should be a ParseNode.
    */
-  Researchction ParseResearchcOrArgument(result, isResearchction, token) {
+  function ParseFuncOrArgument(result, isFunction, token) {
       this.result = result;
-      // Is this a Researchction (i.e. is it something defined in Researchctions.js)?
-      this.isResearchction = isResearchction;
+      // Is this a function (i.e. is it something defined in functions.js)?
+      this.isFunction = isFunction;
       this.token = token;
   } /* eslint no-constant-condition:0 */
 
-  var Parser = Researchction () {
-      Researchction Parser(input, settings) {
+  var Parser = function () {
+      function Parser(input, settings) {
           (0, _classCallCheck3.default)(this, Parser);
 
           // Create a new macro expander (gullet) and (indirectly via that) also a
@@ -2506,7 +2506,7 @@
 
       (0, _createClass3.default)(Parser, [{
           key: "expect",
-          value: Researchction expect(text, consume) {
+          value: function expect(text, consume) {
               if (this.nextToken.text !== text) {
                   throw new _ParseError2.default("Expected '" + text + "', got '" + this.nextToken.text + "'", this.nextToken);
               }
@@ -2522,26 +2522,26 @@
 
       }, {
           key: "consume",
-          value: Researchction consume() {
+          value: function consume() {
               this.nextToken = this.gullet.get(this.mode === "math");
           }
       }, {
           key: "switchMode",
-          value: Researchction switchMode(newMode) {
+          value: function switchMode(newMode) {
               this.gullet.unget(this.nextToken);
               this.mode = newMode;
               this.consume();
           }
 
           /**
-           * Main parsing Researchction, which parses an entire input.
+           * Main parsing function, which parses an entire input.
            *
            * @return {?Array.<ParseNode>}
            */
 
       }, {
           key: "parse",
-          value: Researchction parse() {
+          value: function parse() {
               // Try to parse the input
               this.mode = "math";
               this.consume();
@@ -2555,7 +2555,7 @@
 
       }, {
           key: "parseInput",
-          value: Researchction parseInput() {
+          value: function parseInput() {
               // Parse an expression
               var expression = this.parseExpression(false);
               // If we succeeded, make sure there's an EOF at the end
@@ -2570,7 +2570,7 @@
            * Parses an "expression", which is a list of atoms.
            *
            * @param {boolean} breakOnInfix  Should the parsing stop when we hit infix
-           *                  nodes? This happens when Researchctions have higher precendence
+           *                  nodes? This happens when functions have higher precendence
            *                  than infix nodes in implicit parses.
            *
            * @param {?string} breakOnTokenText  The text of the token that the expression
@@ -2579,7 +2579,7 @@
            *
            * @return {ParseNode}
            */
-          value: Researchction parseExpression(breakOnInfix, breakOnTokenText) {
+          value: function parseExpression(breakOnInfix, breakOnTokenText) {
               var body = [];
               // Keep adding atoms to the body until we can't parse any more atoms (either
               // we reached the end, a }, or a \right)
@@ -2591,7 +2591,7 @@
                   if (breakOnTokenText && lex.text === breakOnTokenText) {
                       break;
                   }
-                  if (breakOnInfix && _Researchctions2.default[lex.text] && _Researchctions2.default[lex.text].infix) {
+                  if (breakOnInfix && _functions2.default[lex.text] && _functions2.default[lex.text].infix) {
                       break;
                   }
                   var atom = this.parseAtom();
@@ -2621,9 +2621,9 @@
 
       }, {
           key: "handleInfixNodes",
-          value: Researchction handleInfixNodes(body) {
+          value: function handleInfixNodes(body) {
               var overIndex = -1;
-              var ResearchcName = void 0;
+              var funcName = void 0;
 
               for (var i = 0; i < body.length; i++) {
                   var node = body[i];
@@ -2632,7 +2632,7 @@
                           throw new _ParseError2.default("only one infix operator per group", node.value.token);
                       }
                       overIndex = i;
-                      ResearchcName = node.value.replaceWith;
+                      funcName = node.value.replaceWith;
                   }
               }
 
@@ -2655,7 +2655,7 @@
                       denomNode = new _ParseNode2.default("ordgroup", denomBody, this.mode);
                   }
 
-                  var value = this.callResearchction(ResearchcName, [numerNode, denomNode], null);
+                  var value = this.callFunction(funcName, [numerNode, denomNode], null);
                   return [new _ParseNode2.default(value.type, value, this.mode)];
               } else {
                   return body;
@@ -2671,7 +2671,7 @@
           /**
            * Handle a subscript or superscript with nice errors.
            */
-          value: Researchction handleSupSubscript(name) {
+          value: function handleSupSubscript(name) {
               var symbolToken = this.nextToken;
               var symbol = symbolToken.text;
               this.consume();
@@ -2683,14 +2683,14 @@
                   } else {
                       throw new _ParseError2.default("Expected group after '" + symbol + "'", symbolToken);
                   }
-              } else if (group.isResearchction) {
-                  // ^ and _ have a greediness, so handle interactions with Researchctions'
+              } else if (group.isFunction) {
+                  // ^ and _ have a greediness, so handle interactions with functions'
                   // greediness
-                  var ResearchcGreediness = _Researchctions2.default[group.result].greediness;
-                  if (ResearchcGreediness > Parser.SUPSUB_GREEDINESS) {
-                      return this.parseResearchction(group);
+                  var funcGreediness = _functions2.default[group.result].greediness;
+                  if (funcGreediness > Parser.SUPSUB_GREEDINESS) {
+                      return this.parseFunction(group);
                   } else {
-                      throw new _ParseError2.default("Got Researchction '" + group.result + "' with no arguments " + "as " + name, symbolToken);
+                      throw new _ParseError2.default("Got function '" + group.result + "' with no arguments " + "as " + name, symbolToken);
                   }
               } else {
                   return group.result;
@@ -2704,7 +2704,7 @@
 
       }, {
           key: "handleUnsupportedCmd",
-          value: Researchction handleUnsupportedCmd() {
+          value: function handleUnsupportedCmd() {
               var text = this.nextToken.text;
               var textordArray = [];
 
@@ -2735,9 +2735,9 @@
 
       }, {
           key: "parseAtom",
-          value: Researchction parseAtom() {
+          value: function parseAtom() {
               // The body of an atom is an implicit group, so that things like
-              // \left(x\right)^2 Course Project correctly.
+              // \left(x\right)^2 work correctly.
               var base = this.parseImplicitGroup();
 
               // In text mode, we don't have superscripts or subscripts
@@ -2817,13 +2817,13 @@
               }
           }
 
-          // A list of the size-changing Researchctions, for use in parseImplicitGroup
+          // A list of the size-changing functions, for use in parseImplicitGroup
 
 
-          // A list of the style-changing Researchctions, for use in parseImplicitGroup
+          // A list of the style-changing functions, for use in parseImplicitGroup
 
 
-          // Old font Researchctions
+          // Old font functions
 
       }, {
           key: "parseImplicitGroup",
@@ -2832,7 +2832,7 @@
           /**
            * Parses an implicit group, which is a group that starts at the end of a
            * specified, and ends right before a higher explicit group ends, or at EOL. It
-           * is used for Researchctions that appear to affect the current style, like \Large or
+           * is used for functions that appear to affect the current style, like \Large or
            * \textrm, where instead of keeping a style we just pretend that there is an
            * implicit grouping after it until the end of the group. E.g.
            *   small text {\Large large text} small text again
@@ -2840,35 +2840,35 @@
            *
            * @return {?ParseNode}
            */
-          value: Researchction parseImplicitGroup() {
+          value: function parseImplicitGroup() {
               var start = this.parseSymbol();
 
               if (start == null) {
-                  // If we didn't get anything we handle, fall back to parseResearchction
-                  return this.parseResearchction();
+                  // If we didn't get anything we handle, fall back to parseFunction
+                  return this.parseFunction();
               }
 
-              var Researchc = start.result;
+              var func = start.result;
 
-              if (Researchc === "\\left") {
+              if (func === "\\left") {
                   // If we see a left:
-                  // Parse the entire left Researchction (including the delimiter)
-                  var left = this.parseResearchction(start);
+                  // Parse the entire left function (including the delimiter)
+                  var left = this.parseFunction(start);
                   // Parse out the implicit body
                   ++this.leftrightDepth;
                   var body = this.parseExpression(false);
                   --this.leftrightDepth;
                   // Check the next token
                   this.expect("\\right", false);
-                  var right = this.parseResearchction();
+                  var right = this.parseFunction();
                   return new _ParseNode2.default("leftright", {
                       body: body,
                       left: left.value.value,
                       right: right.value.value
                   }, this.mode);
-              } else if (Researchc === "\\begin") {
+              } else if (func === "\\begin") {
                   // begin...end is similar to left...right
-                  var begin = this.parseResearchction(start);
+                  var begin = this.parseFunction(start);
                   var envName = begin.value.name;
                   if (!_environments2.default.hasOwnProperty(envName)) {
                       throw new _ParseError2.default("No such environment: " + envName, begin.value.nameGroup);
@@ -2886,34 +2886,34 @@
                   var result = env.handler(context, args);
                   this.expect("\\end", false);
                   var endNameToken = this.nextToken;
-                  var end = this.parseResearchction();
+                  var end = this.parseFunction();
                   if (end.value.name !== envName) {
                       throw new _ParseError2.default("Mismatch: \\begin{" + envName + "} matched " + "by \\end{" + end.value.name + "}", endNameToken);
                   }
                   result.position = end.position;
                   return result;
-              } else if (_utils2.default.contains(Parser.sizeResearchcs, Researchc)) {
-                  // If we see a sizing Researchction, parse out the implicit body
+              } else if (_utils2.default.contains(Parser.sizeFuncs, func)) {
+                  // If we see a sizing function, parse out the implicit body
                   this.consumeSpaces();
                   var _body = this.parseExpression(false);
                   return new _ParseNode2.default("sizing", {
-                      // Figure out what size to use based on the list of Researchctions above
-                      size: _utils2.default.indexOf(Parser.sizeResearchcs, Researchc) + 1,
+                      // Figure out what size to use based on the list of functions above
+                      size: _utils2.default.indexOf(Parser.sizeFuncs, func) + 1,
                       value: _body
                   }, this.mode);
-              } else if (_utils2.default.contains(Parser.styleResearchcs, Researchc)) {
-                  // If we see a styling Researchction, parse out the implicit body
+              } else if (_utils2.default.contains(Parser.styleFuncs, func)) {
+                  // If we see a styling function, parse out the implicit body
                   this.consumeSpaces();
                   var _body2 = this.parseExpression(true);
                   return new _ParseNode2.default("styling", {
                       // Figure out what style to use by pulling out the style from
-                      // the Researchction name
-                      style: Researchc.slice(1, Researchc.length - 5),
+                      // the function name
+                      style: func.slice(1, func.length - 5),
                       value: _body2
                   }, this.mode);
-              } else if (Researchc in Parser.oldFontResearchcs) {
-                  var style = Parser.oldFontResearchcs[Researchc];
-                  // If we see an old font Researchction, parse out the implicit body
+              } else if (func in Parser.oldFontFuncs) {
+                  var style = Parser.oldFontFuncs[func];
+                  // If we see an old font function, parse out the implicit body
                   this.consumeSpaces();
                   var _body3 = this.parseExpression(true);
                   if (style.slice(0, 4) === 'text') {
@@ -2927,8 +2927,8 @@
                           body: new _ParseNode2.default("ordgroup", _body3, this.mode)
                       }, this.mode);
                   }
-              } else if (Researchc === "\\color") {
-                  // If we see a styling Researchction, parse out the implicit body
+              } else if (func === "\\color") {
+                  // If we see a styling function, parse out the implicit body
                   var color = this.parseColorGroup(false);
                   if (!color) {
                       throw new _ParseError2.default("\\color not followed by color");
@@ -2939,7 +2939,7 @@
                       color: color.result.value,
                       value: _body4
                   }, this.mode);
-              } else if (Researchc === "$") {
+              } else if (func === "$") {
                   if (this.mode === "math") {
                       throw new _ParseError2.default("$ within math mode");
                   }
@@ -2954,40 +2954,40 @@
                       value: _body5
                   }, "math");
               } else {
-                  // Defer to parseResearchction if it's not a Researchction we handle
-                  return this.parseResearchction(start);
+                  // Defer to parseFunction if it's not a function we handle
+                  return this.parseFunction(start);
               }
           }
 
           /**
-           * Parses an entire Researchction, including its base and all of its arguments.
+           * Parses an entire function, including its base and all of its arguments.
            * The base might either have been parsed already, in which case
            * it is provided as an argument, or it's the next group in the input.
            *
-           * @param {ParseResearchcOrArgument=} baseGroup optional as described above
+           * @param {ParseFuncOrArgument=} baseGroup optional as described above
            * @return {?ParseNode}
            */
 
       }, {
-          key: "parseResearchction",
-          value: Researchction parseResearchction(baseGroup) {
+          key: "parseFunction",
+          value: function parseFunction(baseGroup) {
               if (!baseGroup) {
                   baseGroup = this.parseGroup();
               }
 
               if (baseGroup) {
-                  if (baseGroup.isResearchction) {
-                      var Researchc = baseGroup.result;
-                      var ResearchcData = _Researchctions2.default[Researchc];
-                      if (this.mode === "text" && !ResearchcData.allowedInText) {
-                          throw new _ParseError2.default("Can't use Researchction '" + Researchc + "' in text mode", baseGroup.token);
-                      } else if (this.mode === "math" && ResearchcData.allowedInMath === false) {
-                          throw new _ParseError2.default("Can't use Researchction '" + Researchc + "' in math mode", baseGroup.token);
+                  if (baseGroup.isFunction) {
+                      var func = baseGroup.result;
+                      var funcData = _functions2.default[func];
+                      if (this.mode === "text" && !funcData.allowedInText) {
+                          throw new _ParseError2.default("Can't use function '" + func + "' in text mode", baseGroup.token);
+                      } else if (this.mode === "math" && funcData.allowedInMath === false) {
+                          throw new _ParseError2.default("Can't use function '" + func + "' in math mode", baseGroup.token);
                       }
 
-                      var args = this.parseArguments(Researchc, ResearchcData);
+                      var args = this.parseArguments(func, funcData);
                       var token = baseGroup.token;
-                      var result = this.callResearchction(Researchc, args, args.pop(), token);
+                      var result = this.callFunction(func, args, args.pop(), token);
                       return new _ParseNode2.default(result.type, result, this.mode);
                   } else {
                       return baseGroup.result;
@@ -2998,46 +2998,46 @@
           }
 
           /**
-           * Call a Researchction handler with a suitable context and arguments.
+           * Call a function handler with a suitable context and arguments.
            */
 
       }, {
-          key: "callResearchction",
-          value: Researchction callResearchction(name, args, positions, token) {
+          key: "callFunction",
+          value: function callFunction(name, args, positions, token) {
               var context = {
-                  ResearchcName: name,
+                  funcName: name,
                   parser: this,
                   positions: positions,
                   token: token
               };
-              return _Researchctions2.default[name].handler(context, args);
+              return _functions2.default[name].handler(context, args);
           }
 
           /**
-           * Parses the arguments of a Researchction or environment
+           * Parses the arguments of a function or environment
            *
-           * @param {string} Researchc  "\name" or "\begin{name}"
-           * @param {{numArgs:number,numOptionalArgs:number|undefined}} ResearchcData
+           * @param {string} func  "\name" or "\begin{name}"
+           * @param {{numArgs:number,numOptionalArgs:number|undefined}} funcData
            * @return the array of arguments, with the list of positions as last element
            */
 
       }, {
           key: "parseArguments",
-          value: Researchction parseArguments(Researchc, ResearchcData) {
-              var totalArgs = ResearchcData.numArgs + ResearchcData.numOptionalArgs;
+          value: function parseArguments(func, funcData) {
+              var totalArgs = funcData.numArgs + funcData.numOptionalArgs;
               if (totalArgs === 0) {
                   return [[this.pos]];
               }
 
-              var baseGreediness = ResearchcData.greediness;
+              var baseGreediness = funcData.greediness;
               var positions = [this.pos];
               var args = [];
 
               for (var i = 0; i < totalArgs; i++) {
                   var nextToken = this.nextToken;
-                  var argType = ResearchcData.argTypes && ResearchcData.argTypes[i];
+                  var argType = funcData.argTypes && funcData.argTypes[i];
                   var arg = void 0;
-                  if (i < ResearchcData.numOptionalArgs) {
+                  if (i < funcData.numOptionalArgs) {
                       if (argType) {
                           arg = this.parseGroupOfType(argType, true);
                       } else {
@@ -3056,19 +3056,19 @@
                       }
                       if (!arg) {
                           if (!this.settings.throwOnError && this.nextToken.text[0] === "\\") {
-                              arg = new ParseResearchcOrArgument(this.handleUnsupportedCmd(this.nextToken.text), false);
+                              arg = new ParseFuncOrArgument(this.handleUnsupportedCmd(this.nextToken.text), false);
                           } else {
-                              throw new _ParseError2.default("Expected group after '" + Researchc + "'", nextToken);
+                              throw new _ParseError2.default("Expected group after '" + func + "'", nextToken);
                           }
                       }
                   }
                   var argNode = void 0;
-                  if (arg.isResearchction) {
-                      var argGreediness = _Researchctions2.default[arg.result].greediness;
+                  if (arg.isFunction) {
+                      var argGreediness = _functions2.default[arg.result].greediness;
                       if (argGreediness > baseGreediness) {
-                          argNode = this.parseResearchction(arg);
+                          argNode = this.parseFunction(arg);
                       } else {
-                          throw new _ParseError2.default("Got Researchction '" + arg.result + "' as " + "argument to '" + Researchc + "'", nextToken);
+                          throw new _ParseError2.default("Got function '" + arg.result + "' as " + "argument to '" + func + "'", nextToken);
                       }
                   } else {
                       argNode = arg.result;
@@ -3085,12 +3085,12 @@
           /**
            * Parses a group when the mode is changing.
            *
-           * @return {?ParseResearchcOrArgument}
+           * @return {?ParseFuncOrArgument}
            */
 
       }, {
           key: "parseGroupOfType",
-          value: Researchction parseGroupOfType(innerMode, optional) {
+          value: function parseGroupOfType(innerMode, optional) {
               var outerMode = this.mode;
               // Handle `original` argTypes
               if (innerMode === "original") {
@@ -3118,7 +3118,7 @@
           }
       }, {
           key: "consumeSpaces",
-          value: Researchction consumeSpaces() {
+          value: function consumeSpaces() {
               while (this.nextToken.text === " ") {
                   this.consume();
               }
@@ -3134,7 +3134,7 @@
 
       }, {
           key: "parseStringGroup",
-          value: Researchction parseStringGroup(modeName, optional) {
+          value: function parseStringGroup(modeName, optional) {
               if (optional && this.nextToken.text !== "[") {
                   return null;
               }
@@ -3168,7 +3168,7 @@
 
       }, {
           key: "parseRegexGroup",
-          value: Researchction parseRegexGroup(regex, modeName) {
+          value: function parseRegexGroup(regex, modeName) {
               var outerMode = this.mode;
               this.mode = "text";
               var firstToken = this.nextToken;
@@ -3192,7 +3192,7 @@
 
       }, {
           key: "parseColorGroup",
-          value: Researchction parseColorGroup(optional) {
+          value: function parseColorGroup(optional) {
               var res = this.parseStringGroup("color", optional);
               if (!res) {
                   return null;
@@ -3201,7 +3201,7 @@
               if (!match) {
                   throw new _ParseError2.default("Invalid color: '" + res.text + "'", res);
               }
-              return new ParseResearchcOrArgument(new _ParseNode2.default("color", match[0], this.mode), false);
+              return new ParseFuncOrArgument(new _ParseNode2.default("color", match[0], this.mode), false);
           }
 
           /**
@@ -3210,7 +3210,7 @@
 
       }, {
           key: "parseSizeGroup",
-          value: Researchction parseSizeGroup(optional) {
+          value: function parseSizeGroup(optional) {
               var res = void 0;
               if (!optional && this.nextToken.text !== "{") {
                   res = this.parseRegexGroup(/^[-+]? *(?:$|\d+|\d+\.\d*|\.\d*) *[a-z]{0,2} *$/, "size");
@@ -3231,7 +3231,7 @@
               if (!_units2.default.validUnit(data)) {
                   throw new _ParseError2.default("Invalid unit: '" + data.unit + "'", res);
               }
-              return new ParseResearchcOrArgument(new _ParseNode2.default("size", data, this.mode), false);
+              return new ParseFuncOrArgument(new _ParseNode2.default("size", data, this.mode), false);
           }
 
           /**
@@ -3243,12 +3243,12 @@
            * bracket-enclosed group.
            *
            * @param {boolean=} optional  Whether the group is optional or required
-           * @return {?ParseResearchcOrArgument}
+           * @return {?ParseFuncOrArgument}
            */
 
       }, {
           key: "parseGroup",
-          value: Researchction parseGroup(optional) {
+          value: function parseGroup(optional) {
               var firstToken = this.nextToken;
               // Try to parse an open brace
               if (this.nextToken.text === (optional ? "[" : "{")) {
@@ -3261,7 +3261,7 @@
                   if (this.mode === "text") {
                       this.formLigatures(expression);
                   }
-                  return new ParseResearchcOrArgument(new _ParseNode2.default("ordgroup", expression, this.mode, firstToken, lastToken), false);
+                  return new ParseFuncOrArgument(new _ParseNode2.default("ordgroup", expression, this.mode, firstToken, lastToken), false);
               } else {
                   // Otherwise, just return a nucleus, or nothing for an optional group
                   return optional ? null : this.parseSymbol();
@@ -3281,7 +3281,7 @@
 
       }, {
           key: "formLigatures",
-          value: Researchction formLigatures(group) {
+          value: function formLigatures(group) {
               var n = group.length - 1;
               for (var i = 0; i < n; ++i) {
                   var a = group[i];
@@ -3303,32 +3303,32 @@
           }
 
           /**
-           * Parse a single symbol out of the string. Here, we handle both the Researchctions
+           * Parse a single symbol out of the string. Here, we handle both the functions
            * we have defined, as well as the single character symbols
            *
-           * @return {?ParseResearchcOrArgument}
+           * @return {?ParseFuncOrArgument}
            */
 
       }, {
           key: "parseSymbol",
-          value: Researchction parseSymbol() {
+          value: function parseSymbol() {
               var nucleus = this.nextToken;
 
-              if (_Researchctions2.default[nucleus.text]) {
+              if (_functions2.default[nucleus.text]) {
                   this.consume();
-                  // If there exists a Researchction with this name, we return the Researchction and
-                  // say that it is a Researchction.
-                  return new ParseResearchcOrArgument(nucleus.text, true, nucleus);
+                  // If there exists a function with this name, we return the function and
+                  // say that it is a function.
+                  return new ParseFuncOrArgument(nucleus.text, true, nucleus);
               } else if (_symbols2.default[this.mode][nucleus.text]) {
                   this.consume();
-                  // Otherwise if this is a no-argument Researchction, find the type it
+                  // Otherwise if this is a no-argument function, find the type it
                   // corresponds to in the symbols map
-                  return new ParseResearchcOrArgument(new _ParseNode2.default(_symbols2.default[this.mode][nucleus.text].group, nucleus.text, this.mode, nucleus), false, nucleus);
+                  return new ParseFuncOrArgument(new _ParseNode2.default(_symbols2.default[this.mode][nucleus.text].group, nucleus.text, this.mode, nucleus), false, nucleus);
               } else if (this.mode === "text" && _unicodeRegexes.cjkRegex.test(nucleus.text)) {
                   this.consume();
-                  return new ParseResearchcOrArgument(new _ParseNode2.default("textord", nucleus.text, this.mode, nucleus), false, nucleus);
+                  return new ParseFuncOrArgument(new _ParseNode2.default("textord", nucleus.text, this.mode, nucleus), false, nucleus);
               } else if (nucleus.text === "$") {
-                  return new ParseResearchcOrArgument(nucleus.text, false, nucleus);
+                  return new ParseFuncOrArgument(nucleus.text, false, nucleus);
               } else {
                   return null;
               }
@@ -3339,9 +3339,9 @@
 
   Parser.endOfExpression = ["}", "\\end", "\\right", "&", "\\\\", "\\cr"];
   Parser.SUPSUB_GREEDINESS = 1;
-  Parser.sizeResearchcs = ["\\tiny", "\\sixptsize", "\\scriptsize", "\\footnotesize", "\\small", "\\normalsize", "\\large", "\\Large", "\\LARGE", "\\huge", "\\Huge"];
-  Parser.styleResearchcs = ["\\displaystyle", "\\textstyle", "\\scriptstyle", "\\scriptscriptstyle"];
-  Parser.oldFontResearchcs = {
+  Parser.sizeFuncs = ["\\tiny", "\\sixptsize", "\\scriptsize", "\\footnotesize", "\\small", "\\normalsize", "\\large", "\\Large", "\\LARGE", "\\huge", "\\Huge"];
+  Parser.styleFuncs = ["\\displaystyle", "\\textstyle", "\\scriptstyle", "\\scriptscriptstyle"];
+  Parser.oldFontFuncs = {
       "\\rm": "mathrm",
       "\\sf": "mathsf",
       "\\tt": "mathtt",
@@ -3354,7 +3354,7 @@
 
   module.exports = Parser;
 
-  },{"./MacroExpander":27,"./ParseError":29,"./ParseNode":30,"./environments":40,"./Researchctions":43,"./symbols":48,"./unicodeRegexes":49,"./units":50,"./utils":51,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],32:[Researchction(require,module,exports){
+  },{"./MacroExpander":27,"./ParseError":29,"./ParseNode":30,"./environments":40,"./functions":43,"./symbols":48,"./unicodeRegexes":49,"./units":50,"./utils":51,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],32:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -3364,7 +3364,7 @@
 
   var _utils2 = _interopRequireDefault(_utils);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * The main Settings object
@@ -3376,7 +3376,7 @@
    *                 math (true), meaning that the math starts in \displaystyle
    *                 and is placed in a block with vertical margin.
    */
-  var Settings = Researchction Settings(options) {
+  var Settings = function Settings(options) {
     (0, _classCallCheck3.default)(this, Settings);
 
     // allow null options
@@ -3393,7 +3393,7 @@
 
   module.exports = Settings;
 
-  },{"./utils":51,"babel-runtime/helpers/classCallCheck":4}],33:[Researchction(require,module,exports){
+  },{"./utils":51,"babel-runtime/helpers/classCallCheck":4}],33:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -3403,13 +3403,13 @@
 
   var _createClass3 = _interopRequireDefault(_createClass2);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * This file contains information and classes for the various kinds of styles
    * used in TeX. It provides a generic `Style` class, which holds information
    * about a specific style. It then provides instances of all the different kinds
-   * of styles possible, and provides Researchctions to move between them and get
+   * of styles possible, and provides functions to move between them and get
    * information about them.
    */
 
@@ -3417,8 +3417,8 @@
    * The main style class. Contains a unique id for the style, a size (which is
    * the same for cramped and uncramped version of a style), and a cramped flag.
    */
-  var Style = Researchction () {
-      Researchction Style(id, size, cramped) {
+  var Style = function () {
+      function Style(id, size, cramped) {
           (0, _classCallCheck3.default)(this, Style);
 
           this.id = id;
@@ -3433,7 +3433,7 @@
 
       (0, _createClass3.default)(Style, [{
           key: "sup",
-          value: Researchction sup() {
+          value: function sup() {
               return styles[_sup[this.id]];
           }
 
@@ -3443,7 +3443,7 @@
 
       }, {
           key: "sub",
-          value: Researchction sub() {
+          value: function sub() {
               return styles[_sub[this.id]];
           }
 
@@ -3454,7 +3454,7 @@
 
       }, {
           key: "fracNum",
-          value: Researchction fracNum() {
+          value: function fracNum() {
               return styles[_fracNum[this.id]];
           }
 
@@ -3465,7 +3465,7 @@
 
       }, {
           key: "fracDen",
-          value: Researchction fracDen() {
+          value: function fracDen() {
               return styles[_fracDen[this.id]];
           }
 
@@ -3476,7 +3476,7 @@
 
       }, {
           key: "cramp",
-          value: Researchction cramp() {
+          value: function cramp() {
               return styles[_cramp[this.id]];
           }
 
@@ -3486,7 +3486,7 @@
 
       }, {
           key: "text",
-          value: Researchction text() {
+          value: function text() {
               return styles[_text[this.id]];
           }
 
@@ -3496,7 +3496,7 @@
 
       }, {
           key: "isTight",
-          value: Researchction isTight() {
+          value: function isTight() {
               return this.size >= 2;
           }
       }]);
@@ -3535,7 +3535,7 @@
       SCRIPTSCRIPT: styles[SS]
   };
 
-  },{"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],34:[Researchction(require,module,exports){
+  },{"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],34:[function(require,module,exports){
 
   var _domTree = require("./domTree");
 
@@ -3553,12 +3553,12 @@
 
   var _utils2 = _interopRequireDefault(_utils);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   // The following have to be loaded from Main-Italic font, using class mainit
   /* eslint no-console:0 */
   /**
-   * This module contains general Researchctions that can be used for building
+   * This module contains general functions that can be used for building
    * different kinds of domTree nodes in a consistent manner.
    */
 
@@ -3570,7 +3570,7 @@
    * Looks up the given symbol in fontMetrics, after applying any symbol
    * replacements defined in symbol.js
    */
-  var lookupSymbol = Researchction lookupSymbol(value, fontFamily, mode) {
+  var lookupSymbol = function lookupSymbol(value, fontFamily, mode) {
       // Replace the value with its replaced value from symbol.js
       if (_symbols2.default[mode][value] && _symbols2.default[mode][value].replace) {
           value = _symbols2.default[mode][value].replace;
@@ -3590,7 +3590,7 @@
    * TODO: add a separate argument for math class (e.g. `mop`, `mbin`), which
    * should if present come first in `classes`.
    */
-  var makeSymbol = Researchction makeSymbol(value, fontFamily, mode, options, classes) {
+  var makeSymbol = function makeSymbol(value, fontFamily, mode, options, classes) {
       var lookup = lookupSymbol(value, fontFamily, mode);
       var metrics = lookup.metrics;
       value = lookup.value;
@@ -3625,7 +3625,7 @@
    * Makes a symbol in Main-Regular or AMS-Regular.
    * Used for rel, bin, open, close, inner, and punct.
    */
-  var mathsym = Researchction mathsym(value, mode, options, classes) {
+  var mathsym = function mathsym(value, mode, options, classes) {
       // Decide what font to render the symbol in by its entry in the symbols
       // table.
       // Have a special case for when the value = \ because the \ is used as a
@@ -3642,7 +3642,7 @@
   /**
    * Makes a symbol in the default font for mathords and textords.
    */
-  var mathDefault = Researchction mathDefault(value, mode, options, classes, type) {
+  var mathDefault = function mathDefault(value, mode, options, classes, type) {
       if (type === "mathord") {
           var fontLookup = mathit(value);
           return makeSymbol(value, fontLookup.fontName, mode, options, classes.concat([fontLookup.fontClass]));
@@ -3662,10 +3662,10 @@
   /**
    * Determines which of the two font names (Main-Italic and Math-Italic) and
    * corresponding style tags (mainit or mathit) to use for font "mathit",
-   * depending on the symbol.  Use this Researchction instead of fontMap for font
+   * depending on the symbol.  Use this function instead of fontMap for font
    * "mathit".
    */
-  var mathit = Researchction mathit(value, mode, options, classes) {
+  var mathit = function mathit(value, mode, options, classes) {
       if (/[0-9]/.test(value.charAt(0)) ||
       // glyphs for \imath and \jmath do not exist in Math-Italic so we
       // need to use Main-Italic instead
@@ -3685,7 +3685,7 @@
   /**
    * Makes either a mathord or textord in the correct font and color.
    */
-  var makeOrd = Researchction makeOrd(group, options, type) {
+  var makeOrd = function makeOrd(group, options, type) {
       var mode = group.mode;
       var value = group.value;
 
@@ -3713,7 +3713,7 @@
    * Calculate the height, depth, and maxFontSize of an element based on its
    * children.
    */
-  var sizeElementFromChildren = Researchction sizeElementFromChildren(elem) {
+  var sizeElementFromChildren = function sizeElementFromChildren(elem) {
       var height = 0;
       var depth = 0;
       var maxFontSize = 0;
@@ -3745,7 +3745,7 @@
    * TODO: add a separate argument for math class (e.g. `mop`, `mbin`), which
    * should if present come first in `classes`.
    */
-  var makeSpan = Researchction makeSpan(classes, children, options) {
+  var makeSpan = function makeSpan(classes, children, options) {
       var span = new _domTree2.default.span(classes, children, options);
 
       sizeElementFromChildren(span);
@@ -3757,7 +3757,7 @@
    * Prepends the given children to the given span, updating height, depth, and
    * maxFontSize.
    */
-  var prependChildren = Researchction prependChildren(span, children) {
+  var prependChildren = function prependChildren(span, children) {
       span.children = children.concat(span.children);
 
       sizeElementFromChildren(span);
@@ -3766,7 +3766,7 @@
   /**
    * Makes a document fragment with the given list of children.
    */
-  var makeFragment = Researchction makeFragment(children) {
+  var makeFragment = function makeFragment(children) {
       var fragment = new _domTree2.default.documentFragment(children);
 
       sizeElementFromChildren(fragment);
@@ -3813,7 +3813,7 @@
    *  - options: An Options object
    *
    */
-  var makeVList = Researchction makeVList(children, positionType, positionData, options) {
+  var makeVList = function makeVList(children, positionType, positionData, options) {
       var depth = void 0;
       var currPos = void 0;
       var i = void 0;
@@ -3931,9 +3931,9 @@
       return vtable;
   };
 
-  // A map of spacing Researchctions to their attributes, like size and corresponding
+  // A map of spacing functions to their attributes, like size and corresponding
   // CSS class
-  var spacingResearchctions = {
+  var spacingFunctions = {
       "\\qquad": {
           size: "2em",
           className: "qquad"
@@ -4025,10 +4025,10 @@
       makeVList: makeVList,
       makeOrd: makeOrd,
       prependChildren: prependChildren,
-      spacingResearchctions: spacingResearchctions
+      spacingFunctions: spacingFunctions
   };
 
-  },{"./domTree":39,"./fontMetrics":41,"./symbols":48,"./utils":51}],35:[Researchction(require,module,exports){
+  },{"./domTree":39,"./fontMetrics":41,"./symbols":48,"./utils":51}],35:[function(require,module,exports){
 
   var _stringify = require("babel-runtime/core-js/json/stringify");
 
@@ -4066,28 +4066,28 @@
 
   var _stretchy2 = _interopRequireDefault(_stretchy);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /* eslint no-console:0 */
   /**
-   * This file does the main Course Project of building a domTree structure from a parse
-   * tree. The entry point is the `buildHTML` Researchction, which takes a parse tree.
-   * Then, the buildExpression, buildGroup, and various groupTypes Researchctions are
+   * This file does the main work of building a domTree structure from a parse
+   * tree. The entry point is the `buildHTML` function, which takes a parse tree.
+   * Then, the buildExpression, buildGroup, and various groupTypes functions are
    * called, to produce a final HTML tree.
    */
 
-  var isSpace = Researchction isSpace(node) {
+  var isSpace = function isSpace(node) {
       return node instanceof _domTree2.default.span && node.classes[0] === "mspace";
   };
 
   // Binary atoms (first class `mbin`) change into ordinary atoms (`mord`)
   // depending on their surroundings. See TeXbook pg. 442-446, Rules 5 and 6,
   // and the text before Rule 19.
-  var isBin = Researchction isBin(node) {
+  var isBin = function isBin(node) {
       return node && node.classes[0] === "mbin";
   };
 
-  var isBinLeftCanceller = Researchction isBinLeftCanceller(node, isRealGroup) {
+  var isBinLeftCanceller = function isBinLeftCanceller(node, isRealGroup) {
       // TODO: This code assumes that a node's math class is the first element
       // of its `classes` array. A later cleanup should ensure this, for
       // instance by changing the signature of `makeSpan`.
@@ -4098,7 +4098,7 @@
       }
   };
 
-  var isBinRightCanceller = Researchction isBinRightCanceller(node, isRealGroup) {
+  var isBinRightCanceller = function isBinRightCanceller(node, isRealGroup) {
       if (node) {
           return _utils2.default.contains(["mrel", "mclose", "mpunct"], node.classes[0]);
       } else {
@@ -4111,7 +4111,7 @@
    * the spliced-out array. Returns null if `children[i]` does not exist or is not
    * a space.
    */
-  var spliceSpaces = Researchction spliceSpaces(children, i) {
+  var spliceSpaces = function spliceSpaces(children, i) {
       var j = i;
       while (j < children.length && isSpace(children[j])) {
           j++;
@@ -4130,7 +4130,7 @@
    * is a real group (no atoms will be added on either side), as opposed to
    * a partial group (e.g. one created by \color).
    */
-  var buildExpression = Researchction buildExpression(expression, options, isRealGroup) {
+  var buildExpression = function buildExpression(expression, options, isRealGroup) {
       // Parse expressions into `groups`.
       var groups = [];
       for (var i = 0; i < expression.length; i++) {
@@ -4183,7 +4183,7 @@
 
               children[0].classes = ["mainrm"];
               // \u0338 is a combining glyph so we could reorder the children so
-              // that it comes after the other glyph.  This Course Projects correctly on
+              // that it comes after the other glyph.  This works correctly on
               // most browsers except for Safari.  Instead we absolutely position
               // the glyph and set its right side to match that of the other
               // glyph which is visually equivalent.
@@ -4211,7 +4211,7 @@
   };
 
   // Return math atom class (mclass) of a domTree.
-  var getTypeOfDomTree = Researchction getTypeOfDomTree(node) {
+  var getTypeOfDomTree = function getTypeOfDomTree(node) {
       if (node instanceof _domTree2.default.documentFragment) {
           if (node.children.length) {
               return getTypeOfDomTree(node.children[node.children.length - 1]);
@@ -4226,11 +4226,11 @@
 
   /**
    * Sometimes, groups perform special rules when they have superscripts or
-   * subscripts attached to them. This Researchction lets the `supsub` group know that
+   * subscripts attached to them. This function lets the `supsub` group know that
    * its inner element should handle the superscripts and subscripts instead of
    * handling them itself.
    */
-  var shouldHandleSupSub = Researchction shouldHandleSupSub(group, options) {
+  var shouldHandleSupSub = function shouldHandleSupSub(group, options) {
       if (!group.value.base) {
           return false;
       } else {
@@ -4255,7 +4255,7 @@
    * cases, this will just be the group itself, but when ordgroups and colors have
    * a single element, we want to pull that out.
    */
-  var getBaseElem = Researchction getBaseElem(group) {
+  var getBaseElem = function getBaseElem(group) {
       if (!group) {
           return false;
       } else if (group.type === "ordgroup") {
@@ -4282,61 +4282,61 @@
    * with a single character in them. To decide if something is a character box,
    * we find its innermost group, and see if it is a single character.
    */
-  var isCharacterBox = Researchction isCharacterBox(group) {
+  var isCharacterBox = function isCharacterBox(group) {
       var baseElem = getBaseElem(group);
 
       // These are all they types of groups which hold single characters
       return baseElem.type === "mathord" || baseElem.type === "textord" || baseElem.type === "bin" || baseElem.type === "rel" || baseElem.type === "inner" || baseElem.type === "open" || baseElem.type === "close" || baseElem.type === "punct";
   };
 
-  var makeNullDelimiter = Researchction makeNullDelimiter(options, classes) {
+  var makeNullDelimiter = function makeNullDelimiter(options, classes) {
       var moreClasses = ["nulldelimiter"].concat(options.baseSizingClasses());
       return (0, _buildCommon.makeSpan)(classes.concat(moreClasses));
   };
 
   /**
-   * This is a map of group types to the Researchction used to handle that type.
+   * This is a map of group types to the function used to handle that type.
    * Simpler types come at the beginning, while complicated types come afterwards.
    */
   var groupTypes = {};
 
-  groupTypes.mathord = Researchction (group, options) {
+  groupTypes.mathord = function (group, options) {
       return _buildCommon2.default.makeOrd(group, options, "mathord");
   };
 
-  groupTypes.textord = Researchction (group, options) {
+  groupTypes.textord = function (group, options) {
       return _buildCommon2.default.makeOrd(group, options, "textord");
   };
 
-  groupTypes.bin = Researchction (group, options) {
+  groupTypes.bin = function (group, options) {
       return _buildCommon2.default.mathsym(group.value, group.mode, options, ["mbin"]);
   };
 
-  groupTypes.rel = Researchction (group, options) {
+  groupTypes.rel = function (group, options) {
       return _buildCommon2.default.mathsym(group.value, group.mode, options, ["mrel"]);
   };
 
-  groupTypes.open = Researchction (group, options) {
+  groupTypes.open = function (group, options) {
       return _buildCommon2.default.mathsym(group.value, group.mode, options, ["mopen"]);
   };
 
-  groupTypes.close = Researchction (group, options) {
+  groupTypes.close = function (group, options) {
       return _buildCommon2.default.mathsym(group.value, group.mode, options, ["mclose"]);
   };
 
-  groupTypes.inner = Researchction (group, options) {
+  groupTypes.inner = function (group, options) {
       return _buildCommon2.default.mathsym(group.value, group.mode, options, ["minner"]);
   };
 
-  groupTypes.punct = Researchction (group, options) {
+  groupTypes.punct = function (group, options) {
       return _buildCommon2.default.mathsym(group.value, group.mode, options, ["mpunct"]);
   };
 
-  groupTypes.ordgroup = Researchction (group, options) {
+  groupTypes.ordgroup = function (group, options) {
       return (0, _buildCommon.makeSpan)(["mord"], buildExpression(group.value, options, true), options);
   };
 
-  groupTypes.text = Researchction (group, options) {
+  groupTypes.text = function (group, options) {
       var newOptions = options.withFont(group.value.style);
       var inner = buildExpression(group.value.body, newOptions, true);
       for (var i = 0; i < inner.length - 1; i++) {
@@ -4348,7 +4348,7 @@
       return (0, _buildCommon.makeSpan)(["mord", "text"], inner, newOptions);
   };
 
-  groupTypes.color = Researchction (group, options) {
+  groupTypes.color = function (group, options) {
       var elements = buildExpression(group.value.value, options.withColor(group.value.color), false);
 
       // \color isn't supposed to affect the type of the elements it contains.
@@ -4358,7 +4358,7 @@
       return new _buildCommon2.default.makeFragment(elements);
   };
 
-  groupTypes.supsub = Researchction (group, options) {
+  groupTypes.supsub = function (group, options) {
       // Superscript and subscripts are handled in the TeXbook on page
       // 445-446, rules 18(a-f).
 
@@ -4459,10 +4459,10 @@
       return (0, _buildCommon.makeSpan)([mclass], [base, (0, _buildCommon.makeSpan)(["msupsub"], [supsub])], options);
   };
 
-  groupTypes.genfrac = Researchction (group, options) {
+  groupTypes.genfrac = function (group, options) {
       // Fractions are handled in the TeXbook on pages 444-445, rules 15(a-e).
       // Figure out what style this fraction should be in based on the
-      // Researchction used
+      // function used
       var style = options.style;
       if (group.value.size === "display") {
           style = _Style2.default.DISPLAY;
@@ -4573,7 +4573,7 @@
       return (0, _buildCommon.makeSpan)(["mord"].concat(newOptions.sizingClasses(options)), [leftDelim, (0, _buildCommon.makeSpan)(["mfrac"], [frac]), rightDelim], options);
   };
 
-  groupTypes.array = Researchction (group, options) {
+  groupTypes.array = function (group, options) {
       var r = void 0;
       var c = void 0;
       var nr = group.value.body.length;
@@ -4726,7 +4726,7 @@
       return (0, _buildCommon.makeSpan)(["mord"], [body], options);
   };
 
-  groupTypes.spacing = Researchction (group, options) {
+  groupTypes.spacing = function (group, options) {
       if (group.value === "\\ " || group.value === "\\space" || group.value === " " || group.value === "~") {
           // Spaces are generated by adding an actual space. Each of these
           // things has an entry in the symbols table, so these will be turned
@@ -4739,23 +4739,23 @@
       } else {
           // Other kinds of spaces are of arbitrary width. We use CSS to
           // generate these.
-          return (0, _buildCommon.makeSpan)(["mspace", _buildCommon2.default.spacingResearchctions[group.value].className], [], options);
+          return (0, _buildCommon.makeSpan)(["mspace", _buildCommon2.default.spacingFunctions[group.value].className], [], options);
       }
   };
 
-  groupTypes.llap = Researchction (group, options) {
+  groupTypes.llap = function (group, options) {
       var inner = (0, _buildCommon.makeSpan)(["inner"], [buildGroup(group.value.body, options)]);
       var fix = (0, _buildCommon.makeSpan)(["fix"], []);
       return (0, _buildCommon.makeSpan)(["mord", "llap"], [inner, fix], options);
   };
 
-  groupTypes.rlap = Researchction (group, options) {
+  groupTypes.rlap = function (group, options) {
       var inner = (0, _buildCommon.makeSpan)(["inner"], [buildGroup(group.value.body, options)]);
       var fix = (0, _buildCommon.makeSpan)(["fix"], []);
       return (0, _buildCommon.makeSpan)(["mord", "rlap"], [inner, fix], options);
   };
 
-  groupTypes.op = Researchction (group, options) {
+  groupTypes.op = function (group, options) {
       // Operators are handled in the TeXbook pg. 443-444, rule 13(a).
       var supGroup = void 0;
       var subGroup = void 0;
@@ -4825,7 +4825,7 @@
 
       if (hasLimits) {
           // IE 8 clips \int if it is in a display: inline-block. We wrap it
-          // in a new span so it is an inline, and Course Projects.
+          // in a new span so it is an inline, and works.
           base = (0, _buildCommon.makeSpan)([], [base]);
 
           var supm = void 0;
@@ -4888,7 +4888,7 @@
       }
   };
 
-  groupTypes.mod = Researchction (group, options) {
+  groupTypes.mod = function (group, options) {
       var inner = [];
 
       if (group.value.modType === "bmod") {
@@ -4935,7 +4935,7 @@
       return _buildCommon2.default.makeFragment(inner);
   };
 
-  groupTypes.katex = Researchction (group, options) {
+  groupTypes.katex = function (group, options) {
       // The KaTeX logo. The offsets for the K and a were chosen to look
       // good, but the offsets for the T, E, and X were taken from the
       // definition of \TeX in TeX (see TeXbook pg. 356)
@@ -4956,7 +4956,7 @@
       return (0, _buildCommon.makeSpan)(["mord", "katex-logo"], [k, a, t, e, x], options);
   };
 
-  var makeLineSpan = Researchction makeLineSpan(className, options, thickness) {
+  var makeLineSpan = function makeLineSpan(className, options, thickness) {
       var line = (0, _buildCommon.makeSpan)([className], [], options);
       line.height = thickness || options.fontMetrics().defaultRuleThickness;
       line.style.borderBottomWidth = line.height + "em";
@@ -4964,7 +4964,7 @@
       return line;
   };
 
-  groupTypes.overline = Researchction (group, options) {
+  groupTypes.overline = function (group, options) {
       // Overlines are handled in the TeXbook pg 443, Rule 9.
 
       // Build the inner group in the cramped style.
@@ -4979,7 +4979,7 @@
       return (0, _buildCommon.makeSpan)(["mord", "overline"], [vlist], options);
   };
 
-  groupTypes.underline = Researchction (group, options) {
+  groupTypes.underline = function (group, options) {
       // Underlines are handled in the TeXbook pg 443, Rule 10.
       // Build the inner group.
       var innerGroup = buildGroup(group.value.body, options);
@@ -4993,7 +4993,7 @@
       return (0, _buildCommon.makeSpan)(["mord", "underline"], [vlist], options);
   };
 
-  groupTypes.sqrt = Researchction (group, options) {
+  groupTypes.sqrt = function (group, options) {
       // Square roots are handled in the TeXbook pg. 443, Rule 11.
 
       // First, we do the same steps as in overline to build the inner group
@@ -5041,9 +5041,9 @@
 
       // We add a special case here, because even when `inner` is empty, we
       // still get a line. So, we use a simple heuristic to decide if we
-      // should omit the body entirely. (note this doesn't Course Project for something
+      // should omit the body entirely. (note this doesn't work for something
       // like `\sqrt{\rlap{x}}`, but if someone is doing that they deserve for
-      // it not to Course Project.
+      // it not to work.
       var body = void 0;
       if (inner.height === 0 && inner.depth === 0) {
           body = (0, _buildCommon.makeSpan)();
@@ -5078,7 +5078,7 @@
       }
   };
 
-  Researchction sizingGroup(value, options, baseOptions) {
+  function sizingGroup(value, options, baseOptions) {
       var inner = buildExpression(value, options, false);
       var multiplier = options.sizeMultiplier / baseOptions.sizeMultiplier;
 
@@ -5102,15 +5102,15 @@
       return _buildCommon2.default.makeFragment(inner);
   }
 
-  groupTypes.sizing = Researchction (group, options) {
+  groupTypes.sizing = function (group, options) {
       // Handle sizing operators like \Huge. Real TeX doesn't actually allow
-      // these Researchctions inside of math expressions, so we do some special
+      // these functions inside of math expressions, so we do some special
       // handling.
       var newOptions = options.havingSize(group.value.size);
       return sizingGroup(group.value.value, newOptions, options);
   };
 
-  groupTypes.styling = Researchction (group, options) {
+  groupTypes.styling = function (group, options) {
       // Style changes are handled in the TeXbook on pg. 442, Rule 3.
 
       // Figure out what style we're changing to.
@@ -5126,12 +5126,12 @@
       return sizingGroup(group.value.value, newOptions, options);
   };
 
-  groupTypes.font = Researchction (group, options) {
+  groupTypes.font = function (group, options) {
       var font = group.value.font;
       return buildGroup(group.value.body, options.withFont(font));
   };
 
-  groupTypes.delimsizing = Researchction (group, options) {
+  groupTypes.delimsizing = function (group, options) {
       var delim = group.value.value;
 
       if (delim === ".") {
@@ -5144,7 +5144,7 @@
       return _delimiter2.default.sizedDelim(delim, group.value.size, options, group.mode, [group.value.mclass]);
   };
 
-  groupTypes.leftright = Researchction (group, options) {
+  groupTypes.leftright = function (group, options) {
       // Build the inner expression
       var inner = buildExpression(group.value.body, options, true);
 
@@ -5209,7 +5209,7 @@
       return (0, _buildCommon.makeSpan)(["minner"], inner, options);
   };
 
-  groupTypes.middle = Researchction (group, options) {
+  groupTypes.middle = function (group, options) {
       var middleDelim = void 0;
       if (group.value.value === ".") {
           middleDelim = makeNullDelimiter(options, []);
@@ -5220,7 +5220,7 @@
       return middleDelim;
   };
 
-  groupTypes.rule = Researchction (group, options) {
+  groupTypes.rule = function (group, options) {
       // Make an empty span for the rule
       var rule = (0, _buildCommon.makeSpan)(["mord", "rule"], [], options);
 
@@ -5250,7 +5250,7 @@
       return rule;
   };
 
-  groupTypes.kern = Researchction (group, options) {
+  groupTypes.kern = function (group, options) {
       // Make an empty span for the rule
       var rule = (0, _buildCommon.makeSpan)(["mord", "rule"], [], options);
 
@@ -5262,7 +5262,7 @@
       return rule;
   };
 
-  groupTypes.accent = Researchction (group, options) {
+  groupTypes.accent = function (group, options) {
       // Accents are handled in the TeXbook pg. 443, rule 12.
       var base = group.value.base;
 
@@ -5383,7 +5383,7 @@
       }
   };
 
-  groupTypes.horizBrace = Researchction (group, options) {
+  groupTypes.horizBrace = function (group, options) {
       var style = options.style;
 
       var hasSupSub = group.type === "supsub";
@@ -5441,7 +5441,7 @@
       return (0, _buildCommon.makeSpan)(["mord", group.value.isOver ? "mover" : "munder"], [vlist], options);
   };
 
-  groupTypes.accentUnder = Researchction (group, options) {
+  groupTypes.accentUnder = function (group, options) {
       // Treat under accents much like underlines.
       var innerGroup = buildGroup(group.value.body, options);
 
@@ -5456,7 +5456,7 @@
       return (0, _buildCommon.makeSpan)(["mord", "accentunder"], [vlist], options);
   };
 
-  groupTypes.enclose = Researchction (group, options) {
+  groupTypes.enclose = function (group, options) {
       // \cancel, \bcancel, \xcancel, \sout, \fbox
       var inner = buildGroup(group.value.body, options);
 
@@ -5499,7 +5499,7 @@
       }
   };
 
-  groupTypes.xArrow = Researchction (group, options) {
+  groupTypes.xArrow = function (group, options) {
       var style = options.style;
 
       // Build the argument groups in the appropriate style.
@@ -5536,7 +5536,7 @@
       return (0, _buildCommon.makeSpan)(["mrel", "x-arrow"], [vlist], options);
   };
 
-  groupTypes.phantom = Researchction (group, options) {
+  groupTypes.phantom = function (group, options) {
       var elements = buildExpression(group.value.value, options.withPhantom(), false);
 
       // \phantom isn't supposed to affect the elements it contains.
@@ -5544,24 +5544,24 @@
       return new _buildCommon2.default.makeFragment(elements);
   };
 
-  groupTypes.mclass = Researchction (group, options) {
+  groupTypes.mclass = function (group, options) {
       var elements = buildExpression(group.value.value, options, true);
 
       return (0, _buildCommon.makeSpan)([group.value.mclass], elements, options);
   };
 
   /**
-   * buildGroup is the Researchction that takes a group and calls the correct groupType
-   * Researchction for it. It also handles the interaction of size and style changes
+   * buildGroup is the function that takes a group and calls the correct groupType
+   * function for it. It also handles the interaction of size and style changes
    * between parents and children.
    */
-  var buildGroup = Researchction buildGroup(group, options, baseOptions) {
+  var buildGroup = function buildGroup(group, options, baseOptions) {
       if (!group) {
           return (0, _buildCommon.makeSpan)();
       }
 
       if (groupTypes[group.type]) {
-          // Call the groupTypes Researchction
+          // Call the groupTypes function
           var groupNode = groupTypes[group.type](group, options);
 
           // If the size changed between the parent and the current group, account
@@ -5585,7 +5585,7 @@
    * Take an entire parse tree, and build it into an appropriate set of HTML
    * nodes.
    */
-  var buildHTML = Researchction buildHTML(tree, options) {
+  var buildHTML = function buildHTML(tree, options) {
       // buildExpression is destructive, so we need to make a clone
       // of the incoming tree so that it isn't accidentally changed
       tree = JSON.parse((0, _stringify2.default)(tree));
@@ -5617,7 +5617,7 @@
 
   module.exports = buildHTML;
 
-  },{"./ParseError":29,"./Style":33,"./buildCommon":34,"./delimiter":38,"./domTree":39,"./stretchy":47,"./units":50,"./utils":51,"babel-runtime/core-js/json/stringify":2}],36:[Researchction(require,module,exports){
+  },{"./ParseError":29,"./Style":33,"./buildCommon":34,"./delimiter":38,"./domTree":39,"./stretchy":47,"./units":50,"./utils":51,"babel-runtime/core-js/json/stringify":2}],36:[function(require,module,exports){
 
   var _buildCommon = require("./buildCommon");
 
@@ -5651,7 +5651,7 @@
 
   var _stretchy2 = _interopRequireDefault(_stretchy);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * Takes a symbol and converts it into a MathML text node after performing
@@ -5659,11 +5659,11 @@
    */
   /**
    * This file converts a parse tree into a cooresponding MathML tree. The main
-   * entry point is the `buildMathML` Researchction, which takes a parse tree from the
+   * entry point is the `buildMathML` function, which takes a parse tree from the
    * parser.
    */
 
-  var makeText = Researchction makeText(text, mode) {
+  var makeText = function makeText(text, mode) {
       if (_symbols2.default[mode][text] && _symbols2.default[mode][text].replace) {
           text = _symbols2.default[mode][text].replace;
       }
@@ -5674,7 +5674,7 @@
   /**
    * Returns the math variant as a string or null if none is required.
    */
-  var getVariant = Researchction getVariant(group, options) {
+  var getVariant = function getVariant(group, options) {
       var font = options.font;
       if (!font) {
           return null;
@@ -5703,8 +5703,8 @@
   };
 
   /**
-   * Researchctions for handling the different types of groups found in the parse
-   * tree. Each Researchction should take a parse group and return a MathML node.
+   * Functions for handling the different types of groups found in the parse
+   * tree. Each function should take a parse group and return a MathML node.
    */
   var groupTypes = {};
 
@@ -5714,7 +5714,7 @@
       "mtext": "normal"
   };
 
-  groupTypes.mathord = Researchction (group, options) {
+  groupTypes.mathord = function (group, options) {
       var node = new _mathMLTree2.default.MathNode("mi", [makeText(group.value, group.mode)]);
 
       var variant = getVariant(group, options) || "italic";
@@ -5724,7 +5724,7 @@
       return node;
   };
 
-  groupTypes.textord = Researchction (group, options) {
+  groupTypes.textord = function (group, options) {
       var text = makeText(group.value, group.mode);
 
       var variant = getVariant(group, options) || "normal";
@@ -5748,37 +5748,37 @@
       return node;
   };
 
-  groupTypes.bin = Researchction (group) {
+  groupTypes.bin = function (group) {
       var node = new _mathMLTree2.default.MathNode("mo", [makeText(group.value, group.mode)]);
 
       return node;
   };
 
-  groupTypes.rel = Researchction (group) {
+  groupTypes.rel = function (group) {
       var node = new _mathMLTree2.default.MathNode("mo", [makeText(group.value, group.mode)]);
 
       return node;
   };
 
-  groupTypes.open = Researchction (group) {
+  groupTypes.open = function (group) {
       var node = new _mathMLTree2.default.MathNode("mo", [makeText(group.value, group.mode)]);
 
       return node;
   };
 
-  groupTypes.close = Researchction (group) {
+  groupTypes.close = function (group) {
       var node = new _mathMLTree2.default.MathNode("mo", [makeText(group.value, group.mode)]);
 
       return node;
   };
 
-  groupTypes.inner = Researchction (group) {
+  groupTypes.inner = function (group) {
       var node = new _mathMLTree2.default.MathNode("mo", [makeText(group.value, group.mode)]);
 
       return node;
   };
 
-  groupTypes.punct = Researchction (group) {
+  groupTypes.punct = function (group) {
       var node = new _mathMLTree2.default.MathNode("mo", [makeText(group.value, group.mode)]);
 
       node.setAttribute("separator", "true");
@@ -5786,7 +5786,7 @@
       return node;
   };
 
-  groupTypes.ordgroup = Researchction (group, options) {
+  groupTypes.ordgroup = function (group, options) {
       var inner = buildExpression(group.value, options);
 
       var node = new _mathMLTree2.default.MathNode("mrow", inner);
@@ -5794,7 +5794,7 @@
       return node;
   };
 
-  groupTypes.text = Researchction (group, options) {
+  groupTypes.text = function (group, options) {
       var body = group.value.body;
 
       // Convert each element of the body into MathML, and combine consecutive
@@ -5823,7 +5823,7 @@
       }
   };
 
-  groupTypes.color = Researchction (group, options) {
+  groupTypes.color = function (group, options) {
       var inner = buildExpression(group.value.value, options);
 
       var node = new _mathMLTree2.default.MathNode("mstyle", inner);
@@ -5833,7 +5833,7 @@
       return node;
   };
 
-  groupTypes.supsub = Researchction (group, options) {
+  groupTypes.supsub = function (group, options) {
       // Is the inner group a relevant horizonal brace?
       var isBrace = false;
       var isOver = void 0;
@@ -5880,7 +5880,7 @@
       return node;
   };
 
-  groupTypes.genfrac = Researchction (group, options) {
+  groupTypes.genfrac = function (group, options) {
       var node = new _mathMLTree2.default.MathNode("mfrac", [buildGroup(group.value.numer, options), buildGroup(group.value.denom, options)]);
 
       if (!group.value.hasBarLine) {
@@ -5916,15 +5916,15 @@
       return node;
   };
 
-  groupTypes.array = Researchction (group, options) {
-      return new _mathMLTree2.default.MathNode("mtable", group.value.body.map(Researchction (row) {
-          return new _mathMLTree2.default.MathNode("mtr", row.map(Researchction (cell) {
+  groupTypes.array = function (group, options) {
+      return new _mathMLTree2.default.MathNode("mtable", group.value.body.map(function (row) {
+          return new _mathMLTree2.default.MathNode("mtr", row.map(function (cell) {
               return new _mathMLTree2.default.MathNode("mtd", [buildGroup(cell, options)]);
           }));
       }));
   };
 
-  groupTypes.sqrt = Researchction (group, options) {
+  groupTypes.sqrt = function (group, options) {
       var node = void 0;
       if (group.value.index) {
           node = new _mathMLTree2.default.MathNode("mroot", [buildGroup(group.value.body, options), buildGroup(group.value.index, options)]);
@@ -5935,7 +5935,7 @@
       return node;
   };
 
-  groupTypes.leftright = Researchction (group, options) {
+  groupTypes.leftright = function (group, options) {
       var inner = buildExpression(group.value.body, options);
 
       if (group.value.left !== ".") {
@@ -5959,13 +5959,13 @@
       return outerNode;
   };
 
-  groupTypes.middle = Researchction (group, options) {
+  groupTypes.middle = function (group, options) {
       var middleNode = new _mathMLTree2.default.MathNode("mo", [makeText(group.value.middle, group.mode)]);
       middleNode.setAttribute("fence", "true");
       return middleNode;
   };
 
-  groupTypes.accent = Researchction (group, options) {
+  groupTypes.accent = function (group, options) {
       var accentNode = void 0;
       if (group.value.isStretchy) {
           accentNode = _stretchy2.default.mathMLnode(group.value.label);
@@ -5980,7 +5980,7 @@
       return node;
   };
 
-  groupTypes.spacing = Researchction (group) {
+  groupTypes.spacing = function (group) {
       var node = void 0;
 
       if (group.value === "\\ " || group.value === "\\space" || group.value === " " || group.value === "~") {
@@ -5988,13 +5988,13 @@
       } else {
           node = new _mathMLTree2.default.MathNode("mspace");
 
-          node.setAttribute("width", _buildCommon2.default.spacingResearchctions[group.value].size);
+          node.setAttribute("width", _buildCommon2.default.spacingFunctions[group.value].size);
       }
 
       return node;
   };
 
-  groupTypes.op = Researchction (group, options) {
+  groupTypes.op = function (group, options) {
       var node = void 0;
 
       // TODO(emily): handle big operators using the `largeop` attribute
@@ -6016,7 +6016,7 @@
       return node;
   };
 
-  groupTypes.mod = Researchction (group, options) {
+  groupTypes.mod = function (group, options) {
       var inner = [];
 
       if (group.value.modType === "pod" || group.value.modType === "pmod") {
@@ -6038,18 +6038,18 @@
       return new _mathMLTree2.default.MathNode("mo", inner);
   };
 
-  groupTypes.katex = Researchction (group) {
+  groupTypes.katex = function (group) {
       var node = new _mathMLTree2.default.MathNode("mtext", [new _mathMLTree2.default.TextNode("KaTeX")]);
 
       return node;
   };
 
-  groupTypes.font = Researchction (group, options) {
+  groupTypes.font = function (group, options) {
       var font = group.value.font;
       return buildGroup(group.value.body, options.withFont(font));
   };
 
-  groupTypes.delimsizing = Researchction (group) {
+  groupTypes.delimsizing = function (group) {
       var children = [];
 
       if (group.value.value !== ".") {
@@ -6059,7 +6059,7 @@
       var node = new _mathMLTree2.default.MathNode("mo", children);
 
       if (group.value.mclass === "mopen" || group.value.mclass === "mclose") {
-          // Only some of the delimsizing Researchctions act as fences, and they
+          // Only some of the delimsizing functions act as fences, and they
           // return "mopen" or "mclose" mclass.
           node.setAttribute("fence", "true");
       } else {
@@ -6071,7 +6071,7 @@
       return node;
   };
 
-  groupTypes.styling = Researchction (group, options) {
+  groupTypes.styling = function (group, options) {
       // Figure out what style we're changing to.
       // TODO(kevinb): dedupe this with buildHTML.js
       // This will be easier of handling of styling nodes is in the same file.
@@ -6104,7 +6104,7 @@
       return node;
   };
 
-  groupTypes.sizing = Researchction (group, options) {
+  groupTypes.sizing = function (group, options) {
       var newOptions = options.havingSize(group.value.size);
       var inner = buildExpression(group.value.value, newOptions);
 
@@ -6120,7 +6120,7 @@
       return node;
   };
 
-  groupTypes.overline = Researchction (group, options) {
+  groupTypes.overline = function (group, options) {
       var operator = new _mathMLTree2.default.MathNode("mo", [new _mathMLTree2.default.TextNode("\u203E")]);
       operator.setAttribute("stretchy", "true");
 
@@ -6130,7 +6130,7 @@
       return node;
   };
 
-  groupTypes.underline = Researchction (group, options) {
+  groupTypes.underline = function (group, options) {
       var operator = new _mathMLTree2.default.MathNode("mo", [new _mathMLTree2.default.TextNode("\u203E")]);
       operator.setAttribute("stretchy", "true");
 
@@ -6140,14 +6140,14 @@
       return node;
   };
 
-  groupTypes.accentUnder = Researchction (group, options) {
+  groupTypes.accentUnder = function (group, options) {
       var accentNode = _stretchy2.default.mathMLnode(group.value.label);
       var node = new _mathMLTree2.default.MathNode("munder", [buildGroup(group.value.body, options), accentNode]);
       node.setAttribute("accentunder", "true");
       return node;
   };
 
-  groupTypes.enclose = Researchction (group, options) {
+  groupTypes.enclose = function (group, options) {
       var node = new _mathMLTree2.default.MathNode("menclose", [buildGroup(group.value.body, options)]);
       var notation = "";
       switch (group.value.label) {
@@ -6167,12 +6167,12 @@
       return node;
   };
 
-  groupTypes.horizBrace = Researchction (group, options) {
+  groupTypes.horizBrace = function (group, options) {
       var accentNode = _stretchy2.default.mathMLnode(group.value.label);
       return new _mathMLTree2.default.MathNode(group.value.isOver ? "mover" : "munder", [buildGroup(group.value.base, options), accentNode]);
   };
 
-  groupTypes.xArrow = Researchction (group, options) {
+  groupTypes.xArrow = function (group, options) {
       var arrowNode = _stretchy2.default.mathMLnode(group.value.label);
       var node = void 0;
       var lowerNode = void 0;
@@ -6194,7 +6194,7 @@
       return node;
   };
 
-  groupTypes.rule = Researchction (group) {
+  groupTypes.rule = function (group) {
       // TODO(emily): Figure out if there's an actual way to draw black boxes
       // in MathML.
       var node = new _mathMLTree2.default.MathNode("mrow");
@@ -6202,14 +6202,14 @@
       return node;
   };
 
-  groupTypes.kern = Researchction (group) {
+  groupTypes.kern = function (group) {
       // TODO(kevin): Figure out if there's a way to add space in MathML
       var node = new _mathMLTree2.default.MathNode("mrow");
 
       return node;
   };
 
-  groupTypes.llap = Researchction (group, options) {
+  groupTypes.llap = function (group, options) {
       var node = new _mathMLTree2.default.MathNode("mpadded", [buildGroup(group.value.body, options)]);
 
       node.setAttribute("lspace", "-1width");
@@ -6218,7 +6218,7 @@
       return node;
   };
 
-  groupTypes.rlap = Researchction (group, options) {
+  groupTypes.rlap = function (group, options) {
       var node = new _mathMLTree2.default.MathNode("mpadded", [buildGroup(group.value.body, options)]);
 
       node.setAttribute("width", "0px");
@@ -6226,12 +6226,12 @@
       return node;
   };
 
-  groupTypes.phantom = Researchction (group, options) {
+  groupTypes.phantom = function (group, options) {
       var inner = buildExpression(group.value.value, options);
       return new _mathMLTree2.default.MathNode("mphantom", inner);
   };
 
-  groupTypes.mclass = Researchction (group, options) {
+  groupTypes.mclass = function (group, options) {
       var inner = buildExpression(group.value.value, options);
       return new _mathMLTree2.default.MathNode("mstyle", inner);
   };
@@ -6241,7 +6241,7 @@
    * MathML nodes. A little simpler than the HTML version because we don't do any
    * previous-node handling.
    */
-  var buildExpression = Researchction buildExpression(expression, options) {
+  var buildExpression = function buildExpression(expression, options) {
       var groups = [];
       for (var i = 0; i < expression.length; i++) {
           var group = expression[i];
@@ -6254,11 +6254,11 @@
   };
 
   /**
-   * Takes a group from the parser and calls the appropriate groupTypes Researchction
+   * Takes a group from the parser and calls the appropriate groupTypes function
    * on it to produce a MathML node.
    */
   // TODO(kevinb): determine if removeUnnecessaryRow should always be true
-  var buildGroup = Researchction buildGroup(group, options) {
+  var buildGroup = function buildGroup(group, options) {
       var removeUnnecessaryRow = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
       if (!group) {
@@ -6266,7 +6266,7 @@
       }
 
       if (groupTypes[group.type]) {
-          // Call the groupTypes Researchction
+          // Call the groupTypes function
           var result = groupTypes[group.type](group, options);
           if (removeUnnecessaryRow) {
               if (result.type === "mrow" && result.children.length === 1) {
@@ -6287,7 +6287,7 @@
    * Note that we actually return a domTree element with a `<math>` inside it so
    * we can do appropriate styling.
    */
-  var buildMathML = Researchction buildMathML(tree, texExpression, options) {
+  var buildMathML = function buildMathML(tree, texExpression, options) {
       var expression = buildExpression(tree, options);
 
       // Wrap up the expression in an mrow so it is presented in the semantics
@@ -6309,7 +6309,7 @@
 
   module.exports = buildMathML;
 
-  },{"./ParseError":29,"./Style":33,"./buildCommon":34,"./fontMetrics":41,"./mathMLTree":45,"./stretchy":47,"./symbols":48,"./utils":51}],37:[Researchction(require,module,exports){
+  },{"./ParseError":29,"./Style":33,"./buildCommon":34,"./fontMetrics":41,"./mathMLTree":45,"./stretchy":47,"./symbols":48,"./utils":51}],37:[function(require,module,exports){
 
   var _buildHTML = require("./buildHTML");
 
@@ -6333,9 +6333,9 @@
 
   var _Style2 = _interopRequireDefault(_Style);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  var buildTree = Researchction buildTree(tree, expression, settings) {
+  var buildTree = function buildTree(tree, expression, settings) {
       settings = settings || new _Settings2.default({});
 
       var startStyle = _Style2.default.TEXT;
@@ -6364,7 +6364,7 @@
 
   module.exports = buildTree;
 
-  },{"./Options":28,"./Settings":32,"./Style":33,"./buildCommon":34,"./buildHTML":35,"./buildMathML":36}],38:[Researchction(require,module,exports){
+  },{"./Options":28,"./Settings":32,"./Style":33,"./buildCommon":34,"./buildHTML":35,"./buildMathML":36}],38:[function(require,module,exports){
 
   var _ParseError = require("./ParseError");
 
@@ -6390,7 +6390,7 @@
 
   var _utils2 = _interopRequireDefault(_utils);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * Get the metrics for a given symbol and font, after transformation (i.e.
@@ -6407,10 +6407,10 @@
    * Size2, Size3, or Size4 fonts. `makeStackedDelim` makes a delimiter out of
    * smaller pieces that are stacked on top of one another.
    *
-   * The Researchctions take a parameter `center`, which determines if the delimiter
+   * The functions take a parameter `center`, which determines if the delimiter
    * should be centered around the axis.
    *
-   * Then, there are three exposed Researchctions. `sizedDelim` makes a delimiter in
+   * Then, there are three exposed functions. `sizedDelim` makes a delimiter in
    * one of the given sizes. This is used for things like `\bigl`.
    * `customSizedDelim` makes a delimiter with a given total height+depth. It is
    * called in places like `\sqrt`. `leftRightDelim` makes an appropriate
@@ -6418,7 +6418,7 @@
    * used in `\left` and `\right`.
    */
 
-  var getMetrics = Researchction getMetrics(symbol, font) {
+  var getMetrics = function getMetrics(symbol, font) {
       if (_symbols2.default.math[symbol] && _symbols2.default.math[symbol].replace) {
           return _fontMetrics2.default.getCharacterMetrics(_symbols2.default.math[symbol].replace, font);
       } else {
@@ -6430,7 +6430,7 @@
    * Puts a delimiter span in a given style, and adds appropriate height, depth,
    * and maxFontSizes.
    */
-  var styleWrap = Researchction styleWrap(delim, toStyle, options, classes) {
+  var styleWrap = function styleWrap(delim, toStyle, options, classes) {
       var newOptions = options.havingBaseStyle(toStyle);
 
       var span = (0, _buildCommon.makeSpan)((classes || []).concat(newOptions.sizingClasses(options)), [delim], options);
@@ -6443,7 +6443,7 @@
       return span;
   };
 
-  var centerSpan = Researchction centerSpan(span, options, style) {
+  var centerSpan = function centerSpan(span, options, style) {
       var newOptions = options.havingBaseStyle(style);
       var shift = (1 - options.sizeMultiplier / newOptions.sizeMultiplier) * options.fontMetrics().axisHeight;
 
@@ -6458,7 +6458,7 @@
    * font, but is restyled to either be in textstyle, scriptstyle, or
    * scriptscriptstyle.
    */
-  var makeSmallDelim = Researchction makeSmallDelim(delim, style, center, options, mode, classes) {
+  var makeSmallDelim = function makeSmallDelim(delim, style, center, options, mode, classes) {
       var text = _buildCommon2.default.makeSymbol(delim, "Main-Regular", mode, options);
       var span = styleWrap(text, style, options, classes);
       if (center) {
@@ -6470,7 +6470,7 @@
   /**
    * Builds a symbol in the given font size (note size is an integer)
    */
-  var mathrmSize = Researchction mathrmSize(value, size, mode, options) {
+  var mathrmSize = function mathrmSize(value, size, mode, options) {
       return _buildCommon2.default.makeSymbol(value, "Size" + size + "-Regular", mode, options);
   };
 
@@ -6478,7 +6478,7 @@
    * Makes a large delimiter. This is a delimiter that comes in the Size1, Size2,
    * Size3, or Size4 fonts. It is always rendered in textstyle.
    */
-  var makeLargeDelim = Researchction makeLargeDelim(delim, size, center, options, mode, classes) {
+  var makeLargeDelim = function makeLargeDelim(delim, size, center, options, mode, classes) {
       var inner = mathrmSize(delim, size, mode, options);
       var span = styleWrap((0, _buildCommon.makeSpan)(["delimsizing", "size" + size], [inner], options), _Style2.default.TEXT, options, classes);
       if (center) {
@@ -6491,7 +6491,7 @@
    * Make an inner span with the given offset and in the given font. This is used
    * in `makeStackedDelim` to make the stacking pieces for the delimiter.
    */
-  var makeInner = Researchction makeInner(symbol, font, mode) {
+  var makeInner = function makeInner(symbol, font, mode) {
       var sizeClass = void 0;
       // Apply the correct CSS class to choose the right font.
       if (font === "Size1-Regular") {
@@ -6511,7 +6511,7 @@
    * Make a stacked delimiter out of a given delimiter, with the total height at
    * least `heightTotal`. This routine is mentioned on page 442 of the TeXbook.
    */
-  var makeStackedDelim = Researchction makeStackedDelim(delim, heightTotal, center, options, mode, classes) {
+  var makeStackedDelim = function makeStackedDelim(delim, heightTotal, center, options, mode, classes) {
       // There are four parts, the top, an optional middle, a repeated part, and a
       // bottom.
       var top = void 0;
@@ -6703,7 +6703,7 @@
       tall: "l-4 4-4 4c-.667.667-2 1.5-4 2.5s-4.167 1.833-6.5 2.5-5.5 1-9.5 1h\n-12l-28-84c-16.667-52-96.667 -294.333-240-727l-212 -643 -85 170c-4-3.333-8.333\n-7.667-13 -13l-13-13l77-155 77-156c66 199.333 139 419.667 219 661 l218 661z\nM702 0H400000v40H742z'/></svg>"
   };
 
-  var sqrtSpan = Researchction sqrtSpan(height, delim, options) {
+  var sqrtSpan = function sqrtSpan(height, delim, options) {
       // Create a span containing an SVG image of a sqrt symbol.
       var span = _buildCommon2.default.makeSpan([], [], options);
       var sizeMultiplier = options.sizeMultiplier; // default
@@ -6765,7 +6765,7 @@
   /**
    * Used to create a delimiter of a specific size, where `size` is 1, 2, 3, or 4.
    */
-  var makeSizedDelim = Researchction makeSizedDelim(delim, size, options, mode, classes) {
+  var makeSizedDelim = function makeSizedDelim(delim, size, options, mode, classes) {
       // < and > turn into \langle and \rangle in delimiters
       if (delim === "<" || delim === "\\lt") {
           delim = "\\langle";
@@ -6808,7 +6808,7 @@
   /**
    * Get the font used in a delimiter based on what kind of delimiter it is.
    */
-  var delimTypeToFont = Researchction delimTypeToFont(type) {
+  var delimTypeToFont = function delimTypeToFont(type) {
       if (type.type === "small") {
           return "Main-Regular";
       } else if (type.type === "large") {
@@ -6822,7 +6822,7 @@
    * Traverse a sequence of types of delimiters to decide what kind of delimiter
    * should be used to create a delimiter of the given height+depth.
    */
-  var traverseSequence = Researchction traverseSequence(delim, height, sequence, options) {
+  var traverseSequence = function traverseSequence(delim, height, sequence, options) {
       // Here, we choose the index we should start at in the sequences. In smaller
       // sizes (which correspond to larger numbers in style.size) we start earlier
       // in the sequence. Thus, scriptscript starts at index 3-3=0, script starts
@@ -6845,7 +6845,7 @@
               heightDepth *= newOptions.sizeMultiplier;
           }
 
-          // Check if the delimiter at this size Course Projects for the given height.
+          // Check if the delimiter at this size works for the given height.
           if (heightDepth > height) {
               return sequence[i];
           }
@@ -6859,7 +6859,7 @@
    * Make a delimiter of a given height+depth, with optional centering. Here, we
    * traverse the sequences, and create a delimiter that the sequence tells us to.
    */
-  var makeCustomSizedDelim = Researchction makeCustomSizedDelim(delim, height, center, options, mode, classes) {
+  var makeCustomSizedDelim = function makeCustomSizedDelim(delim, height, center, options, mode, classes) {
       if (delim === "<" || delim === "\\lt") {
           delim = "\\langle";
       } else if (delim === ">" || delim === "\\gt") {
@@ -6885,7 +6885,7 @@
       } else {
           // Get the delimiter from font glyphs.
           // Depending on the sequence element we decided on, call the
-          // appropriate Researchction.
+          // appropriate function.
           if (delimType.type === "small") {
               return makeSmallDelim(delim, delimType.style, center, options, mode, classes);
           } else if (delimType.type === "large") {
@@ -6900,11 +6900,11 @@
    * Make a delimiter for use with `\left` and `\right`, given a height and depth
    * of an expression that the delimiters surround.
    */
-  var makeLeftRightDelim = Researchction makeLeftRightDelim(delim, height, depth, options, mode, classes) {
+  var makeLeftRightDelim = function makeLeftRightDelim(delim, height, depth, options, mode, classes) {
       // We always center \left/\right delimiters, so the axis is always shifted
       var axisHeight = options.fontMetrics().axisHeight * options.sizeMultiplier;
 
-      // Taken from TeX source, tex.web, Researchction make_left_right
+      // Taken from TeX source, tex.web, function make_left_right
       var delimiterFactor = 901;
       var delimiterExtend = 5.0 / options.fontMetrics().ptPerEm;
 
@@ -6933,7 +6933,7 @@
       leftRightDelim: makeLeftRightDelim
   };
 
-  },{"./ParseError":29,"./Style":33,"./buildCommon":34,"./fontMetrics":41,"./symbols":48,"./utils":51}],39:[Researchction(require,module,exports){
+  },{"./ParseError":29,"./Style":33,"./buildCommon":34,"./fontMetrics":41,"./symbols":48,"./utils":51}],39:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -6951,7 +6951,7 @@
 
   var _utils2 = _interopRequireDefault(_utils);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * Create an HTML className based on a list of classes. In addition to joining
@@ -6960,13 +6960,13 @@
   /**
    * These objects store the data about the DOM nodes we create, as well as some
    * extra data. They can then be transformed into real DOM nodes with the
-   * `toNode` Researchction or HTML markup using `toMarkup`. They are useful for both
+   * `toNode` function or HTML markup using `toMarkup`. They are useful for both
    * storing extra properties on the nodes, as well as providing a way to easily
-   * Course Project with the DOM.
+   * work with the DOM.
    *
-   * Similar Researchctions for Course Projecting with MathML nodes exist in mathMLTree.js.
+   * Similar functions for working with MathML nodes exist in mathMLTree.js.
    */
-  var createClass = Researchction createClass(classes) {
+  var createClass = function createClass(classes) {
       classes = classes.slice();
       for (var i = classes.length - 1; i >= 0; i--) {
           if (!classes[i]) {
@@ -6983,8 +6983,8 @@
    * maxFontSize.
    */
 
-  var span = Researchction () {
-      Researchction span(classes, children, options) {
+  var span = function () {
+      function span(classes, children, options) {
           (0, _classCallCheck3.default)(this, span);
 
           this.classes = classes || [];
@@ -7014,12 +7014,12 @@
 
       (0, _createClass3.default)(span, [{
           key: "setAttribute",
-          value: Researchction setAttribute(attribute, value) {
+          value: function setAttribute(attribute, value) {
               this.attributes[attribute] = value;
           }
       }, {
           key: "tryCombine",
-          value: Researchction tryCombine(sibling) {
+          value: function tryCombine(sibling) {
               return false;
           }
 
@@ -7029,7 +7029,7 @@
 
       }, {
           key: "toNode",
-          value: Researchction toNode() {
+          value: function toNode() {
               var span = document.createElement("span");
 
               // Apply the class
@@ -7067,7 +7067,7 @@
 
       }, {
           key: "toMarkup",
-          value: Researchction toMarkup() {
+          value: function toMarkup() {
               var markup = "<span";
 
               // Add the class
@@ -7126,8 +7126,8 @@
    */
 
 
-  var documentFragment = Researchction () {
-      Researchction documentFragment(children) {
+  var documentFragment = function () {
+      function documentFragment(children) {
           (0, _classCallCheck3.default)(this, documentFragment);
 
           this.children = children || [];
@@ -7143,7 +7143,7 @@
 
       (0, _createClass3.default)(documentFragment, [{
           key: "toNode",
-          value: Researchction toNode() {
+          value: function toNode() {
               // Create a fragment
               var frag = document.createDocumentFragment();
 
@@ -7161,7 +7161,7 @@
 
       }, {
           key: "toMarkup",
-          value: Researchction toMarkup() {
+          value: function toMarkup() {
               var markup = "";
 
               // Simply concatenate the markup for the children together
@@ -7189,8 +7189,8 @@
    * whether it has CSS classes, styles, or needs italic correction.
    */
 
-  var symbolNode = Researchction () {
-      Researchction symbolNode(value, height, depth, italic, skew, classes, style) {
+  var symbolNode = function () {
+      function symbolNode(value, height, depth, italic, skew, classes, style) {
           (0, _classCallCheck3.default)(this, symbolNode);
 
           this.value = value || "";
@@ -7225,7 +7225,7 @@
 
       (0, _createClass3.default)(symbolNode, [{
           key: "tryCombine",
-          value: Researchction tryCombine(sibling) {
+          value: function tryCombine(sibling) {
               if (!sibling || !(sibling instanceof symbolNode) || this.italic > 0 || createClass(this.classes) !== createClass(sibling.classes) || this.skew !== sibling.skew || this.maxFontSize !== sibling.maxFontSize) {
                   return false;
               }
@@ -7253,7 +7253,7 @@
 
       }, {
           key: "toNode",
-          value: Researchction toNode() {
+          value: function toNode() {
               var node = document.createTextNode(this.value);
               var span = null;
 
@@ -7288,7 +7288,7 @@
 
       }, {
           key: "toMarkup",
-          value: Researchction toMarkup() {
+          value: function toMarkup() {
               // TODO(alpert): More duplication than I'd like from
               // span.prototype.toMarkup and symbolNode.prototype.toNode...
               var needsSpan = false;
@@ -7338,7 +7338,7 @@
       symbolNode: symbolNode
   };
 
-  },{"./unicodeRegexes":49,"./utils":51,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],40:[Researchction(require,module,exports){
+  },{"./unicodeRegexes":49,"./utils":51,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],40:[function(require,module,exports){
 
   var _ParseNode = require("./ParseNode");
 
@@ -7348,7 +7348,7 @@
 
   var _ParseError2 = _interopRequireDefault(_ParseError);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * Parse the body of the environment, with rows delimited by \\ and
@@ -7357,7 +7357,7 @@
    * ("text", "display", etc.), then each cell is cast into that style.
    */
   /* eslint no-constant-condition:0 */
-  Researchction parseArray(parser, result, style) {
+  function parseArray(parser, result, style) {
       var row = [];
       var body = [row];
       var rowGaps = [];
@@ -7377,7 +7377,7 @@
           } else if (next === "\\end") {
               break;
           } else if (next === "\\\\" || next === "\\cr") {
-              var cr = parser.parseResearchction();
+              var cr = parser.parseFunction();
               rowGaps.push(cr.value.size);
               row = [];
               body.push(row);
@@ -7391,19 +7391,19 @@
   }
 
   /*
-   * An environment definition is very similar to a Researchction definition:
+   * An environment definition is very similar to a function definition:
    * it is declared with a name or a list of names, a set of properties
    * and a handler containing the actual implementation.
    *
    * The properties include:
-   *  - numArgs: The number of arguments after the \begin{name} Researchction.
-   *  - argTypes: (optional) Just like for a Researchction
+   *  - numArgs: The number of arguments after the \begin{name} function.
+   *  - argTypes: (optional) Just like for a function
    *  - allowedInText: (optional) Whether or not the environment is allowed inside
    *                   text mode (default false) (not enforced yet)
-   *  - numOptionalArgs: (optional) Just like for a Researchction
+   *  - numOptionalArgs: (optional) Just like for a function
    * A bare number instead of that object indicates the numArgs value.
    *
-   * The handler Researchction will receive two arguments
+   * The handler function will receive two arguments
    *  - context: information and references provided by the parser
    *  - args: an array of arguments passed to \begin{name}
    * The context contains the following properties:
@@ -7413,7 +7413,7 @@
    *  - positions: the positions associated with these arguments from args.
    * The handler must return a ParseResult.
    */
-  Researchction defineEnvironment(names, props, handler) {
+  function defineEnvironment(names, props, handler) {
       if (typeof names === "string") {
           names = [names];
       }
@@ -7436,7 +7436,7 @@
 
   // Decides on a style for cells in an array according to whether the given
   // environment name starts with the letter 'd'.
-  Researchction dCellStyle(envName) {
+  function dCellStyle(envName) {
       if (envName.substr(0, 1) === "d") {
           return "display";
       } else {
@@ -7450,10 +7450,10 @@
   // as defined in nccmath.sty.
   defineEnvironment(["array", "darray"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var colalign = args[0];
       colalign = colalign.value.map ? colalign.value : [colalign];
-      var cols = colalign.map(Researchction (node) {
+      var cols = colalign.map(function (node) {
           var ca = node.value;
           if ("lcr".indexOf(ca) !== -1) {
               return {
@@ -7478,7 +7478,7 @@
 
   // The matrix environments of amsmath builds on the array environment
   // of LaTeX, which is discussed above.
-  defineEnvironment(["matrix", "pmatrix", "bmatrix", "Bmatrix", "vmatrix", "Vmatrix"], {}, Researchction (context) {
+  defineEnvironment(["matrix", "pmatrix", "bmatrix", "Bmatrix", "vmatrix", "Vmatrix"], {}, function (context) {
       var delimiters = {
           "matrix": null,
           "pmatrix": ["(", ")"],
@@ -7506,7 +7506,7 @@
   // \left\{\begin{array}{@{}l@{\quad}l@{}} … \end{array}\right.
   // {dcases} is a {cases} environment where cells are set in \displaystyle,
   // as defined in mathtools.sty.
-  defineEnvironment(["cases", "dcases"], {}, Researchction (context) {
+  defineEnvironment(["cases", "dcases"], {}, function (context) {
       var res = {
           type: "array",
           arraystretch: 1.2,
@@ -7538,7 +7538,7 @@
   // except it operates within math mode.
   // Note that we assume \nomallineskiplimit to be zero,
   // so that \strut@ is the same as \strut.
-  defineEnvironment("aligned", {}, Researchction (context) {
+  defineEnvironment("aligned", {}, function (context) {
       var res = {
           type: "array",
           cols: [],
@@ -7551,7 +7551,7 @@
       // binary.  This behavior is implemented in amsmath's \start@aligned.
       var emptyGroup = new _ParseNode2.default("ordgroup", [], context.mode);
       var numCols = 0;
-      res.value.body.forEach(Researchction (row) {
+      res.value.body.forEach(function (row) {
           for (var i = 1; i < row.length; i += 2) {
               // Modify ordgroup node within styling node
               var ordgroup = row[i].value.value[0];
@@ -7582,7 +7582,7 @@
   // A gathered environment is like an array environment with one centered
   // column, but where rows are considered lines so get \jot line spacing
   // and contents are set in \displaystyle.
-  defineEnvironment("gathered", {}, Researchction (context) {
+  defineEnvironment("gathered", {}, function (context) {
       var res = {
           type: "array",
           cols: [{
@@ -7595,7 +7595,7 @@
       return res;
   });
 
-  },{"./ParseError":29,"./ParseNode":30}],41:[Researchction(require,module,exports){
+  },{"./ParseError":29,"./ParseNode":30}],41:[function(require,module,exports){
 
   var _unicodeRegexes = require("./unicodeRegexes");
 
@@ -7603,13 +7603,13 @@
 
   var _fontMetricsData2 = _interopRequireDefault(_fontMetricsData);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * This file contains metrics regarding fonts and individual symbols. The sigma
    * and xi variables, as well as the metricMap map contain data extracted from
    * TeX, TeX font metrics, and the TTF files. These data are then exposed via the
-   * `metrics` variable and the getCharacterMetrics Researchction.
+   * `metrics` variable and the getCharacterMetrics function.
    */
 
   // In TeX, there are actually three sets of dimensions, one for each of
@@ -7832,13 +7832,13 @@
   };
 
   /**
-   * This Researchction is a convenience Researchction for looking up information in the
+   * This function is a convenience function for looking up information in the
    * metricMap table. It takes a character as a string, and a style.
    *
    * Note: the `width` property may be undefined if fontMetricsData.js wasn't
    * built using `Make extended_metrics`.
    */
-  var getCharacterMetrics = Researchction getCharacterMetrics(character, style) {
+  var getCharacterMetrics = function getCharacterMetrics(character, style) {
       var ch = character.charCodeAt(0);
       if (character[0] in extraCharacterMap) {
           ch = extraCharacterMap[character[0]].charCodeAt(0);
@@ -7862,7 +7862,7 @@
   /**
    * Get the font metrics for a given size.
    */
-  var getFontMetrics = Researchction getFontMetrics(size) {
+  var getFontMetrics = function getFontMetrics(size) {
       var sizeIndex = void 0;
       if (size >= 5) {
           sizeIndex = 0;
@@ -7888,7 +7888,7 @@
       getCharacterMetrics: getCharacterMetrics
   };
 
-  },{"./fontMetricsData":42,"./unicodeRegexes":49}],42:[Researchction(require,module,exports){
+  },{"./fontMetricsData":42,"./unicodeRegexes":49}],42:[function(require,module,exports){
 
   module.exports = {
       "AMS-Regular": {
@@ -9643,7 +9643,7 @@
       }
   };
 
-  },{}],43:[Researchction(require,module,exports){
+  },{}],43:[function(require,module,exports){
 
   var _utils = require("./utils");
 
@@ -9657,29 +9657,29 @@
 
   var _ParseNode2 = _interopRequireDefault(_ParseNode);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  /* This file contains a list of Researchctions that we parse, identified by
-   * the calls to defineResearchction.
+  /* This file contains a list of functions that we parse, identified by
+   * the calls to defineFunction.
    *
-   * The first argument to defineResearchction is a single name or a list of names.
-   * All Researchctions named in such a list will share a single implementation.
+   * The first argument to defineFunction is a single name or a list of names.
+   * All functions named in such a list will share a single implementation.
    *
-   * Each declared Researchction can have associated properties, which
+   * Each declared function can have associated properties, which
    * include the following:
    *
-   *  - numArgs: The number of arguments the Researchction takes.
+   *  - numArgs: The number of arguments the function takes.
    *             If this is the only property, it can be passed as a number
    *             instead of an element of a properties object.
    *  - argTypes: (optional) An array corresponding to each argument of the
-   *              Researchction, giving the type of argument that should be parsed. Its
+   *              function, giving the type of argument that should be parsed. Its
    *              length should be equal to `numArgs + numOptionalArgs`. Valid
    *              types:
    *               - "size": A size-like thing, such as "1em" or "5ex"
    *               - "color": An html color, like "#abc" or "blue"
    *               - "original": The same type as the environment that the
-   *                             Researchction being parsed is in (e.g. used for the
-   *                             bodies of Researchctions like \textcolor where the
+   *                             function being parsed is in (e.g. used for the
+   *                             bodies of functions like \textcolor where the
    *                             first argument is special and the second
    *                             argument is parsed normally)
    *              Other possible types (probably shouldn't be used)
@@ -9687,14 +9687,14 @@
    *               - "math": Normal math
    *              If undefined, this will be treated as an appropriate length
    *              array of "original" strings
-   *  - greediness: (optional) The greediness of the Researchction to use ungrouped
+   *  - greediness: (optional) The greediness of the function to use ungrouped
    *                arguments.
    *
    *                E.g. if you have an expression
    *                  \sqrt \frac 1 2
    *                since \frac has greediness=2 vs \sqrt's greediness=1, \frac
    *                will use the two arguments '1' and '2' as its two arguments,
-   *                then that whole Researchction will be used as the argument to
+   *                then that whole function will be used as the argument to
    *                \sqrt. On the other hand, the expressions
    *                  \frac \frac 1 2 3
    *                and
@@ -9707,43 +9707,43 @@
    *                  \frac {\sqrt 1} 2
    *
    *                The default value is `1`
-   *  - allowedInText: (optional) Whether or not the Researchction is allowed inside
+   *  - allowedInText: (optional) Whether or not the function is allowed inside
    *                   text mode (default false)
-   *  - numOptionalArgs: (optional) The number of optional arguments the Researchction
+   *  - numOptionalArgs: (optional) The number of optional arguments the function
    *                     should parse. If the optional arguments aren't found,
    *                     `null` will be passed to the handler in their place.
    *                     (default 0)
-   *  - infix: (optional) Must be true if the Researchction is an infix operator.
+   *  - infix: (optional) Must be true if the function is an infix operator.
    *
-   * The last argument is that implementation, the handler for the Researchction(s).
-   * It is called to handle these Researchctions and their arguments.
+   * The last argument is that implementation, the handler for the function(s).
+   * It is called to handle these functions and their arguments.
    * It receives two arguments:
    *  - context contains information and references provided by the parser
    *  - args is an array of arguments obtained from TeX input
    * The context contains the following properties:
-   *  - ResearchcName: the text (i.e. name) of the Researchction, including \
+   *  - funcName: the text (i.e. name) of the function, including \
    *  - parser: the parser object
    *  - lexer: the lexer object
-   *  - positions: the positions in the overall string of the Researchction
+   *  - positions: the positions in the overall string of the function
    *               and the arguments.
    * The latter three should only be used to produce error messages.
    *
-   * The Researchction should return an object with the following keys:
+   * The function should return an object with the following keys:
    *  - type: The type of element that this is. This is then used in
-   *          buildHTML/buildMathML to determine which Researchction
+   *          buildHTML/buildMathML to determine which function
    *          should be called to build this node into a DOM node
    * Any other data can be added to the object, which will be passed
-   * in to the Researchction in buildHTML/buildMathML as `group.value`.
+   * in to the function in buildHTML/buildMathML as `group.value`.
    */
 
-  Researchction defineResearchction(names, props, handler) {
+  function defineFunction(names, props, handler) {
       if (typeof names === "string") {
           names = [names];
       }
       if (typeof props === "number") {
           props = { numArgs: props };
       }
-      // Set default values of Researchctions
+      // Set default values of functions
       var data = {
           numArgs: props.numArgs,
           argTypes: props.argTypes,
@@ -9759,9 +9759,9 @@
       }
   }
 
-  // Since the corresponding buildHTML/buildMathML Researchction expects a
+  // Since the corresponding buildHTML/buildMathML function expects a
   // list of elements, we normalize for different kinds of arguments
-  var ordargument = Researchction ordargument(arg) {
+  var ordargument = function ordargument(arg) {
       if (arg.type === "ordgroup") {
           return arg.value;
       } else {
@@ -9770,10 +9770,10 @@
   };
 
   // A normal square root
-  defineResearchction("\\sqrt", {
+  defineFunction("\\sqrt", {
       numArgs: 1,
       numOptionalArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var index = args[0];
       var body = args[1];
       return {
@@ -9784,33 +9784,33 @@
   });
 
   // Non-mathy text, possibly in a font
-  var textResearchctionStyles = {
+  var textFunctionStyles = {
       "\\text": undefined, "\\textrm": "mathrm", "\\textsf": "mathsf",
       "\\texttt": "mathtt", "\\textnormal": "mathrm", "\\textbf": "mathbf",
       "\\textit": "textit"
   };
 
-  defineResearchction(["\\text", "\\textrm", "\\textsf", "\\texttt", "\\textnormal", "\\textbf", "\\textit"], {
+  defineFunction(["\\text", "\\textrm", "\\textsf", "\\texttt", "\\textnormal", "\\textbf", "\\textit"], {
       numArgs: 1,
       argTypes: ["text"],
       greediness: 2,
       allowedInText: true
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "text",
           body: ordargument(body),
-          style: textResearchctionStyles[context.ResearchcName]
+          style: textFunctionStyles[context.funcName]
       };
   });
 
   // A two-argument custom color
-  defineResearchction("\\textcolor", {
+  defineFunction("\\textcolor", {
       numArgs: 2,
       allowedInText: true,
       greediness: 3,
       argTypes: ["color", "original"]
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var color = args[0];
       var body = args[1];
       return {
@@ -9821,7 +9821,7 @@
   });
 
   // \color is handled in Parser.js's parseImplicitGroup
-  defineResearchction("\\color", {
+  defineFunction("\\color", {
       numArgs: 1,
       allowedInText: true,
       greediness: 3,
@@ -9829,9 +9829,9 @@
   }, null);
 
   // An overline
-  defineResearchction("\\overline", {
+  defineFunction("\\overline", {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "overline",
@@ -9840,9 +9840,9 @@
   });
 
   // An underline
-  defineResearchction("\\underline", {
+  defineFunction("\\underline", {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "underline",
@@ -9851,11 +9851,11 @@
   });
 
   // A box of the width and height
-  defineResearchction("\\rule", {
+  defineFunction("\\rule", {
       numArgs: 2,
       numOptionalArgs: 1,
       argTypes: ["size", "size", "size"]
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var shift = args[0];
       var width = args[1];
       var height = args[2];
@@ -9869,10 +9869,10 @@
 
   // TODO: In TeX, \mkern only accepts mu-units, and \kern does not accept
   // mu-units. In current KaTeX we relax this; both commands accept any unit.
-  defineResearchction(["\\kern", "\\mkern"], {
+  defineFunction(["\\kern", "\\mkern"], {
       numArgs: 1,
       argTypes: ["size"]
-  }, Researchction (context, args) {
+  }, function (context, args) {
       return {
           type: "kern",
           dimension: args[0].value
@@ -9880,17 +9880,17 @@
   });
 
   // A KaTeX logo
-  defineResearchction("\\KaTeX", {
+  defineFunction("\\KaTeX", {
       numArgs: 0
-  }, Researchction (context) {
+  }, function (context) {
       return {
           type: "katex"
       };
   });
 
-  defineResearchction("\\phantom", {
+  defineFunction("\\phantom", {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "phantom",
@@ -9899,21 +9899,21 @@
   });
 
   // Math class commands except \mathop
-  defineResearchction(["\\mathord", "\\mathbin", "\\mathrel", "\\mathopen", "\\mathclose", "\\mathpunct", "\\mathinner"], {
+  defineFunction(["\\mathord", "\\mathbin", "\\mathrel", "\\mathopen", "\\mathclose", "\\mathpunct", "\\mathinner"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "mclass",
-          mclass: "m" + context.ResearchcName.substr(5),
+          mclass: "m" + context.funcName.substr(5),
           value: ordargument(body)
       };
   });
 
   // Build a relation by placing one symbol on top of another
-  defineResearchction("\\stackrel", {
+  defineFunction("\\stackrel", {
       numArgs: 2
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var top = args[0];
       var bottom = args[1];
 
@@ -9938,10 +9938,10 @@
       };
   });
 
-  // \mod-type Researchctions
-  defineResearchction("\\bmod", {
+  // \mod-type functions
+  defineFunction("\\bmod", {
       numArgs: 0
-  }, Researchction (context, args) {
+  }, function (context, args) {
       return {
           type: "mod",
           modType: "bmod",
@@ -9949,13 +9949,13 @@
       };
   });
 
-  defineResearchction(["\\pod", "\\pmod", "\\mod"], {
+  defineFunction(["\\pod", "\\pmod", "\\mod"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "mod",
-          modType: context.ResearchcName.substr(1),
+          modType: context.funcName.substr(1),
           value: ordargument(body)
       };
   });
@@ -9988,16 +9988,16 @@
       "\\frak": "\\mathfrak"
   };
 
-  // Single-argument color Researchctions
-  defineResearchction(["\\blue", "\\orange", "\\pink", "\\red", "\\green", "\\gray", "\\purple", "\\blueA", "\\blueB", "\\blueC", "\\blueD", "\\blueE", "\\tealA", "\\tealB", "\\tealC", "\\tealD", "\\tealE", "\\greenA", "\\greenB", "\\greenC", "\\greenD", "\\greenE", "\\goldA", "\\goldB", "\\goldC", "\\goldD", "\\goldE", "\\redA", "\\redB", "\\redC", "\\redD", "\\redE", "\\maroonA", "\\maroonB", "\\maroonC", "\\maroonD", "\\maroonE", "\\purpleA", "\\purpleB", "\\purpleC", "\\purpleD", "\\purpleE", "\\mintA", "\\mintB", "\\mintC", "\\grayA", "\\grayB", "\\grayC", "\\grayD", "\\grayE", "\\grayF", "\\grayG", "\\grayH", "\\grayI", "\\kaBlue", "\\kaGreen"], {
+  // Single-argument color functions
+  defineFunction(["\\blue", "\\orange", "\\pink", "\\red", "\\green", "\\gray", "\\purple", "\\blueA", "\\blueB", "\\blueC", "\\blueD", "\\blueE", "\\tealA", "\\tealB", "\\tealC", "\\tealD", "\\tealE", "\\greenA", "\\greenB", "\\greenC", "\\greenD", "\\greenE", "\\goldA", "\\goldB", "\\goldC", "\\goldD", "\\goldE", "\\redA", "\\redB", "\\redC", "\\redD", "\\redE", "\\maroonA", "\\maroonB", "\\maroonC", "\\maroonD", "\\maroonE", "\\purpleA", "\\purpleB", "\\purpleC", "\\purpleD", "\\purpleE", "\\mintA", "\\mintB", "\\mintC", "\\grayA", "\\grayB", "\\grayC", "\\grayD", "\\grayE", "\\grayF", "\\grayG", "\\grayH", "\\grayI", "\\kaBlue", "\\kaGreen"], {
       numArgs: 1,
       allowedInText: true,
       greediness: 3
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "color",
-          color: "katex-" + context.ResearchcName.slice(1),
+          color: "katex-" + context.funcName.slice(1),
           value: ordargument(body)
       };
   });
@@ -10007,57 +10007,57 @@
   // displaystyle. These four groups cover the four possible choices.
 
   // No limits, not symbols
-  defineResearchction(["\\arcsin", "\\arccos", "\\arctan", "\\arctg", "\\arcctg", "\\arg", "\\ch", "\\cos", "\\cosec", "\\cosh", "\\cot", "\\cotg", "\\coth", "\\csc", "\\ctg", "\\cth", "\\deg", "\\dim", "\\exp", "\\hom", "\\ker", "\\lg", "\\ln", "\\log", "\\sec", "\\sin", "\\sinh", "\\sh", "\\tan", "\\tanh", "\\tg", "\\th"], {
+  defineFunction(["\\arcsin", "\\arccos", "\\arctan", "\\arctg", "\\arcctg", "\\arg", "\\ch", "\\cos", "\\cosec", "\\cosh", "\\cot", "\\cotg", "\\coth", "\\csc", "\\ctg", "\\cth", "\\deg", "\\dim", "\\exp", "\\hom", "\\ker", "\\lg", "\\ln", "\\log", "\\sec", "\\sin", "\\sinh", "\\sh", "\\tan", "\\tanh", "\\tg", "\\th"], {
       numArgs: 0
-  }, Researchction (context) {
+  }, function (context) {
       return {
           type: "op",
           limits: false,
           symbol: false,
-          body: context.ResearchcName
+          body: context.funcName
       };
   });
 
   // Limits, not symbols
-  defineResearchction(["\\det", "\\gcd", "\\inf", "\\lim", "\\liminf", "\\limsup", "\\max", "\\min", "\\Pr", "\\sup"], {
+  defineFunction(["\\det", "\\gcd", "\\inf", "\\lim", "\\liminf", "\\limsup", "\\max", "\\min", "\\Pr", "\\sup"], {
       numArgs: 0
-  }, Researchction (context) {
+  }, function (context) {
       return {
           type: "op",
           limits: true,
           symbol: false,
-          body: context.ResearchcName
+          body: context.funcName
       };
   });
 
   // No limits, symbols
-  defineResearchction(["\\int", "\\iint", "\\iiint", "\\oint"], {
+  defineFunction(["\\int", "\\iint", "\\iiint", "\\oint"], {
       numArgs: 0
-  }, Researchction (context) {
+  }, function (context) {
       return {
           type: "op",
           limits: false,
           symbol: true,
-          body: context.ResearchcName
+          body: context.funcName
       };
   });
 
   // Limits, symbols
-  defineResearchction(["\\coprod", "\\bigvee", "\\bigwedge", "\\biguplus", "\\bigcap", "\\bigcup", "\\intop", "\\prod", "\\sum", "\\bigotimes", "\\bigoplus", "\\bigodot", "\\bigsqcup", "\\smallint"], {
+  defineFunction(["\\coprod", "\\bigvee", "\\bigwedge", "\\biguplus", "\\bigcap", "\\bigcup", "\\intop", "\\prod", "\\sum", "\\bigotimes", "\\bigoplus", "\\bigodot", "\\bigsqcup", "\\smallint"], {
       numArgs: 0
-  }, Researchction (context) {
+  }, function (context) {
       return {
           type: "op",
           limits: true,
           symbol: true,
-          body: context.ResearchcName
+          body: context.funcName
       };
   });
 
   // \mathop class command
-  defineResearchction("\\mathop", {
+  defineFunction("\\mathop", {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "op",
@@ -10068,10 +10068,10 @@
   });
 
   // Fractions
-  defineResearchction(["\\dfrac", "\\frac", "\\tfrac", "\\dbinom", "\\binom", "\\tbinom", "\\\\atopfrac"], {
+  defineFunction(["\\dfrac", "\\frac", "\\tfrac", "\\dbinom", "\\binom", "\\tbinom", "\\\\atopfrac"], {
       numArgs: 2,
       greediness: 2
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var numer = args[0];
       var denom = args[1];
       var hasBarLine = void 0;
@@ -10079,7 +10079,7 @@
       var rightDelim = null;
       var size = "auto";
 
-      switch (context.ResearchcName) {
+      switch (context.funcName) {
           case "\\dfrac":
           case "\\frac":
           case "\\tfrac":
@@ -10099,7 +10099,7 @@
               throw new Error("Unrecognized genfrac command");
       }
 
-      switch (context.ResearchcName) {
+      switch (context.funcName) {
           case "\\dfrac":
           case "\\dbinom":
               size = "display";
@@ -10121,43 +10121,43 @@
       };
   });
 
-  // Left and right overlap Researchctions
-  defineResearchction(["\\llap", "\\rlap"], {
+  // Left and right overlap functions
+  defineFunction(["\\llap", "\\rlap"], {
       numArgs: 1,
       allowedInText: true
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
-          type: context.ResearchcName.slice(1),
+          type: context.funcName.slice(1),
           body: body
       };
   });
 
-  // Delimiter Researchctions
-  var checkDelimiter = Researchction checkDelimiter(delim, context) {
+  // Delimiter functions
+  var checkDelimiter = function checkDelimiter(delim, context) {
       if (_utils2.default.contains(delimiters, delim.value)) {
           return delim;
       } else {
-          throw new _ParseError2.default("Invalid delimiter: '" + delim.value + "' after '" + context.ResearchcName + "'", delim);
+          throw new _ParseError2.default("Invalid delimiter: '" + delim.value + "' after '" + context.funcName + "'", delim);
       }
   };
 
-  defineResearchction(["\\bigl", "\\Bigl", "\\biggl", "\\Biggl", "\\bigr", "\\Bigr", "\\biggr", "\\Biggr", "\\bigm", "\\Bigm", "\\biggm", "\\Biggm", "\\big", "\\Big", "\\bigg", "\\Bigg"], {
+  defineFunction(["\\bigl", "\\Bigl", "\\biggl", "\\Biggl", "\\bigr", "\\Bigr", "\\biggr", "\\Biggr", "\\bigm", "\\Bigm", "\\biggm", "\\Biggm", "\\big", "\\Big", "\\bigg", "\\Bigg"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var delim = checkDelimiter(args[0], context);
 
       return {
           type: "delimsizing",
-          size: delimiterSizes[context.ResearchcName].size,
-          mclass: delimiterSizes[context.ResearchcName].mclass,
+          size: delimiterSizes[context.funcName].size,
+          mclass: delimiterSizes[context.funcName].mclass,
           value: delim.value
       };
   });
 
-  defineResearchction(["\\left", "\\right"], {
+  defineFunction(["\\left", "\\right"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var delim = checkDelimiter(args[0], context);
 
       // \left and \right are caught somewhere in Parser.js, which is
@@ -10168,9 +10168,9 @@
       };
   });
 
-  defineResearchction("\\middle", {
+  defineFunction("\\middle", {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var delim = checkDelimiter(args[0], context);
       if (!context.parser.leftrightDepth) {
           throw new _ParseError2.default("\\middle without preceding \\left", delim);
@@ -10182,17 +10182,17 @@
       };
   });
 
-  // Sizing Researchctions (handled in Parser.js explicitly, hence no handler)
-  defineResearchction(["\\tiny", "\\scriptsize", "\\footnotesize", "\\small", "\\normalsize", "\\large", "\\Large", "\\LARGE", "\\huge", "\\Huge"], 0, null);
+  // Sizing functions (handled in Parser.js explicitly, hence no handler)
+  defineFunction(["\\tiny", "\\scriptsize", "\\footnotesize", "\\small", "\\normalsize", "\\large", "\\Large", "\\LARGE", "\\huge", "\\Huge"], 0, null);
 
-  // Style changing Researchctions (handled in Parser.js explicitly, hence no
+  // Style changing functions (handled in Parser.js explicitly, hence no
   // handler)
-  defineResearchction(["\\displaystyle", "\\textstyle", "\\scriptstyle", "\\scriptscriptstyle"], 0, null);
+  defineFunction(["\\displaystyle", "\\textstyle", "\\scriptstyle", "\\scriptscriptstyle"], 0, null);
 
-  // Old font changing Researchctions
-  defineResearchction(["\\rm", "\\sf", "\\tt", "\\bf", "\\it"], 0, null);
+  // Old font changing functions
+  defineFunction(["\\rm", "\\sf", "\\tt", "\\bf", "\\it"], 0, null);
 
-  defineResearchction([
+  defineFunction([
   // styles
   "\\mathrm", "\\mathit", "\\mathbf",
 
@@ -10203,32 +10203,32 @@
   "\\Bbb", "\\bold", "\\frak"], {
       numArgs: 1,
       greediness: 2
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
-      var Researchc = context.ResearchcName;
-      if (Researchc in fontAliases) {
-          Researchc = fontAliases[Researchc];
+      var func = context.funcName;
+      if (func in fontAliases) {
+          func = fontAliases[func];
       }
       return {
           type: "font",
-          font: Researchc.slice(1),
+          font: func.slice(1),
           body: body
       };
   });
 
   // Accents
-  defineResearchction(["\\acute", "\\grave", "\\ddot", "\\tilde", "\\bar", "\\breve", "\\check", "\\hat", "\\vec", "\\dot", "\\widehat", "\\widetilde", "\\overrightarrow", "\\overleftarrow", "\\Overrightarrow", "\\overleftrightarrow", "\\overgroup", "\\overlinesegment", "\\overleftharpoon", "\\overrightharpoon"], {
+  defineFunction(["\\acute", "\\grave", "\\ddot", "\\tilde", "\\bar", "\\breve", "\\check", "\\hat", "\\vec", "\\dot", "\\widehat", "\\widetilde", "\\overrightarrow", "\\overleftarrow", "\\Overrightarrow", "\\overleftrightarrow", "\\overgroup", "\\overlinesegment", "\\overleftharpoon", "\\overrightharpoon"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var base = args[0];
 
-      var isStretchy = !_utils2.default.contains(["\\acute", "\\grave", "\\ddot", "\\tilde", "\\bar", "\\breve", "\\check", "\\hat", "\\vec", "\\dot"], context.ResearchcName);
+      var isStretchy = !_utils2.default.contains(["\\acute", "\\grave", "\\ddot", "\\tilde", "\\bar", "\\breve", "\\check", "\\hat", "\\vec", "\\dot"], context.funcName);
 
-      var isShifty = !isStretchy || _utils2.default.contains(["\\widehat", "\\widetilde"], context.ResearchcName);
+      var isShifty = !isStretchy || _utils2.default.contains(["\\widehat", "\\widetilde"], context.funcName);
 
       return {
           type: "accent",
-          label: context.ResearchcName,
+          label: context.funcName,
           isStretchy: isStretchy,
           isShifty: isShifty,
           value: ordargument(base),
@@ -10237,16 +10237,16 @@
   });
 
   // Text-mode accents
-  defineResearchction(["\\'", "\\`", "\\^", "\\~", "\\=", "\\u", "\\.", '\\"', "\\r", "\\H", "\\v"], {
+  defineFunction(["\\'", "\\`", "\\^", "\\~", "\\=", "\\u", "\\.", '\\"', "\\r", "\\H", "\\v"], {
       numArgs: 1,
       allowedInText: true,
       allowedInMath: false
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var base = args[0];
 
       return {
           type: "accent",
-          label: context.ResearchcName,
+          label: context.funcName,
           isStretchy: false,
           isShifty: true,
           value: ordargument(base),
@@ -10255,65 +10255,65 @@
   });
 
   // Horizontal stretchy braces
-  defineResearchction(["\\overbrace", "\\underbrace"], {
+  defineFunction(["\\overbrace", "\\underbrace"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var base = args[0];
       return {
           type: "horizBrace",
-          label: context.ResearchcName,
-          isOver: /^\\over/.test(context.ResearchcName),
+          label: context.funcName,
+          isOver: /^\\over/.test(context.funcName),
           base: base
       };
   });
 
   // Stretchy accents under the body
-  defineResearchction(["\\underleftarrow", "\\underrightarrow", "\\underleftrightarrow", "\\undergroup", "\\underlinesegment", "\\undertilde"], {
+  defineFunction(["\\underleftarrow", "\\underrightarrow", "\\underleftrightarrow", "\\undergroup", "\\underlinesegment", "\\undertilde"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "accentUnder",
-          label: context.ResearchcName,
+          label: context.funcName,
           value: ordargument(body),
           body: body
       };
   });
 
   // Stretchy arrows with an optional argument
-  defineResearchction(["\\xleftarrow", "\\xrightarrow", "\\xLeftarrow", "\\xRightarrow", "\\xleftrightarrow", "\\xLeftrightarrow", "\\xhookleftarrow", "\\xhookrightarrow", "\\xmapsto", "\\xrightharpoondown", "\\xrightharpoonup", "\\xleftharpoondown", "\\xleftharpoonup", "\\xrightleftharpoons", "\\xleftrightharpoons", "\\xLongequal", "\\xtwoheadrightarrow", "\\xtwoheadleftarrow", "\\xLongequal", "\\xtofrom"], {
+  defineFunction(["\\xleftarrow", "\\xrightarrow", "\\xLeftarrow", "\\xRightarrow", "\\xleftrightarrow", "\\xLeftrightarrow", "\\xhookleftarrow", "\\xhookrightarrow", "\\xmapsto", "\\xrightharpoondown", "\\xrightharpoonup", "\\xleftharpoondown", "\\xleftharpoonup", "\\xrightleftharpoons", "\\xleftrightharpoons", "\\xLongequal", "\\xtwoheadrightarrow", "\\xtwoheadleftarrow", "\\xLongequal", "\\xtofrom"], {
       numArgs: 1,
       numOptionalArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var below = args[0];
       var body = args[1];
       return {
           type: "xArrow", // x for extensible
-          label: context.ResearchcName,
+          label: context.funcName,
           body: body,
           below: below
       };
   });
 
   // enclose
-  defineResearchction(["\\cancel", "\\bcancel", "\\xcancel", "\\sout", "\\fbox"], {
+  defineFunction(["\\cancel", "\\bcancel", "\\xcancel", "\\sout", "\\fbox"], {
       numArgs: 1
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var body = args[0];
       return {
           type: "enclose",
-          label: context.ResearchcName,
+          label: context.funcName,
           body: body
       };
   });
 
   // Infix generalized fractions
-  defineResearchction(["\\over", "\\choose", "\\atop"], {
+  defineFunction(["\\over", "\\choose", "\\atop"], {
       numArgs: 0,
       infix: true
-  }, Researchction (context) {
+  }, function (context) {
       var replaceWith = void 0;
-      switch (context.ResearchcName) {
+      switch (context.funcName) {
           case "\\over":
               replaceWith = "\\frac";
               break;
@@ -10334,11 +10334,11 @@
   });
 
   // Row breaks for aligned data
-  defineResearchction(["\\\\", "\\cr"], {
+  defineFunction(["\\\\", "\\cr"], {
       numArgs: 0,
       numOptionalArgs: 1,
       argTypes: ["size"]
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var size = args[0];
       return {
           type: "cr",
@@ -10347,10 +10347,10 @@
   });
 
   // Environment delimiters
-  defineResearchction(["\\begin", "\\end"], {
+  defineFunction(["\\begin", "\\end"], {
       numArgs: 1,
       argTypes: ["text"]
-  }, Researchction (context, args) {
+  }, function (context, args) {
       var nameGroup = args[0];
       if (nameGroup.type !== "ordgroup") {
           throw new _ParseError2.default("Invalid environment name", nameGroup);
@@ -10366,15 +10366,15 @@
       };
   });
 
-  },{"./ParseError":29,"./ParseNode":30,"./utils":51}],44:[Researchction(require,module,exports){
+  },{"./ParseError":29,"./ParseNode":30,"./utils":51}],44:[function(require,module,exports){
 
   /**
    * Predefined macros for KaTeX.
    * This can be used to define some commands in terms of others.
    */
 
-  // This Researchction might one day accept additional argument and do more things.
-  Researchction defineMacro(name, body) {
+  // This function might one day accept additional argument and do more things.
+  function defineMacro(name, body) {
     module.exports[name] = body;
   }
 
@@ -10386,7 +10386,7 @@
   defineMacro("\\endgroup", "}");
 
   // We don't distinguish between math and nonmath kerns.
-  // (In TeX, the mu unit Course Projects only with \mkern.)
+  // (In TeX, the mu unit works only with \mkern.)
   defineMacro("\\mkern", "\\kern");
 
   //////////////////////////////////////////////////////////////////////
@@ -10468,7 +10468,7 @@
   defineMacro("\\approxcolon", "\\approx\\mathrel{\\mkern-1.2mu}\\vcentcolon");
   defineMacro("\\approxcoloncolon", "\\approx\\mathrel{\\mkern-1.2mu}\\dblcolon");
 
-  },{}],45:[Researchction(require,module,exports){
+  },{}],45:[function(require,module,exports){
 
   var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -10482,15 +10482,15 @@
 
   var _utils2 = _interopRequireDefault(_utils);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * This node represents a general purpose MathML node of any type. The
    * constructor requires the type of node to create (for example, `"mo"` or
    * `"mspace"`, corresponding to `<mo>` and `<mspace>` tags).
    */
-  var MathNode = Researchction () {
-      Researchction MathNode(type, children) {
+  var MathNode = function () {
+      function MathNode(type, children) {
           (0, _classCallCheck3.default)(this, MathNode);
 
           this.type = type;
@@ -10506,7 +10506,7 @@
 
       (0, _createClass3.default)(MathNode, [{
           key: "setAttribute",
-          value: Researchction setAttribute(name, value) {
+          value: function setAttribute(name, value) {
               this.attributes[name] = value;
           }
 
@@ -10516,7 +10516,7 @@
 
       }, {
           key: "toNode",
-          value: Researchction toNode() {
+          value: function toNode() {
               var node = document.createElementNS("http://www.w3.org/1998/Math/MathML", this.type);
 
               for (var attr in this.attributes) {
@@ -10538,7 +10538,7 @@
 
       }, {
           key: "toMarkup",
-          value: Researchction toMarkup() {
+          value: function toMarkup() {
               var markup = "<" + this.type;
 
               // Add the attributes
@@ -10573,12 +10573,12 @@
    * since we're mainly using MathML to improve accessibility, we don't manage
    * any of the styling state that the plain DOM nodes do.
    *
-   * The `toNode` and `toMarkup` Researchctions Course Project simlarly to how they do in
+   * The `toNode` and `toMarkup` functions work simlarly to how they do in
    * domTree.js, creating namespaced DOM nodes and HTML text markup respectively.
    */
 
-  var TextNode = Researchction () {
-      Researchction TextNode(text) {
+  var TextNode = function () {
+      function TextNode(text) {
           (0, _classCallCheck3.default)(this, TextNode);
 
           this.text = text;
@@ -10591,7 +10591,7 @@
 
       (0, _createClass3.default)(TextNode, [{
           key: "toNode",
-          value: Researchction toNode() {
+          value: function toNode() {
               return document.createTextNode(this.text);
           }
 
@@ -10601,7 +10601,7 @@
 
       }, {
           key: "toMarkup",
-          value: Researchction toMarkup() {
+          value: function toMarkup() {
               return _utils2.default.escape(this.text);
           }
       }]);
@@ -10613,18 +10613,18 @@
       TextNode: TextNode
   };
 
-  },{"./utils":51,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],46:[Researchction(require,module,exports){
+  },{"./utils":51,"babel-runtime/helpers/classCallCheck":4,"babel-runtime/helpers/createClass":5}],46:[function(require,module,exports){
 
   var _Parser = require('./Parser');
 
   var _Parser2 = _interopRequireDefault(_Parser);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   /**
    * Parses an expression using a Parser, then returns the parsed result.
    */
-  var parseTree = Researchction parseTree(toParse, settings) {
+  var parseTree = function parseTree(toParse, settings) {
     if (!(typeof toParse === 'string' || toParse instanceof String)) {
       throw new TypeError('KaTeX can only parse string typed expression');
     }
@@ -10632,13 +10632,13 @@
 
     return parser.parse();
   }; /**
-      * Provides a single Researchction for parsing an expression using a Parser
+      * Provides a single function for parsing an expression using a Parser
       * TODO(emily): Remove this
       */
 
   module.exports = parseTree;
 
-  },{"./Parser":31}],47:[Researchction(require,module,exports){
+  },{"./Parser":31}],47:[function(require,module,exports){
 
   /**
    * This file provides support to buildMathML.js and buildHTML.js
@@ -10686,7 +10686,7 @@
       xtofrom: "\u21C4"
   };
 
-  var mathMLnode = Researchction mathMLnode(label) {
+  var mathMLnode = function mathMLnode(label) {
       var node = new mathMLTree.MathNode("mo", [new mathMLTree.TextNode(stretchyCodePoint[label.substr(1)])]);
       node.setAttribute("stretchy", "true");
       return node;
@@ -10763,8 +10763,8 @@
   //    Thus, the reader sees an arrow that matches the subject matter width
   //    without distortion.
 
-  //    Some Researchctions, such as \cancel, need to vary their aspect ratio. These
-  //    Researchctions do not get the nested SVG treatment.
+  //    Some functions, such as \cancel, need to vary their aspect ratio. These
+  //    functions do not get the nested SVG treatment.
 
   // Second Brush Stroke
   //    Low resolution monitors struggle to display images in fine detail.
@@ -10888,7 +10888,7 @@
       xcancel: "<line x1='0' y1='0' x2='100%' y2='100%' stroke-width='0.046em'/>\n<line x1='0' y1='100%' x2='100%' y2='0' stroke-width='0.046em'/>"
   };
 
-  var svgSpan = Researchction svgSpan(group, options) {
+  var svgSpan = function svgSpan(group, options) {
       // Create a span with inline SVG for the element.
       var label = group.value.label.substr(1);
       var height = 0;
@@ -10897,7 +10897,7 @@
       var minWidth = 0;
 
       if (utils.contains(["widehat", "widetilde", "undertilde"], label)) {
-          // There are four SVG images available for each Researchction.
+          // There are four SVG images available for each function.
           // Choose a taller image when there are more characters.
           var numChars = group.value.value.length;
           if (numChars > 5) {
@@ -10935,7 +10935,7 @@
       return span;
   };
 
-  var encloseSpan = Researchction encloseSpan(inner, label, pad, options) {
+  var encloseSpan = function encloseSpan(inner, label, pad, options) {
       // Return an image span for \cancel, \bcancel, \xcancel, or \fbox
       var img = void 0;
       var totalHeight = inner.height + inner.depth + 2 * pad;
@@ -10962,10 +10962,10 @@
       svgSpan: svgSpan
   };
 
-  },{"./buildCommon":34,"./mathMLTree":45,"./utils":51}],48:[Researchction(require,module,exports){
+  },{"./buildCommon":34,"./mathMLTree":45,"./utils":51}],48:[function(require,module,exports){
 
   /**
-   * This file holds a list of all no-argument Researchctions and single-character
+   * This file holds a list of all no-argument functions and single-character
    * symbols (like 'a' or ';').
    *
    * For each of the symbols, there are three properties they can have:
@@ -10974,7 +10974,7 @@
    * - group (required): the ParseNode group type the symbol should have (i.e.
        "textord", "mathord", etc).
        See https://github.com/Khan/KaTeX/wiki/Examining-TeX#group-types
-   * - replace: the character that this symbol or Researchction should be
+   * - replace: the character that this symbol or function should be
    *   replaced with (i.e. "\phi" has a replace value of "\u03d5", the phi
    *   character in the main font).
    *
@@ -10987,7 +10987,7 @@
       text: {}
   };
 
-  Researchction defineSymbol(mode, font, group, replace, name, acceptUnicodeChar) {
+  function defineSymbol(mode, font, group, replace, name, acceptUnicodeChar) {
       module.exports[mode][name] = {
           font: font,
           group: group,
@@ -11679,7 +11679,7 @@
   defineSymbol(text, main, textord, "\u201C", "“");
   defineSymbol(text, main, textord, "\u201D", "”");
 
-  },{}],49:[Researchction(require,module,exports){
+  },{}],49:[function(require,module,exports){
 
   var hangulRegex = /[\uAC00-\uD7AF]/;
 
@@ -11698,13 +11698,13 @@
       hangulRegex: hangulRegex
   };
 
-  },{}],50:[Researchction(require,module,exports){
+  },{}],50:[function(require,module,exports){
 
   var _ParseError = require("./ParseError");
 
   var _ParseError2 = _interopRequireDefault(_ParseError);
 
-  Researchction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
   // This table gives the number of TeX pts in one of each *absolute* TeX unit.
   // Thus, multiplying a length by this number converts the length from units
@@ -11745,7 +11745,7 @@
    * Determine whether the specified unit (either a string defining the unit
    * or a "size" parse node containing a unit field) is valid.
    */
-  var validUnit = Researchction validUnit(unit) {
+  var validUnit = function validUnit(unit) {
       if (unit.unit) {
           unit = unit.unit;
       }
@@ -11754,10 +11754,10 @@
 
   /*
    * Convert a "size" parse node (with numeric "number" and string "unit" fields,
-   * as parsed by Researchctions.js argType "size") into a CSS em value for the
+   * as parsed by functions.js argType "size") into a CSS em value for the
    * current style/scale.  `options` gives the current options.
    */
-  var calculateSize = Researchction calculateSize(sizeValue, options) {
+  var calculateSize = function calculateSize(sizeValue, options) {
       var scale = void 0;
       if (sizeValue.unit in ptPerUnit) {
           // Absolute units
@@ -11803,19 +11803,19 @@
       calculateSize: calculateSize
   };
 
-  },{"./ParseError":29}],51:[Researchction(require,module,exports){
+  },{"./ParseError":29}],51:[function(require,module,exports){
 
   /**
-   * This file contains a list of utility Researchctions which are useful in other
+   * This file contains a list of utility functions which are useful in other
    * files.
    */
 
   /**
-   * Provide an `indexOf` Researchction which Course Projects in IE8, but defers to native if
+   * Provide an `indexOf` function which works in IE8, but defers to native if
    * possible.
    */
   var nativeIndexOf = Array.prototype.indexOf;
-  var indexOf = Researchction indexOf(list, elem) {
+  var indexOf = function indexOf(list, elem) {
       if (list == null) {
           return -1;
       }
@@ -11834,21 +11834,21 @@
   /**
    * Return whether an element is contained in a list
    */
-  var contains = Researchction contains(list, elem) {
+  var contains = function contains(list, elem) {
       return indexOf(list, elem) !== -1;
   };
 
   /**
    * Provide a default value if a setting is undefined
    */
-  var deflt = Researchction deflt(setting, defaultIResearchdefined) {
-      return setting === undefined ? defaultIResearchdefined : setting;
+  var deflt = function deflt(setting, defaultIfUndefined) {
+      return setting === undefined ? defaultIfUndefined : setting;
   };
 
   // hyphenate and escape adapted from Facebook's React under Apache 2 license
 
   var uppercase = /([A-Z])/g;
-  var hyphenate = Researchction hyphenate(str) {
+  var hyphenate = function hyphenate(str) {
       return str.replace(uppercase, "-$1").toLowerCase();
   };
 
@@ -11862,7 +11862,7 @@
 
   var ESCAPE_REGEX = /[&><"']/g;
 
-  Researchction escaper(match) {
+  function escaper(match) {
       return ESCAPE_LOOKUP[match];
   }
 
@@ -11872,32 +11872,32 @@
    * @param {*} text Text value to escape.
    * @return {string} An escaped string.
    */
-  Researchction escape(text) {
+  function escape(text) {
       return ("" + text).replace(ESCAPE_REGEX, escaper);
   }
 
   /**
-   * A Researchction to set the text content of a DOM element in all supported
+   * A function to set the text content of a DOM element in all supported
    * browsers. Note that we don't define this if there is no document.
    */
   var setTextContent = void 0;
   if (typeof document !== "undefined") {
       var testNode = document.createElement("span");
       if ("textContent" in testNode) {
-          setTextContent = Researchction setTextContent(node, text) {
+          setTextContent = function setTextContent(node, text) {
               node.textContent = text;
           };
       } else {
-          setTextContent = Researchction setTextContent(node, text) {
+          setTextContent = function setTextContent(node, text) {
               node.innerText = text;
           };
       }
   }
 
   /**
-   * A Researchction to clear a node.
+   * A function to clear a node.
    */
-  Researchction clearNode(node) {
+  function clearNode(node) {
       setTextContent(node, "");
   }
 
@@ -11932,11 +11932,11 @@
   // limitations under the License.
 
   // This is a straight concatenation of code from KaTeX's contrib folder,
-  // but we aren't using some of their helpers that don't Course Project well outside a browser environment.
+  // but we aren't using some of their helpers that don't work well outside a browser environment.
 
   /*global katex */
 
-  const findEndOfMath = Researchction(delimiter, text, startIndex) {
+  const findEndOfMath = function(delimiter, text, startIndex) {
     // Adapted from
     // https://github.com/Khan/perseus/blob/master/src/perseus-markdown.jsx
     let index = startIndex;
@@ -11966,7 +11966,7 @@
     return -1;
   };
 
-  const splitAtDelimiters = Researchction(startData, leftDelim, rightDelim, display) {
+  const splitAtDelimiters = function(startData, leftDelim, rightDelim, display) {
     const finalData = [];
 
     for (let i = 0; i < startData.length; i++) {
@@ -12036,7 +12036,7 @@
     return finalData;
   };
 
-  const splitWithDelimiters = Researchction(text, delimiters) {
+  const splitWithDelimiters = function(text, delimiters) {
     let data = [{ type: "text", data: text }];
     for (let i = 0; i < delimiters.length; i++) {
       const delimiter = delimiters[i];
@@ -12053,7 +12053,7 @@
   /* Note: optionsCopy is mutated by this method. If it is ever exposed in the
    * API, we should copy it before mutating.
    */
-  const renderMathInText = Researchction(text, optionsCopy) {
+  const renderMathInText = function(text, optionsCopy) {
     const data = splitWithDelimiters(text, optionsCopy.delimiters);
     const fragment = document.createDocumentFragment();
 
@@ -12089,7 +12089,7 @@
     return fragment;
   };
 
-  const renderElem = Researchction(elem, optionsCopy) {
+  const renderElem = function(elem, optionsCopy) {
     for (let i = 0; i < elem.childNodes.length; i++) {
       const childNode = elem.childNodes[i];
       if (childNode.nodeType === 3) {
@@ -12133,12 +12133,12 @@
       "svg"
     ],
 
-    errorCallback: Researchction(msg, err) {
+    errorCallback: function(msg, err) {
       console.error(msg, err);
     }
   };
 
-  const renderMathInElement = Researchction(elem, options) {
+  const renderMathInElement = function(elem, options) {
     if (!elem) {
       throw new Error("No element provided to render");
     }
@@ -12156,7 +12156,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction Mathematics(dom, data) {
+  function Mathematics(dom, data) {
     let needsCSS = false;
     const body = dom.querySelector('body');
 
@@ -12225,7 +12225,7 @@
    * @public
    */
 
-  Researchction escapeHtml(string) {
+  function escapeHtml(string) {
     var str = '' + string;
     var match = matchHtmlRegExp.exec(str);
 
@@ -12274,11 +12274,11 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction Meta(dom, data) {
+  function Meta(dom, data) {
     let head = dom.querySelector('head');
     let appendHead = html => appendHtml(head, html);
 
-    Researchction meta(name, content, force) {
+    function meta(name, content, force) {
       if (content || force)
         appendHead(`    <meta name="${name}" content="${escapeHtml_1(content)}" >\n`);
     }
@@ -12390,11 +12390,11 @@
     }
   }
 
-  Researchction appendHtml(el, html) {
+  function appendHtml(el, html) {
     el.innerHTML += html;
   }
 
-  Researchction citation_meta_content(ref){
+  function citation_meta_content(ref){
     var content = `citation_title=${ref.title};`;
 
     if (ref.author && ref.author !== '') {
@@ -12454,7 +12454,7 @@
 
   const styles = base + layout + title + byline + article + math + print;
 
-  Researchction makeStyleTag(dom) {
+  function makeStyleTag(dom) {
 
     const styleTagId = 'distill-prerendered-styles';
     const prerenderedTag = dom.getElementById(styleTagId);
@@ -12472,7 +12472,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction renderTOC(element, headings) {
+  function renderTOC(element, headings) {
 
     let ToC =`
   <style>
@@ -12525,7 +12525,7 @@
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction TOC(dom) {
+  function TOC(dom) {
     const article = dom.querySelector('d-article');
     const toc = dom.querySelector('d-toc');
     if (toc) {
@@ -12549,7 +12549,7 @@
   // See the License for the specific language governing permissions and
   // limitations under the License.
 
-  Researchction Typeset(dom) {
+  function Typeset(dom) {
 
     var textNodes = dom.createTreeWalker(
       dom.body,
@@ -12572,7 +12572,7 @@
   // 2018-07-11 shancarter@ and ludwigschubert@ no longer know what this was meant to accomplish
   // if it was trying to not replace text in any child nodes of those listed here,
   // then it does not accomplish that.
-  Researchction acceptNode(node) {
+  function acceptNode(node) {
     var parent = node.parentElement;
     var isMath = (parent && parent.getAttribute && parent.getAttribute('class')) ? parent.getAttribute('class').includes('katex') || parent.getAttribute('class').includes('MathJax') : false;
     return parent &&
@@ -12605,7 +12605,7 @@
   // http://creativecommons.org/publicdomain/zero/1.0/
 
 
-  Researchction punctuation(text){
+  function punctuation(text){
 
     // Dashes
     text = text.replace(/--/g, '\u2014');
@@ -12625,7 +12625,7 @@
     return text;
   }
 
-  Researchction quotes(text) {
+  function quotes(text) {
 
     text = text
       .replace(/(\W|^)"([^\s!?:;.,‽»])/g, '$1\u201c$2') // beginning "
@@ -12659,7 +12659,7 @@
   //     if (!('isIntersecting' in IntersectionObserverEntry.prototype)) {
   //       Object.defineProperty(IntersectionObserverEntry.prototype,
   //         'isIntersecting', {
-  //         get: Researchction () {
+  //         get: function () {
   //           return this.intersectionRatio > 0;
   //         }
   //       });
@@ -12689,7 +12689,7 @@
 
 
   const addBackIn = `
-window.addEventListener('WebComponentsReady', Researchction() {
+window.addEventListener('WebComponentsReady', function() {
   console.warn('WebComponentsReady');
   const loaderTag = document.createElement('script');
   loaderTag.src = 'https://distill.pub/template.v2.js';
@@ -12697,7 +12697,7 @@ window.addEventListener('WebComponentsReady', Researchction() {
 });
 `;
 
-  Researchction render(dom) {
+  function render(dom) {
     // pull out template script tag
     const templateTag = dom.querySelector('script[src*="template.v2.js"]');
     if (templateTag) {
@@ -12743,7 +12743,7 @@ d-citation-list .references .title {
 }
 `;
 
-  Researchction renderCitationList(element, entries, dom=document) {
+  function renderCitationList(element, entries, dom=document) {
     if (entries.size > 0) {
       element.style.display = '';
       let list = element.querySelector('.references');
@@ -12778,7 +12778,7 @@ d-citation-list .references .title {
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction CitationList(dom, data) {
+  function CitationList(dom, data) {
     const citationListTag = dom.querySelector('d-citation-list');
     if (citationListTag) {
       const entries = new Map(data.citations.map( citationKey => {
@@ -12808,7 +12808,7 @@ d-citation-list .references .title {
     Try to use templates etc to define the order of our own tags.
   */
 
-  Researchction render$1(dom) {
+  function render$1(dom) {
     const head = dom.head;
 
     const metaIE = head.querySelector('meta[http-equiv]');
@@ -12903,7 +12903,7 @@ distill-header .nav a {
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction DistillHeader(dom, data) {
+  function DistillHeader(dom, data) {
     const headerTag = dom.querySelector('distill-header');
     if (!headerTag) {
       const header = dom.createElement('distill-header');
@@ -12944,7 +12944,7 @@ distill-header .nav a {
 </style>
 `;
 
-  Researchction appendixTemplate(frontMatter) {
+  function appendixTemplate(frontMatter) {
     let html = styles$2;
 
     if (typeof frontMatter.githubUrl !== 'undefined') {
@@ -12970,7 +12970,7 @@ distill-header .nav a {
     if (typeof frontMatter.publishedDate !== 'undefined') {
       html += `
     <h3 id="citation">Citation</h3>
-    <p>For attribution in academic contexts, please cite this Course Project as</p>
+    <p>For attribution in academic contexts, please cite this work as</p>
     <pre class="citation short">${frontMatter.concatenatedAuthors}, "${frontMatter.title}", Distill, ${frontMatter.publishedYear}.</pre>
     <p>BibTeX citation</p>
     <pre class="citation long">${serializeFrontmatterToBibtex(frontMatter)}</pre>
@@ -12982,7 +12982,7 @@ distill-header .nav a {
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction DistillAppendix(dom, data) {
+  function DistillAppendix(dom, data) {
 
     const appendixTag = dom.querySelector('d-appendix');
     if (!appendixTag) {
@@ -13073,7 +13073,7 @@ distill-header .nav a {
 
   // Copyright 2018 The Distill Template Authors
 
-  Researchction DistillFooter(dom) {
+  function DistillFooter(dom) {
     const footerTag = dom.querySelector('distill-footer');
     if(!footerTag) {
       const footer = dom.createElement('distill-footer');
@@ -13111,9 +13111,9 @@ distill-header .nav a {
     ['DistillFooter', DistillFooter],
   ]);
 
-  /* Exported Researchctions */
+  /* Exported functions */
 
-  Researchction render$2(dom, data, verbose=true) {
+  function render$2(dom, data, verbose=true) {
     let frontMatter;
     if (data instanceof FrontMatter) {
       frontMatter = data;
@@ -13132,13 +13132,13 @@ distill-header .nav a {
       transform(dom, frontMatter, verbose);
     }
     dom.body.setAttribute('distill-prerendered', '');
-    // the Researchction calling us can now use the transformed dom and filled data object
+    // the function calling us can now use the transformed dom and filled data object
     if (data instanceof FrontMatter) ; else {
       frontMatter.assignToObject(data);
     }
   }
 
-  Researchction distillify(dom, data, verbose=true) {
+  function distillify(dom, data, verbose=true) {
     // thirdly, we can use these additional transforms when publishing on the Distill website
     for (const [name, transform] of distillTransforms.entries()) {
       if (verbose) console.warn('Running distillify: ', name);
@@ -13146,7 +13146,7 @@ distill-header .nav a {
     }
   }
 
-  Researchction usesTemplateV2(dom) {
+  function usesTemplateV2(dom) {
     const tags = dom.querySelectorAll('script');
     let usesV2 = undefined;
     for (const tag of tags) {
