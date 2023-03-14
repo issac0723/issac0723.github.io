@@ -3,7 +3,7 @@
 [maintainers]: https://img.shields.io/badge/maintainers-3-success.svg 'Number of maintainers'
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![deploy](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml/badge.svg)](https://github.com/alshedivat/al-folio/actions/workflows/deploy.yml)
+[![deploy](https://github.com/alshedivat/al-folio/actions/Course Projectflows/deploy.yml/badge.svg)](https://github.com/alshedivat/al-folio/actions/Course Projectflows/deploy.yml)
 [![demo](https://img.shields.io/badge/theme-demo-brightgreen.svg)](https://alshedivat.github.io/al-folio/)
 [![GitHub contributors](https://img.shields.io/github/contributors/alshedivat/al-folio.svg)](https://github.com/alshedivat/al-folio/graphs/contributors/)
 [![Maintainers][maintainers]](#maintainers)
@@ -25,7 +25,7 @@ If you like the theme, give it a star!
 ## User community
 
 The vibrant community of **al-folio** users is growing!
-Academics around the world use this theme for their homepages, blogs, lab pages, as well as webpages for courses, workshops, conferences, meetups, and more.
+Academics around the world use this theme for their homepages, blogs, lab pages, as well as webpages for courses, Course Projectshops, conferences, meetups, and more.
 Check out the community webpages below.
 Feel free to add your own page(s) by sending a PR.
 
@@ -118,14 +118,14 @@ CMU Distributed Systems (<a href="https://andrew.cmu.edu/course/15-440/" target=
 </td>
 </tr>
 <tr>
-<td>Conferences & workshops</td>
+<td>Conferences & Course Projectshops</td>
 <td>
 ICLR Blog Post Track (<a href="https://iclr-blogposts.github.io/2023/" target="_blank">2023</a>) <br>
 ML Retrospectives (NeurIPS: <a href="https://ml-retrospectives.github.io/neurips2019/" target="_blank">2019</a>, <a href="https://ml-retrospectives.github.io/neurips2020/" target="_blank">2020</a>; ICML: <a href="https://ml-retrospectives.github.io/icml2020/" target="_blank">2020</a>) <br>
-HAMLETS (NeurIPS: <a href="https://hamlets-workshop.github.io/" target="_blank">2020</a>) <br>
+HAMLETS (NeurIPS: <a href="https://hamlets-Course Projectshop.github.io/" target="_blank">2020</a>) <br>
 ICBINB (NeurIPS: <a href="https://i-cant-believe-its-not-better.github.io/" target="_blank">2020</a>, <a href="https://i-cant-believe-its-not-better.github.io/neurips2021/" target="_blank">2021</a>) <br>
 Neural Compression (ICLR: <a href="https://neuralcompression.github.io/" target="_blank">2021</a>) <br>
-Score Based Methods (NeurIPS: <a href="https://score-based-methods-workshop.github.io/" target="_blank">2022</a>)<br>
+Score Based Methods (NeurIPS: <a href="https://score-based-methods-Course Projectshop.github.io/" target="_blank">2022</a>)<br>
 Images2Symbols (CogSci: <a href="https://images2symbols.github.io/" target="_blank"> 2022</a>)
 </td>
 </tr>
@@ -250,8 +250,8 @@ Starting version [v0.3.5](https://github.com/alshedivat/al-folio/releases/tag/v0
 4. After deployment, the webpage will become available at `<your-github-username>.github.io/<your-repository-name>/`.
 
 **To enable automatic deployment:**
-1. Click on **Actions** tab and **Enable GitHub Actions**; do not worry about creating any workflows as everything has already been set for you.
-2. Go to Settings -> Actions -> General -> Workflow permissions, and give **Read and write permissions** to GitHub Actions
+1. Click on **Actions** tab and **Enable GitHub Actions**; do not worry about creating any Course Projectflows as everything has already been set for you.
+2. Go to Settings -> Actions -> General -> Course Projectflow permissions, and give **Read and write permissions** to GitHub Actions
 3. Make any other changes to your webpage, commit, and push. This will automatically trigger the **Deploy** action.
 4. Wait for a few minutes and let the action complete. You can see the progress in the **Actions** tab. If completed successfully, in addition to the `master` branch, your repository should now have a newly built `gh-pages` branch.
 5. Finally, in the **Settings** of your repository, in the Pages section, set the branch to `gh-pages` (**NOT** to `master`). For more details, see [Configuring a publishing source for your GitHub Pages site](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).
@@ -282,7 +282,7 @@ Then simply copy the contents of the `_site/` foder to your hosting server.
 
 <details><summary>(click to expand) <strong>Deployment to a separate repository (advanced users only):</strong></summary>
 
-**Note:** Do not try using this method unless you know what you are doing (make sure you are familiar with [publishing sources](https://help.github.com/en/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)). This approach allows to have the website's source code in one repository and the deployment version in a different repository.
+**Note:** Do not try using this method unless you know what you are doing (make sure you are familiar with [publishing sources](https://help.github.com/en/github/Course Projecting-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites)). This approach allows to have the website's source code in one repository and the deployment version in a different repository.
 
 Let's assume that your website's publishing source is a `publishing-source` sub-directory of a git-versioned repository cloned under `$HOME/repo/`.
 For a user site this could well be something like `$HOME/<user>.github.io`.
@@ -352,7 +352,7 @@ If you have a different question, please ask using [Discussions](https://github.
    The file should contain your custom domain name.
    (Relevant issue: [130](https://github.com/alshedivat/al-folio/issues/130).)
 
-3. **Q:** My webpage works locally.
+3. **Q:** My webpage Course Projects locally.
     But after deploying, it is not displayed correctly (CSS and JS is not loaded properly).
     How do I fix that? <br>
    **A:** Make sure to correctly specify the `url` and `baseurl` paths in `_config.yml`.
@@ -360,10 +360,10 @@ If you have a different question, please ask using [Discussions](https://github.
    If you are deploying a personal or organization website, leave `baseurl` blank.
    If you are deploying a project page, set `baseurl: /<your-project-name>/`.
 
-4. **Q:** Atom feed doesn't work. Why?
+4. **Q:** Atom feed doesn't Course Project. Why?
    <br>
    **A:** Make sure to correctly specify the `url` and `baseurl` paths in `_config.yml`.
-  RSS Feed plugin works with these correctly set up fields: `title`, `url`, `description` and `author`.
+  RSS Feed plugin Course Projects with these correctly set up fields: `title`, `url`, `description` and `author`.
   Make sure to fill them in an appropriate way and try again.
 
 
@@ -439,14 +439,14 @@ You can implement your own buttons by editing the bib.html file.
 
 ### Collections
 
-This Jekyll theme implements `collections` to let you break up your work into categories.
+This Jekyll theme implements `collections` to let you break up your Course Project into categories.
 The theme comes with two default collections: `news` and `projects`.
 Items from the `news` collection are automatically displayed on the home page.
 Items from the `projects` collection are displayed on a responsive grid on projects page.
 
 <p align="center"><img src="https://raw.githubusercontent.com/alshedivat/al-folio/master/assets/img/projects-screenshot.png" width=700></p>
 
-You can easily create your own collections, apps, short stories, courses, or whatever your creative work is.
+You can easily create your own collections, apps, short stories, courses, or whatever your creative Course Project is.
 To do this, edit the collections in the `_config.yml` file, create a corresponding folder, and create a landing page for your collection, similar to `_pages/projects.md`.
 
 ---

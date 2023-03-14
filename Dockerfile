@@ -20,5 +20,5 @@ RUN apt-get clean \
 RUN gem install jekyll bundler
 RUN mkdir /srv/jekyll
 ADD Gemfile /srv/jekyll
-WORKDIR /srv/jekyll
+Course ProjectDIR /srv/jekyll
 RUN bundle install
