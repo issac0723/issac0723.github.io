@@ -2,23 +2,28 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Hello World! #<a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: jun_pic.png
   image_circular: false # crops the image to make it circular
   address: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <a href='https://docs.google.com/document/d/12DppdZr1bza1_9fE35IVtk3m3LTnYSHs/edit?usp=sharing&ouid=100460228826122731942&rtpof=true&sd=true'>CV</a>
+    <p>M.S student</p>
+    <p>Informatics @UC Irvin</p>
+    <p>She/Her</p>
+    <p>junz22 at uci dot edu</p>
+
+
 
 news: true  # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-Testing edit after deploy
+I am a first-year M.S. student in the [Informatics Department](https://www.informatics.uci.edu/) at the University of California Irvine, advised by [Dr.Elena Agapie]( https://eagapie.com/) in the unnamed lab. I also completed my B.S Informatics at [UC Irvine](https://uci.edu/).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am interested in health informatics and human-computer interaction. More specifically, I am interested in designing and developing innovative technologies to support people with all aspects of their holistic well-being through positive behavior change. My ultimate aim in life is to utilize technology to make the world a better place for everyone.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I am a night owl.Outside of the work, you'll find me:  
+Snowboarding. Playing computer games(League of Legends).Obsessing with the Lego world.Spending time with my cat, Kitson.
