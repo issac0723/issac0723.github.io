@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2023-03-12 07:59:00-0400
+date: 2022-06-15 14:00:00-0400
 inline: true
 ---
 
-LOL LOL! :sparkles: :smile:
+Officially graduated from UCI as an undergraduate student.
