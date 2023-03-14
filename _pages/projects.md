@@ -5,7 +5,7 @@ permalink: /projects/
 description: Selected Projects.
 nav: true
 nav_order: 2
-display_categories: [Course Project, fun]
+display_categories: [Course Project, Research]
 horizontal: false
 ---
 
