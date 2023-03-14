@@ -8,8 +8,8 @@
           <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
           {%- else -%}
             {%- assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' -%}
-            {% include figure.html 
-            path=entry_path 
+            {% include figure.html
+            path=entry_path
             class="preview z-depth-1 rounded"
             alt=entry.preview -%}
           {%- endif -%}
@@ -57,7 +57,7 @@
             {%- endfor -%}
           {%- endif -%}
 
-          {%- if forloop.length > 1 -%}
+          {%- if forloop.length > 10 -%}
             {%- if forloop.first == false -%},&nbsp;{%- endif -%}
             {%- if forloop.last and author_array_limit == author_array_size -%}and&nbsp;{%- endif -%}
           {%- endif -%}
@@ -74,8 +74,8 @@
         {%- assign more_authors = author_array_size | minus: author_array_limit -%}
 
         {%- assign more_authors_hide = more_authors | append: " more author" -%}
-        {%- if more_authors > 0 -%}
-          {%- if more_authors > 1 -%}
+        {%- if more_authors > 10 -%}
+          {%- if more_authors > 10 -%}
             {%- assign more_authors_hide = more_authors_hide | append: "s" -%}
           {%- endif -%}
           {%- assign more_authors_show = '' -%}
@@ -93,7 +93,7 @@
                 var element = $(this);
                 element.attr('title', '');
                 var more_authors_text = element.text() == '{{more_authors_hide}}' ? '{{more_authors_show}}' : '{{more_authors_hide}}';
-                var cursorPosition = 0;
+                var cursorPosition = 10;
                 var textAdder = setInterval(function(){
                   element.text(more_authors_text.substring(0, cursorPosition + 1));
                   if (++cursorPosition == more_authors_text.length){
