@@ -7,74 +7,59 @@ importance: 2
 category: Course Project
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+**Description**: User Interaction Software individual project. A mobile app by developing a tool for tracking sleep and sleepiness in Ionic.   
+**Duration**: March 2022 (1 week)  
+**Tool**: IntelliJ IDEA. Built with Ionic, Bootstrap and Angular.  
+**Link**: [A demo runs on Android device](https://www.youtube.com/watch?v=k2e3UpI_WqI).
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+My app is designed with the specific purpose of enabling users to quickly record their sleep data and conveniently visualize it. My goal was to simplify the data-logging process by minimizing the number of required inputs and reducing any obstacles to data entry.  
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
+<br>
+My code is compatible with both iOS and Android systems, it is predominantly designed in line with the Android design style. Therefore, in the [demo](https://www.youtube.com/watch?v=k2e3UpI_WqI), I only present the Android interface to showcase the design and user experience accurately.
 
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+  <div class="row">
+      <div class="col-sm mt-3 mt-md-0">
+          {% include figure.html path="assets/img/sleeptracker.png" title="example image" class="img-fluid rounded z-depth-1" %}
+      </div>
+  </div>
+  <div class="caption">
+      Sleep Tracker UI interface.
+  </div>
 
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+#### __Features__
+- The The ability to log overnight sleep.  
+- The ability to log sleepiness during the day.  
+- The ability to view these two categories of logged data.  
+- Storing data locally or in a database.  
 
-{% raw %}
-```html
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.html path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-```
-{% endraw %}
+<br>
+#### __Design principles__
+In order to create this app, I have incorporated the principles of strong mobile design to ensure its effectiveness and user-friendliness.
+- A helpful initial view - three selections on log and view data.  
+- The “uh-oh” button - be able to back out of the current page.  
+-  Error prevention - toaster message to remind the user of missing/invalid input.  
+- Follow platform conventions.  
+  *    Android, the back button and a uniform dark theme with a purple-ish-blue header are always available.
+
+<br>
+  <div class="row">
+      <div class="col-sm mt-3 mt-md-0">
+          {% include figure.html path="assets/img/logdata.png" title="example image" class="img-fluid rounded z-depth-1" %}
+      </div>
+  </div>
+  <div class="caption">
+      Log Overnight Sleep. Log Sleepiness During the Day.
+  </div>
+
+  <div class="row">
+      <div class="col-sm mt-3 mt-md-0">
+          {% include figure.html path="assets/img/viewdata.png" title="example image" class="img-fluid rounded z-depth-1" %}
+      </div>
+  </div>
+  <div class="caption">
+      View Logged Data. Track sleepiness level.
+  </div>
+
+*Note: As per the class policy, I am not permitted to upload my code on GitHub. :zzz:	Sleep well :)
