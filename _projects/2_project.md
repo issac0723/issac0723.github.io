@@ -1,8 +1,8 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image
-img: assets/img/3.jpg
+title: Sleep Tracker in Ionic
+description: A basic sleep tracker that allows the user to track their sleep information.
+img: assets/img/sleep-tracker.jpg
 importance: 2
 category: Course Project
 ---
