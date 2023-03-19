@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Sleep Tracker in Ionic
-description: A basic sleep tracker that allows the user to track their sleep information.
+description: A basic sleep tracker for monitoring sleep data.
 img: assets/img/sleep-tracker.png
 importance: 2
 category: Course Project
