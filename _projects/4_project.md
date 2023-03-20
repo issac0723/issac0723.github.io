@@ -135,4 +135,4 @@ Topic (11/05 –12/31/2021)
 
 
 **Acknowledgment**:
-The material(pictures) was created by Yawen Guo(lead author) during her presentation at the AMIA conference. Thank you!
+The material(pictures) was created by Yawen Guo(lead author) during her presentation at the AMIA conference(2022). Thank you!
