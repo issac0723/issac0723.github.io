@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Health Informatics Intersection
-description:  A Machine Learning-based Analysis of U.S. Tweets.
+description:  A Machine Learning-based Analysis of U.S. Tweets
 img: assets/img/amia-1.png
 importance: 1
 category: Research
@@ -40,7 +40,7 @@ __Methodology__:
     </div>
 </div>
 <div class="caption">
-    Data collection.
+    Data collection
 </div>
 
 <div class="row">
@@ -49,7 +49,7 @@ __Methodology__:
     </div>
 </div>
 <div class="caption">
-    Two-stage machine-learning classification.
+    Two-stage machine-learning classification
 </div>
 
 <div class="row">
@@ -58,7 +58,7 @@ __Methodology__:
     </div>
 </div>
 <div class="caption">
-    Longitudinal analyses and topic modeling.
+    Longitudinal analyses and topic modeling
 </div>
 
 <div class="row">
@@ -67,7 +67,7 @@ __Methodology__:
     </div>
 </div>
 <div class="caption">
-    Qualitative content analysis.
+    Qualitative content analysis
 </div>
 
 __Results__:
@@ -77,7 +77,7 @@ __Results__:
     </div>
 </div>
 <div class="caption">
-    Tweets containing personal opinions - part 1.
+    Tweets containing personal opinions - part 1
 </div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
@@ -85,7 +85,7 @@ __Results__:
     </div>
 </div>
 <div class="caption">
-    Tweets containing personal opinions - part 2.
+    Tweets containing personal opinions - part 2
 </div>
 
 Topic modeling of **incubating** phases
@@ -121,7 +121,7 @@ Topic (11/05 –12/31/2021)
     </div>
 </div>
 <div class="caption">
-    Qualitative content analysis — Positive themes.
+    Qualitative content analysis — Positive themes
 </div>
 
 <div class="row">
@@ -130,9 +130,9 @@ Topic (11/05 –12/31/2021)
     </div>
 </div>
 <div class="caption">
-    Qualitative content analysis — Negative themes.
+    Qualitative content analysis — Negative themes
 </div>
 
 
 **Acknowledgment**:
-The material(pictures) was created by Yawen Guo during her presentation at the AMIA conference. (The first author in the paper). Thank you!
+The material(pictures) was created by Yawen Guo(lead author) during her presentation at the AMIA conference. Thank you!
