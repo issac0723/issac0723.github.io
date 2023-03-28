@@ -29,7 +29,7 @@ My code is compatible with both iOS and Android systems, it is predominantly des
 
 
 #### __Features__
-- The The ability to log overnight sleep.  
+- The ability to log overnight sleep.  
 - The ability to log sleepiness during the day.  
 - The ability to view these two categories of logged data.  
 - Storing data locally or in a database.  

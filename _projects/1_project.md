@@ -26,7 +26,6 @@ category: Course Project
     </div>
 </div>
 
-[Link to the video demo.](https://vimeo.com/779518652)
 <br>
 ### Research
 To better understand the issue, we initially acquainted ourselves with the user's context in the current problem of selecting outfits.
