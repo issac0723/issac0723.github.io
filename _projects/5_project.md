@@ -8,7 +8,7 @@ category: Research
 ---
 
 **Duration**:June 2022 - Present     
-**Description**: This study aims to understand the landscape of how research in HCI talks about things related to people’s goals.
+**Description**: This study aims to understand the landscape of how researcher in HCI talks about things related to people’s goals.
 
 
 <br>
