@@ -7,7 +7,7 @@ importance: 1
 category: Course Project
 ---
 
-**Role**:User Research, Visual Design, Prototyping, and Testing  
+**Role**:User Research, Prototyping, Visual Design, User Testing    
 **Duration**: Oct - Nov 2022 (10 weeks)  
 **Methods**: Surveys, Interview, Wireframes, Prototypes  
 **Tools**: Paper, Figma, Google Forms, Adobe Premiere Pro  
