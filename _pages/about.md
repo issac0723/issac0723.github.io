@@ -23,7 +23,9 @@ social: true  # includes social icons at the bottom of the page
 ---
 I am a first-year M.S. student in the [Informatics Department](https://www.informatics.uci.edu/) at the University of California Irvine, advised by [Dr.Elena Agapie]( https://eagapie.com/) in the unnamed lab. I also completed my B.S Informatics at [UC Irvine](https://uci.edu/).
 
-My broad research interest is in **health informatics** and **human-computer interaction**. More specifically, I am passionate about designing and developing innovative technologies that promote holistic well-being by facilitating **positive behavior change**. My focus is on exploring how computing technology can empower individuals to attain their personal and community goals while aiding them in comprehending and leveraging data pertaining to themselves and their environment. My ultimate aim in life is to utilize technology to make the world a better place for everyone.I firmly believe that technology alone cannot create a significant impact; it is people who have the power to do so. While technology can be attained, it is essential for individuals to take action and shape the narrative.
+My broad research interest is in **human-computer interaction(HCI)** and **health informatics**. More specifically, I am passionate about designing and developing innovative technologies that promote holistic well-being by facilitating **positive behavior change**. I am interested in exploring how computing technology can empower individuals to achieve their goals in a complex long-term process.  
+
+My ultimate aim in life is to utilize technology to make the world a better place for everyone.I firmly believe that technology alone cannot bring about change; it is people who have the ability to do so. Technology can be achieved, but people must take action to shape the story.
 
 I am a night owl. Outside school, you'll find me:  
 Snowboarding. Playing video/computer games(The Legend of Zelda/League of Legends). Obsessing with the Lego world. Spending time with my cat, Kitson.
