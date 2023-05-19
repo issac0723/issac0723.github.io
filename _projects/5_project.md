@@ -8,7 +8,7 @@ category: Research
 ---
 
 **Duration**:June 2022 - Present     
-**Description**: This study aims to understand the landscape of how researcher in HCI talks about things related to people’s goals.
+**Description**: This study aimed to understand the state of goal-setting research in the HCI field and scrutinize its evolution over the past decade. We conducted a systematic review of full-text HCI research papers on the topic that involved different aspects of individual goal-related research.
 
 
 <br>
