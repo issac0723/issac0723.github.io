@@ -23,7 +23,7 @@ social: true  # includes social icons at the bottom of the page
 ---
 I am a first-year M.S. student in the [Informatics Department](https://www.informatics.uci.edu/) at the University of California Irvine, advised by [Dr.Elena Agapie]( https://eagapie.com/) in the unnamed lab. I also completed my B.S Informatics at [UC Irvine](https://uci.edu/).
 
-My broad research interest is in **human-computer interaction(HCI)** and **health informatics**. More specifically, I am passionate about designing and developing innovative technologies that promote holistic well-being by facilitating **positive behavior change**. I am interested in exploring how computing technology can empower individuals to achieve their goals in a complex long-term process.  
+My broad research interest is in **human-computer interaction(HCI)** and **health informatics**. Specifically, I am passionate about designing and developing innovative technologies that facilitate **positive behavior change**, encompassing both physical and mental well-being. I am keen on exploring how computing technology can empower individuals throughout complex, long-term processes, assisting them in achieving their goals.
 
 My ultimate aim in life is to utilize technology to make the world a better place for everyone.I firmly believe that technology alone cannot bring about change; it is people who have the ability to do so. Technology can be achieved, but people must take action to shape the story.
 
